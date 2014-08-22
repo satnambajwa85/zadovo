@@ -132,8 +132,8 @@ class SlidersController extends Controller
 		if(isset($_POST['Sliders']))
 		{
 			$model->attributes=$_POST['Sliders'];
-			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/upload/sliders/';
-					$targetFolder = Yii::app()->request->baseUrl.'/upload/sliders/';
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/sliders/';
+					$targetFolder = Yii::app()->request->baseUrl.'/uploads/sliders/';
 				if (!empty($_FILES['Sliders']['name']['images'])) {
 					$tempFile = $_FILES['Sliders']['tmp_name']['images'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
@@ -146,7 +146,7 @@ class SlidersController extends Controller
 					# ORIGINAL
 					$img->file_max_size = 5000000; // 5 MB
 					$img->file_new_name_body = $newName;
-					$img->process('upload/sliders/original/');
+					$img->process('uploads/sliders/original/');
 					$img->processed;
 					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
