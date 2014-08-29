@@ -1,13 +1,26 @@
+<?php 
+$coun	=	count($info->ratings);
+$sum	=	0;
+$avrg	=	0;
+if($coun > 0){
+	foreach($info->ratings as $res){
+		$sum	+=	$res->title;
+	}
+$avrg	=	$sum/($coun);
+}
+
+
+?>
 <div class=" mb35">
 <section class="container theme-showcase">
 		<div class="row mt24">
-		  <div class="fl">
+		  <div class="fl col-md-3">
 				<div class="user-img">
 					<?php echo CHtml::link('<img width="188px" height="150px" src="'.Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/sthumb/'.$info->logo.'" alt="'.$info->name.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
 					
 				</div>
 		  </div>
-			<div class="col-md-5">
+			<div class="col-md-6">
 				<div class="span5 school-info">
 					<div class="school-form2">
 						<?php echo CHtml::link('<h1>'.$info->name.'</h1>',array('/site/schoolProfile','id'=>$info->id));?>
@@ -22,16 +35,13 @@
 					 </div>
 				</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<aside class="text-left">
 				<div class="fl">
 		<script type="text/javascript" >
 			var zomato = zomato || {};
 			HOST = "<?php echo Yii::app()->createUrl('/user/rating',array('id'=>$info->id)); ?>";
 			COOKIE_DOMAIN = "zadovo.com";
-			
-
-			
 		</script>
 		<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/ratingWidget.js"></script>
 
@@ -40,14 +50,13 @@
         <div class="grid_4 your-rating rating-widget  rating-widget-res_15221" data-res_id="15221" data-rating-for="restaurant" data-review_id="">
             <div class="rating-top">
                 
-                <div class="rating-widget-num right" data-original-rating-num="-">5.0</div>
+                <div class="rating-widget-num right" data-original-rating-num="-"><?php echo $avrg;?></div>
                 <a style="display: inline;" href="#" data-icon="x" class="rating-clear hidden"></a>
-                <img style="display: none;" class="hidden rating-working ie-rating-fix" src="Basant,%20Civil%20Lines,%20Ludhiana%20_%20Zomato_files/floading_002.gif" alt="saving">
                 <div class="clear"></div>
             </div>
             <div>
                 <div class="rating-widget-stars left" id="review-form">
-                    <div class="rating-cls user_stars2_10" data-originalclass="user_stars2_0" data-rating="0">
+                    <div class="rating-cls user_stars2_<?php echo ($avrg*2);?>" data-originalclass="user_stars2_0" data-rating="<?php echo $avrg;?>">
 					
 						<a href="#" class="level-9 big bigger" data-num="10" data-hover-rating="5.0" data-original-title="5.0">&nbsp;</a>
 						<a href="#" class="level-8 big" data-num="9" data-hover-rating="4.5" data-original-title="4.5">&nbsp;</a>
@@ -59,7 +68,7 @@
 						<a href="#" class="level-2" data-num="3" data-hover-rating="1.5" data-original-title="1.5">&nbsp;</a>
 						<a href="#" class="level-1" data-num="2" data-hover-rating="1.0" data-original-title="1.0">&nbsp;</a>
 						
-						<div class="user_sel_stars2_10"></div>
+						<div class="user_sel_stars2_<?php echo ($avrg*2);?>"></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -97,49 +106,53 @@
 							<li><div class="rating br-active<?php echo $color;?>"><?php echo $av==100?'100':$av;?>%</div><h3>famous</h3></li>
 							<li><div class="rating follower"><?php echo $info->follower;?></div><?php echo CHtml::link('students Joined&nbsp;<span class="icon-bookmark"></span>','');?></li>
 							<li><div class="rating schoolreviews"><?php echo $info->reviews;?></div><?php echo CHtml::link('reviews&nbsp;<span class="icon-chevron-right"></span>','');?></li>
-							<li><div class="rating schoolLikes"><?php echo $info->likes;?></div>Likes&nbsp;<span class="icon-heart"><span></li>
-							<li><div class="rating schoolWanttoJoin"><?php echo $info->want_to_join;?></div>Want to join&nbsp;<span class="icon-ok"><span></li>
+							<li><div class="rating schoolLikes"> <?php echo $info->likes;?></div>Likes <span class="icon-heart"> </span></li>
+							<li><div class="rating schoolWanttoJoin"><?php echo $info->want_to_join;?></div>Want to join<span class="icon-ok"> </span></li>
 
 							
 						</ul>
 					</div>
-			</aside>
+			
 				
 		</div>
-		<div class="clear"></div>
-		<div class="col-md-12 school-review">
-			<ul class="fl review-icon">
-				<?php if(Yii::app()->user->id) { ?>
-				<li>
-					<div id="loading"></div>
-					<span class="icon-heart add-fav heart-add-fav" data-toggle="tooltip" data-placement="bottom" title="Add favorite" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'like'));?>"></span>
-				</li>
-				<li>
-					<div id="join-school-loading"></div>
-					<span class="icon-bookmark  join-school" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'))?>" data-toggle="tooltip" data-placement="bottom" title="Join your school"></span>
-				</li>
-				
-				<li>
-					<div id="want-to-join-loading"></div>
-					<span class="icon-ok want-to-join want-to-join-bt" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'));?>" data-toggle="tooltip" data-placement="bottom" title="Want to join"></span>
-				</li>
-				<li><?php echo CHtml::link('write review&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-chevron-right"></span>','',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Write your review to school','class'=>'write-review-to-school','id'=>'userReviewa'))?></li>
-				
-				<?php } else { ?>
-				<li>
-					<?php echo CHtml::Link('<span class="icon-heart"></span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Add favorite','class'=>'add-fav','id'=>'internal_sign-in2'))?>
-				</li>
-				<li><?php echo CHtml::Link('<span class="icon-bookmark"></span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Join your school','class'=>'join-school2','id'=>'internal_sign-in3'))?></li>
-				<li><?php echo CHtml::Link('<span class="icon-ok"></span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Want to join','class'=>'want-to-join','id'=>'internal_sign-in4'))?></li>
-				<li><?php echo CHtml::link('write review&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-chevron-right"></span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Write your review to school','class'=>'write-review-to-school','id'=>'internal_sign-in5'))?></li>
-				
-				<?php } ?>
-				
-			</ul>
+        </aside>
 		
 		</div>
-	</section>
-</div>
+    <div class=" fl col-md-12 school-review">
+        <ul class="fl review-icon">
+            <?php if(Yii::app()->user->id) {
+				$data	=	SchoolsProfileHasLogin::model()->findByAttributes(array('login_id'=>Yii::app()->user->userId,'schools_profile_id'=>$info->id));
+				?>
+            <li>
+                <div id="loading"></div>
+                <span class="icon-heart add-fav heart-add-fav <?php echo ($data->is_like)?'active':'';?> " data-toggle="tooltip" data-placement="bottom" title="Add favorite" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'like'));?>"></span>
+            </li>
+            <li>
+                <div id="join-school-loading"></div>
+                <span class="icon-bookmark  join-school  <?php echo ($data->is_joined)?'active':'';?>" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'))?>" data-toggle="tooltip" data-placement="bottom" title="Join your school"></span>
+            </li>
+            
+            <li>
+                <div id="want-to-join-loading"></div>
+                <span class="icon-ok want-to-join want-to-join-bt  <?php echo ($data->is_want_to_join)?'active':'';?>" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'));?>" data-toggle="tooltip" data-placement="bottom" title="Want to join"></span>
+            </li>
+            <li><?php echo CHtml::link('write review&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-chevron-right"></span>','',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Write your review to school','class'=>'write-review-to-school','id'=>'userReviewa'))?></li>
+            
+            <?php } else { ?>
+            <li>
+                <?php echo CHtml::Link('<span class="icon-heart"></span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Add favorite','class'=>'add-fav','id'=>'internal_sign-in2'))?>
+            </li>
+            <li><?php echo CHtml::Link('<span class="icon-bookmark"></span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Join your school','class'=>'join-school2','id'=>'internal_sign-in3'))?></li>
+            <li><?php echo CHtml::Link('<span class="icon-ok"></span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Want to join','class'=>'want-to-join','id'=>'internal_sign-in4'))?></li>
+            <li><?php echo CHtml::link('write review&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-chevron-right"></span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Write your review to school','class'=>'write-review-to-school','id'=>'internal_sign-in5'))?></li>
+            
+            <?php } ?>
+            
+        </ul>
+    
+    </div>
+</section>
+
 <div class="white">
 	<section class="container theme-showcase">
 	<section id="profile-map" class="review-box success-map" >	
@@ -212,7 +225,7 @@
 					
 					<?php foreach($fetchReview as $data){?>
 						
-				<div class="col-md-12  mb10" >
+				<div class="col-md-12" >
 					
 					<div class="row border_set" >
 						<div>
@@ -236,27 +249,7 @@
 						<h3 class="pull-right commemt-text-count">Comments</h3>
 						<p class="pull-right stat-count"><?php //echo count($userComments);?></p>-->
                         
-                        <ul class="fr review-icon p_set_1" >
-						<?php if(Yii::app()->user->id) { ?>
-							<li>
-								<div id="loading" class="loading<?php echo $data->id?>"></div>
-								<span class="like user-link<?php echo $data->id?>" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>$data->id,'action'=>'reviewLike'))?>" data-toggle="tooltip" data-placement="bottom" title="Like" >l</span>
-							</li>
-							
-							<li><span class="l-rate total-count like<?php echo $data->id;?>"><?php echo $data->like;?></span></li>
-							<li><span class="u-rate total-count dlike<?php echo $data->id;?>"><?php echo $data->dislike;?></span></li>
-							<li>
-								<div id="loading" class="busy<?php echo $data->id?>"></div>
-								<span class="unlike user-unlike<?php echo $data->id?>" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>$data->id,'action'=>'reviewDisLike'))?>" data-toggle="tooltip" data-placement="bottom" title="Dislike" >L</span>
-								
-							</li>
-						<?php  } else { ?>
-							<li><?php echo CHtml::Link('<span class="like">l</span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Like','class'=>'like','id'=>'internal_sign-in3'));?></li>
-							<li><span class="l-rate total-count like<?php echo $data->id;?>"><?php echo $data->like;?></span></li>
-							<li><span class="u-rate total-count dlike<?php echo $data->id;?>"><?php echo $data->dislike;?></span></li>
-							<li><?php echo CHtml::Link('<span class="unlike">L</span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Dislike','class'=>'dislike','id'=>'internal_sign-in3'))?></li>
-						<?php } ?>
-						</ul>
+                       
 						
 								<!--<p class="clear btn btn-danger">
 									total reviews<span><?php //echo $data->userProfiles->reviews;?></span>--><!--&nbsp;&nbsp;&nbsp;&nbsp;followers<span><?php //echo $data->userProfiles->reviews;?></span>-->
@@ -297,9 +290,31 @@
 					<?php } ?>
 					<?php } ?>
 					<?php if(Yii::app()->user->id){ ?>
-					<div class="row u-comment-mar">
-						<img width="40" height="40" src="<?php echo Yii::app()->baseUrl?>/uploads/users/thumb/<?php echo Yii::app()->user->userImg;?>" class="pull-left"/>
-						<?php 	$comment = new Comment;
+					<div class="row ">
+                     <ul class="fr review-icon" style="margin-top:5px;" >
+						<?php if(Yii::app()->user->id) { ?>
+							<li>
+								<div id="loading" class="loading<?php echo $data->id?>"></div>
+								<span class="like user-link<?php echo $data->id?>" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>$data->id,'action'=>'reviewLike'))?>" data-toggle="tooltip" data-placement="bottom" title="Like" >l</span>
+							</li>
+							
+							<li><span class="l-rate total-count like<?php echo $data->id;?>"><?php echo $data->like;?></span></li>
+							<li><span class="u-rate total-count dlike<?php echo $data->id;?>"><?php echo $data->dislike;?></span></li>
+							<li>
+								<div id="loading" class="busy<?php echo $data->id?>"></div>
+								<span class="unlike user-unlike<?php echo $data->id?>" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>$data->id,'action'=>'reviewDisLike'))?>" data-toggle="tooltip" data-placement="bottom" title="Dislike" >L</span>
+								
+							</li>
+						<?php  } else { ?>
+							<li><?php echo CHtml::Link('<span class="like">l</span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Like','class'=>'like','id'=>'internal_sign-in3'));?></li>
+							<li><span class="l-rate total-count like<?php echo $data->id;?>"><?php echo $data->like;?></span></li>
+							<li><span class="u-rate total-count dlike<?php echo $data->id;?>"><?php echo $data->dislike;?></span></li>
+							<li><?php echo CHtml::Link('<span class="unlike">L</span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Dislike','class'=>'dislike','id'=>'internal_sign-in3'))?></li>
+						<?php } ?>
+						</ul>
+                    
+						<!--<img width="40" height="40" src="<?php echo Yii::app()->baseUrl?>/uploads/users/thumb/<?php echo Yii::app()->user->userImg;?>" class="pull-left"/>-->
+						<?php 	/*$comment = new Comment;
 								$form=$this->beginWidget('CActiveForm',
 									array('id'=>'user-comment-form',
 									'enableAjaxValidation'=>false,
@@ -325,7 +340,7 @@
 							<?php echo CHtml::submitButton('SUBMIT',array('class'=>'btn btn-danger fr mr15 u-comment'.$data->id.'','style'=>'display:none;')); ?>
 						
 						</div>
-						<?php $this->endWidget();?>
+						<?php $this->endWidget();*/?>
 						
 					</div>
 					<?php } else { ?>

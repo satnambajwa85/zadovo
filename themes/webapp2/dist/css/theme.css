@@ -686,7 +686,7 @@ font-size:22.5px;font-weight: normal;
 .school-info li a h3:hover{color:#000;}
 .icon-heart,.icon-bookmark,.icon-ok,.icon-chevron-right{color:#2f96b;}
 .icon-heart,.icon-bookmark,.icon-ok,.icon-chevron-right:hover{color:#2f96b;}
-.school-review{padding:0;margin-bottom:10px;}
+.school-review{margin-bottom:10px;padding-left: 15px;}
 .rating{margin:2px 4px 1px 1px;padding:4.40px 21px 6px 11px;background-color:#5CA829;color:#fff;width:57px;float:left;}
 .school-rating ul{margin:0;clear:both;padding:0; margin-left:30px; outline:none;}
 .school-rating li{margin:0px;clear:both;}
@@ -1732,3 +1732,4 @@ ul.udr li:last-child a {
 .p_set_1{ margin-right: -30px;  margin-top: -57px;}
 .text_d_set{font-size:12px; color:#999;}
 .ratingtext{color: #063;font-weight: 700;position: absolute;top: 180px;width: 150px;}
+.active{color:#900;}
