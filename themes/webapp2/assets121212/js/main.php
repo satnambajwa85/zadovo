@@ -16,8 +16,10 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.extensions.apiWrapper.*',
+		'ext.ECurrencyHelper.ECurrencyHelper',
+		'ext.ECurrencyHelper.BaseHelper',
 		'application.ext.extensions.EAjaxUpload.*',
-		
 	),
 
 	'modules'=>array(
@@ -36,7 +38,7 @@ return array(
 
 	// application components
 	'components'=>array(
-		'imagemod' => array(
+			'imagemod' => array(
 			 //alias to dir, where you unpacked extension
 			'class' => 'application.extensions.imagemodifier.CImageModifier',
 			
@@ -56,22 +58,18 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		*/
-		'clientScript'=>array(
-			'packages'=>array(
-				'jquery'=>array(
-					'baseUrl'=>'http://ajax.googleapis.com/ajax/libs/jquery/',
-					'js'=>array('1.9.1/jquery.min.js'),
-				)
-			)
-		),
-		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=zadovo',
+			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
+		),
+		
+		// uncomment the following to use a MySQL database
+		*/
+		'db'=>array(
+			'connectionString' => 'mysql:host=adguruca.ipagemysql.com;dbname=zadovo_db1',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'satnam2',
+			'password' => 'S@tn@m_85',
 			'charset' => 'utf8',
 		),
 		
@@ -102,6 +100,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'jagraj2007@hotmail.com',
 	),
-		'theme'=>'webapp2'
+		'theme'=>'webapp'
 		
 );
