@@ -97,15 +97,16 @@
 							<li><div class="rating br-active<?php echo $color;?>"><?php echo $av==100?'100':$av;?>%</div><h3>famous</h3></li>
 							<li><div class="rating follower"><?php echo $info->follower;?></div><?php echo CHtml::link('students Joined&nbsp;<span class="icon-bookmark"></span>','');?></li>
 							<li><div class="rating schoolreviews"><?php echo $info->reviews;?></div><?php echo CHtml::link('reviews&nbsp;<span class="icon-chevron-right"></span>','');?></li>
-							<li><div class="rating schoolLikes"><?php echo $info->likes;?></div>Likes&nbsp;<span class="icon-heart"><span></li>
-							<li><div class="rating schoolWanttoJoin"><?php echo $info->want_to_join;?></div>Want to join&nbsp;<span class="icon-ok"><span></li>
+							<li><div class="rating schoolLikes"><?php echo $info->likes;?></div>Likes &nbsp; <span class="icon-heart"> <span> </li>
+							<li><div class="rating schoolWanttoJoin"><?php echo $info->want_to_join;?></div>Want to join &nbsp; <span class="icon-ok"> <span> </li>
 
 							
 						</ul>
 					</div>
-			</aside>
+			
 				
 		</div>
+        </aside>
 		<div class="clear"></div>
 		<div class="col-md-12 school-review">
 			<ul class="fl review-icon">
@@ -619,4 +620,3 @@
 </section>
 </div>
 <div class="spacer27"></div>
-
