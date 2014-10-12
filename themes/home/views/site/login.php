@@ -1,4 +1,4 @@
-<div class="container">
+<div class="content clearfix">
 		<div class="span10">&nbsp;</div>
 		
 		<div class="span9 offset1" id="login-view">
