@@ -106,33 +106,7 @@
 		<!-- End header -->
 		
 		<!-- Start home -->
-		<section id="home">
-			<div class="container">
-				<div class="row text-center">
-					<div class="col-md-12">
-						<div class="intro-heading">
-							<div class="scrolltop wow fadeInUp" data-wow-delay="0.4s">
-								<ul>
-									<li><h3><span>Welcome to</span> ZADOVO</h3>
-                                    	<h4><span>Your community resource to find and share information about schools</span></h4>
-                                    </li>
-									
-								</ul>
-							</div>
-							<span class="divider"></span>
-							<div class="clearfix"></div>
-                            <form>
-							<fieldset class="subscribe-form">
-								<input type="text" placeholder="Search by..." class="subscribe">
-								<button type="button" class="subscribe-button">Search</button>
-							</fieldset>	
-						</form>
-						
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<?php echo $content;?>
 		<!-- Start home -->
 
 		<!-- Start about -->

@@ -433,7 +433,7 @@ Subscribe
 
 input.subscribe{
 	position:relative;
-	width:100%;
+	width:60%;
 	padding:15px 20px 15px 20px;
 	border-radius:12px;
 	height:55px;
@@ -459,6 +459,36 @@ input.subscribe::-webkit-input-placeholder {
   color: #fff;
 }
 
+ select.subscribe{
+	position:relative;
+	width:30%;
+	padding:12px 20px 15px 20px;
+	border-radius:12px;
+	height:55px;
+	color:#fff;
+	font-size:14px;
+	background:none;
+	border:4px solid #b4bac1;
+}
+select.subscribe:-moz-placeholder {
+  color: #fff;
+}
+
+select.subscribe::-moz-placeholder {
+  color: #fff;
+}
+
+select.subscribe:-ms-input-placeholder {
+  color: #fff;
+}
+
+select.subscribe::-webkit-input-placeholder {
+  color: #fff;
+}
+
+select.subscribe:-moz-placeholder {
+  color: #fff;
+} 
 .subscribe-button{
 	position:absolute;
 	border-radius:0 2px 2px 0;	
@@ -469,7 +499,7 @@ input.subscribe::-webkit-input-placeholder {
 	height:43px;
 	color: #2e363e;
 	font-weight:400;
-	right:6px;
+	right:38px;
 	top:6px; 	
 	border-radius:7px;
   -moz-transition: all .25s ease-in-out;
