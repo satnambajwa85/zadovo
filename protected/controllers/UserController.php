@@ -39,6 +39,7 @@ class UserController extends Controller
 		
 		die;
 	}
+	
 	public function actionUserProfile()
 	{	
 		if(!Yii::app()->user->id){
@@ -230,6 +231,7 @@ class UserController extends Controller
 		
 		$this->render('editProfile',array('info'=>$model,'sechools'=>$sechools,'schoolName'=>$schoolName,'add'=>$add,'fech_result'=>$dataProvider,'log'=>$log,'count'=>$count));
 	}		
+	
 	public function actionUpload()
 	{   
 		$img		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
@@ -335,6 +337,7 @@ class UserController extends Controller
 		}
  		
 	}	
+	
 	public function actionAddFriend($id,$action)
 	{ 	 
 			 
@@ -446,6 +449,7 @@ class UserController extends Controller
 		}
 		
 	}
+	
 	public function actionComment()
 	{	
 		$comment	=	new Comment;
@@ -518,7 +522,6 @@ class UserController extends Controller
 		
 	}	
 	
-	
 	public function actionBlog()
 	{	
 		$blog	=	new Blog;
@@ -585,6 +588,7 @@ class UserController extends Controller
 					$id	=	$_POST['Blog']['sid'];
 					$this->redirect(Yii::app()->createUrl('/site/schoolProfile&id='.$id));
 	}
+	
 	public function actionRating($id)
 	{
 		$getRate	=	$_REQUEST['rating'];
@@ -638,6 +642,7 @@ class UserController extends Controller
 		}
 		
 	}	
+	
 	public function actionGetRating($id)
 	{
 		 	$result			=	 Rating::model()->findByAttributes(array('schools_profile_id'=>$id));

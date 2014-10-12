@@ -197,6 +197,8 @@ class SiteController extends Controller
 	}
 	public function actionSearch()
 	{	
+		$this->layout='inner';
+		
 		$cities			=	Cities::model()->findAllByAttributes(array('published'=>1,'status'=>1));
 		foreach($cities as $citiesId){
 				$cId[]	=	$citiesId->id;
@@ -321,7 +323,7 @@ class SiteController extends Controller
 	
 	 public function actionSchoolProfile($id)
 	{	
-		
+		$this->layout='inner';
 		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
 		$info				=	SchoolsProfile::model()->findByPk($id);
 		$blog				=	Blog::model()->findAllbyAttributes(array('status'=>1,'published'=>1,'schools_profile_id'=>$info->id));

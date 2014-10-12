@@ -1,0 +1,89 @@
+/* ==============================================================
+
+Template name : Chilok - Multi purpose landingpage template<
+Categorie : Landing page
+Author : Nce18cex
+Version : v1.0.0
+Created : 17 September 2014
+Last update : 22 September 2014
+
+-----------------------------------------------------------------
+CSS structure
+-----------------------------------------------------------------
+
+01. Color
+02. Border color
+03. Background color
+04. Color on mobile
+
+============================================================== */
+
+/*
+Color
+=========================== */
+a,
+a:focus,
+a:active,
+a:hover,
+.feature-list li i,
+.testimoni-author{
+	color:#f5d76e;
+}
+
+/*
+Border color
+=========================== */
+.form-control:focus,
+input.subscribe:focus,
+ul.listForm .form-control:focus,
+#prev4:hover,
+#next4:hover,
+.navbar-default .navbar-toggle:hover{
+	border-color:#f5d76e;
+}
+
+/*
+Background color
+=========================== */
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary,
+#about,
+.half-box-left,
+.social-link:hover,
+#prev4:hover,
+#next4:hover,
+.subscribe-button,
+.contact-wrapper,
+div.pp_default .pp_close:hover,
+div.pp_default .pp_expand:hover,
+div.pp_default .pp_contract:hover,
+#toTop,
+.navbar-default .navbar-toggle:hover .icon-bar{
+	background-color:#f5d76e;
+}
+
+.btn-primary:hover,
+.subscribe-button:hover,
+#toTopHover{
+	background-color:#ffe588;
+}
+
+/*
+Custom responsive skin
+=========================== */
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav  li a:hover,
+	.navbar-default .navbar-nav li.active a:hover,
+	.navbar-default .navbar-nav li.active a:focus,
+	.navbar-default .navbar-nav li.active a:active,
+	.navbar-default .navbar-nav li a.selected,
+	.navbar-default .navbar-nav li a.selected:hover,
+	.navbar-default .navbar-nav li a.selected:focus,
+	.navbar-default .navbar-nav li a.selected:active,
+	.navbar-default .navbar-nav li.dropdown a.dropdown-toggle:focus,
+	.navbar-default .navbar-nav li.dropdown a.dropdown-toggle:active{
+		background-color:#f5d76e;
+		border-color:#f5d76e;
+	}
+}

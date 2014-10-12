@@ -35,7 +35,7 @@
 		</script>
 		<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/ratingWidget.js"></script>
 
-	<div class="restaurant-rating-widget  " style="display: inline-block;"> 
+	<div class="restaurant-rating-widget" style="display: inline-block;"> 
         
         <div class="grid_4 your-rating rating-widget  rating-widget-res_15221" data-res_id="15221" data-rating-for="restaurant" data-review_id="">
             <div class="rating-top">
