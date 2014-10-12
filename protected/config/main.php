@@ -102,6 +102,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'jagraj2007@hotmail.com',
 	),
-		'theme'=>'webapp2'
+		'theme'=>'home'
 		
 );
