@@ -1,4 +1,7 @@
 <?php
+/* @var $this SchoolsProfileController */
+/* @var $model SchoolsProfile */
+
 $this->breadcrumbs=array(
 	'Schools Profiles'=>array('index'),
 	$model->name,
@@ -21,10 +24,16 @@ $this->menu=array(
 		'id',
 		'name',
 		'logo',
+		'about_school',
+		'telephone',
+		'email',
+		'website',
+		'cities_id',
 		'address1',
 		'address2',
 		'likes',
 		'follower',
+		'want_to_join',
 		'reviews',
 		'activation',
 		'status',

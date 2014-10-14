@@ -1,4 +1,7 @@
 <?php
+/* @var $this SchoolsProfileController */
+/* @var $dataProvider CActiveDataProvider */
+
 $this->breadcrumbs=array(
 	'Schools Profiles',
 );

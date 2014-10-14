@@ -1,3 +1,9 @@
+<?php
+/* @var $this SchoolsProfileController */
+/* @var $model SchoolsProfile */
+/* @var $form CActiveForm */
+?>
+
 <div class="wide form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -21,8 +27,33 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'about_school'); ?>
+		<?php echo $form->textArea($model,'about_school',array('rows'=>6, 'cols'=>50)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'telephone'); ?>
+		<?php echo $form->textField($model,'telephone',array('size'=>12,'maxlength'=>12)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'email'); ?>
+		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>100)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'website'); ?>
+		<?php echo $form->textField($model,'website',array('size'=>60,'maxlength'=>100)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'cities_id'); ?>
+		<?php echo $form->textField($model,'cities_id'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'address1'); ?>
-		<?php echo $form->textField($model,'address1',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textField($model,'address1',array('size'=>60,'maxlength'=>500)); ?>
 	</div>
 
 	<div class="row">
@@ -38,6 +69,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'follower'); ?>
 		<?php echo $form->textField($model,'follower'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'want_to_join'); ?>
+		<?php echo $form->textField($model,'want_to_join'); ?>
 	</div>
 
 	<div class="row">
@@ -71,4 +107,4 @@
 
 <?php $this->endWidget(); ?>
 
-</div><!-- search-form --> 
+</div><!-- search-form -->

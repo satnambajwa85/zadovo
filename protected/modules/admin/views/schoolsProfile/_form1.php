@@ -20,6 +20,18 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'user_name'); ?>
+		<?php echo $form->textField($model,'user_name',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->error($model,'user_name'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'password'); ?>
+		<?php echo $form->textField($model,'password',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->error($model,'password'); ?>
+	</div>
+    
+	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'name'); ?>
@@ -109,11 +121,6 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'login_id'); ?>
-		<?php echo $form->textField($model,'login_id'); ?>
-		<?php echo $form->error($model,'login_id'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'memberships_id'); ?>

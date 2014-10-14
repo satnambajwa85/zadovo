@@ -1,25 +1,50 @@
 <?php
+
+/**
+ * This is the model class for table "schools_profile".
+ *
+ * The followings are the available columns in table 'schools_profile':
+ * @property integer $id
+ * @property string $name
+ * @property string $logo
+ * @property string $about_school
+ * @property string $telephone
+ * @property string $email
+ * @property string $website
+ * @property integer $cities_id
+ * @property string $address1
+ * @property string $address2
+ * @property integer $likes
+ * @property integer $follower
+ * @property integer $want_to_join
+ * @property integer $reviews
+ * @property integer $activation
+ * @property integer $status
+ * @property integer $login_id
+ * @property integer $memberships_id
+ *
+ * The followings are the available model relations:
+ * @property AddSchoolUsers[] $addSchoolUsers
+ * @property Blog[] $blogs
+ * @property Rating[] $ratings
+ * @property Login $login
+ * @property Memberships $memberships
+ * @property Login[] $logins
+ * @property UserReviews[] $userReviews
+ */
 class SchoolsProfile extends CActiveRecord
 {
 	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return SchoolsProfile the static model class
-	 */
-	public $term_conditions,$school_name,$school_address,$uname,$uemail,$phone,$uwebsite;
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
-
-	/**
 	 * @return string the associated database table name
 	 */
+	public $user_name;
+	public $password;
+	
 	public function tableName()
 	{
 		return 'schools_profile';
 	}
-	
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -28,19 +53,14 @@ class SchoolsProfile extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('logo, about_school, telephone, email, website, cities_id, login_id, memberships_id', 'required'),
-			array('likes, follower, want_to_join, reviews, activation, status, login_id, memberships_id', 'numerical', 'integerOnly'=>true),
-			array('name, email, website, cities_id', 'length', 'max'=>100),
-			array('term_conditions', 'required', 'requiredValue' => 1, 'message' => 'Please check tearm and condition'),
+			array('logo, about_school, telephone, email, website,password,user_name, cities_id, login_id, memberships_id', 'required'),
+			array('cities_id, likes, follower, want_to_join, reviews, activation, status, login_id, memberships_id', 'numerical', 'integerOnly'=>true),
+			array('name, email, website', 'length', 'max'=>100),
 			array('logo, address2', 'length', 'max'=>45),
-			array('email', 'email','message'=>"The email isn't correct"),
-			array('email','unique', 'message'=>'This email is already exists.'),
 			array('telephone', 'length', 'max'=>12),
-			array('website', 'match', 'pattern' => '/^[\a-zA-Z\n\r ]+$/u','message' => Yii::t('default', 'Only alphabets are allowed!.')),
-			array('website','unique', 'message'=>'This website link is already exists.'),
 			array('address1', 'length', 'max'=>500),
 			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
+			// @todo Please remove those attributes that should not be searched.
 			array('id, name, logo, about_school, telephone, email, website, cities_id, address1, address2, likes, follower, want_to_join, reviews, activation, status, login_id, memberships_id', 'safe', 'on'=>'search'),
 		);
 	}
@@ -53,7 +73,6 @@ class SchoolsProfile extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'cities' => array(self::BELONGS_TO, 'Cities', 'cities_id'),
 			'addSchoolUsers' => array(self::HAS_MANY, 'AddSchoolUsers', 'schools_profile_id'),
 			'blogs' => array(self::HAS_MANY, 'Blog', 'schools_profile_id'),
 			'ratings' => array(self::HAS_MANY, 'Rating', 'schools_profile_id'),
@@ -93,12 +112,19 @@ class SchoolsProfile extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 *
+	 * Typical usecase:
+	 * - Initialize the model fields with values from filter form.
+	 * - Execute this method to get CActiveDataProvider instance which will filter
+	 * models according to data in model fields.
+	 * - Pass data provider to CGridView, CListView or any similar widget.
+	 *
+	 * @return CActiveDataProvider the data provider that can return the models
+	 * based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -109,7 +135,7 @@ class SchoolsProfile extends CActiveRecord
 		$criteria->compare('telephone',$this->telephone,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('website',$this->website,true);
-		$criteria->compare('cities_id',$this->cities_id,true);
+		$criteria->compare('cities_id',$this->cities_id);
 		$criteria->compare('address1',$this->address1,true);
 		$criteria->compare('address2',$this->address2,true);
 		$criteria->compare('likes',$this->likes);
@@ -124,5 +150,16 @@ class SchoolsProfile extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	/**
+	 * Returns the static model of the specified AR class.
+	 * Please note that you should have this exact method in all your CActiveRecord descendants!
+	 * @param string $className active record class name.
+	 * @return SchoolsProfile the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
 	}
 }

@@ -3,10 +3,10 @@
 class SchoolsProfileController extends Controller
 {
 	/**
-	 * @var string the default layout for the views. Defaults to '/layouts/admin', meaning
+	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='/layouts/admin';
+	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -15,6 +15,7 @@ class SchoolsProfileController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -61,18 +62,28 @@ class SchoolsProfileController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new SchoolsProfile;
-
+		$model	=	new SchoolsProfile;
+		$login	=	new Login;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['SchoolsProfile']))
 		{
-			$model->attributes=$_POST['SchoolsProfile'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$login->attributes	=	$_POST['SchoolsProfile'];
+			$login->password	=	md5($login->password);
+			$login->add_date	=	date('Y-m-d H:i:s');
+			$login->last_login	=	date('Y-m-d H:i:s');
+			$login->login_status=	1;
+			$login->roles_id	=	3;
+			if($login->save()){
+				if(isset($_POST['SchoolsProfile']))
+				{
+					$model->attributes	=	$_POST['SchoolsProfile'];
+					$model->login_id	=	$login->id;
+					if($model->save())
+						$this->redirect(array('view','id'=>$model->id));
+				}
+			}
 		}
-
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -109,17 +120,11 @@ class SchoolsProfileController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+		$this->loadModel($id)->delete();
 
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -151,7 +156,9 @@ class SchoolsProfileController extends Controller
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer the ID of the model to be loaded
+	 * @param integer $id the ID of the model to be loaded
+	 * @return SchoolsProfile the loaded model
+	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
@@ -163,7 +170,7 @@ class SchoolsProfileController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param CModel the model to be validated
+	 * @param SchoolsProfile $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
