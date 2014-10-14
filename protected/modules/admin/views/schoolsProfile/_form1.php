@@ -13,6 +13,7 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -37,11 +38,14 @@
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
-	<div class="row">
+	
+    <div class="row">
 		<?php echo $form->labelEx($model,'logo'); ?>
-		<?php echo $form->textField($model,'logo',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->fileField($model,'logo',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'logo'); ?>
 	</div>
+    
+    
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'about_school'); ?>

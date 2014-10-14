@@ -133,8 +133,8 @@ class AdvertisementsController extends Controller
 		{
 			$model->attributes=$_POST['Advertisements'];
 			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/upload/addvertise/';
-					$targetFolder = Yii::app()->request->baseUrl.'/upload/addvertise/';
-				if (!empty($_FILES['Advertisements']['name']['image'])) {
+			$targetFolder = Yii::app()->request->baseUrl.'/upload/addvertise/';
+			if (!empty($_FILES['Advertisements']['name']['image'])) {
 					$tempFile = $_FILES['Advertisements']['tmp_name']['image'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
 					$targetFile = $targetPath.'/'.$_FILES['Advertisements']['name']['image'];

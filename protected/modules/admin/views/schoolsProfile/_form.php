@@ -13,6 +13,7 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -20,6 +21,14 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+		
+		<?php echo $form->hiddenField($model,'user_name',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->hiddenField($model,'password',array('size'=>60,'maxlength'=>100)); ?>
+		
+	</div>
+    
+    
+    <div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'name'); ?>
@@ -27,9 +36,16 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'logo'); ?>
-		<?php echo $form->textField($model,'logo',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->fileField($model,'logo',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'logo'); ?>
+		<?php if(isset($model->logo)){ ?> 
+		<?php echo $form->hiddenField($model,'oldImage',array('value'=>$model->logo)); ?>
+		<img width="100" height="100" src="<?php echo Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/sthumb/'.$model->logo;?>" alt="image"/>
+		<?php }?>
 	</div>
+    
+    
+    
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'about_school'); ?>
@@ -111,7 +127,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'login_id'); ?>
-		<?php echo $form->textField($model,'login_id'); ?>
+        <?php echo $form->dropDownlist($model,'login_id',CHtml::listData(Login::model()->findAllByAttributes(array('roles_id'=>3)),'id','user_name'));?>
 		<?php echo $form->error($model,'login_id'); ?>
 	</div>
 
