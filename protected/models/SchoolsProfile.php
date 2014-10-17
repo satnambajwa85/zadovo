@@ -77,6 +77,7 @@ class SchoolsProfile extends CActiveRecord
 			'blogs' => array(self::HAS_MANY, 'Blog', 'schools_profile_id'),
 			'ratings' => array(self::HAS_MANY, 'Rating', 'schools_profile_id'),
 			'login' => array(self::BELONGS_TO, 'Login', 'login_id'),
+			'cities' => array(self::BELONGS_TO, 'Cities', 'cities_id'),
 			'memberships' => array(self::BELONGS_TO, 'Memberships', 'memberships_id'),
 			'logins' => array(self::MANY_MANY, 'Login', 'schools_profile_has_login(schools_profile_id, login_id)'),
 			'userReviews' => array(self::HAS_MANY, 'UserReviews', 'schools_profile_id'),
