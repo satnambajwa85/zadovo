@@ -195,7 +195,7 @@ if($coun > 0){
 					<!--Deal of the day-->
 					<?php foreach($add as $list){ ?>
 					<article class="default clearfix">
-						<h2><?php echo $list->title; ?></h2>
+						<h2><?php //echo $list->title; ?></h2>
 						<div class="deal-of-the-day">
 							<a href="<?php echo $list->link; ?>" target="_blank">
 								<figure><img src="<?php echo Yii::app()->baseUrl;?>/uploads/addvertise/large/<?php echo $list->image ?>" alt="<?php echo $list->description;?>" width="230" height="130" /></figure>

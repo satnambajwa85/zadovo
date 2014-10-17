@@ -1566,3 +1566,49 @@ in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
 2014/10/14 11:19:08 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
 in D:\xamp\htdocs\extentions\test\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (148)
 in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/17 16:40:19 [error] [exception.CException] exception 'CException' with message 'Property "SchoolsProfile.cities" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('cities')
+#1 C:\wamp\www\zadovo\themes\home\views\site\schoolProfile.php(46): CActiveRecord->__get('cities')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('schoolProfile', Array, true)
+#6 C:\wamp\www\zadovo\protected\controllers\SiteController.php(404): CController->render('schoolProfile', Array)
+#7 [internal function]: SiteController->actionSchoolProfile('1')
+#8 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('schoolProfile')
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/schoolProf...')
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/zadovo/index.php?r=site/schoolProfile&id=1
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site%2Fsearch&stateSelectReviews=AK&term=&yt0=Search
+---
+2014/10/17 16:42:10 [error] [exception.CException] exception 'CException' with message 'Property "Login.name" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('name')
+#1 C:\wamp\www\zadovo\themes\home\views\site\schoolProfile.php(46): CActiveRecord->__get('name')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('schoolProfile', Array, true)
+#6 C:\wamp\www\zadovo\protected\controllers\SiteController.php(404): CController->render('schoolProfile', Array)
+#7 [internal function]: SiteController->actionSchoolProfile('1')
+#8 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('schoolProfile')
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/schoolProf...')
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/zadovo/index.php?r=site/schoolProfile&id=1
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site%2Fsearch&stateSelectReviews=AK&term=&yt0=Search
+---
