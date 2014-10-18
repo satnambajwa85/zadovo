@@ -6,10 +6,48 @@
 				<!--hotel three-fourth content-->
 				<section class="three-fourth">
 					<!--gallery-->
-					<section id="crossfade">
-						<img src="<?php echo Yii::app()->request->baseUrl.'/uploads/users/thumb/'.$info->image;?>" alt="image"/>
-                    </section>
-					<!--//gallery-->
+					<article class="static-content post-comment">
+                        <ul class="room-types">
+                                <!--room-->
+                                <li>
+                                    <span class="left"><img width="270" height="152" alt="" src="<?php echo Yii::app()->request->baseUrl.'/uploads/users/thumb/'.$info->image;?>"></span>
+                                    <div class="meta">
+                                        <h1><?php echo $info->first_name.' '.$info->last_name;?></h1>
+                                        <p><?php echo $info->gender;?>,&nbsp;<?php echo (date('Y-m-d'))-($info->date_of_birth);?> year old</p>
+                                        
+                                        <a class="more-info" title="more info" href="javascript:void(0)">+ more info</a>
+                                    </div>
+                                    <div class="room-information">
+                                        <div class="row">
+                                            <span class="first ex_width">Friends:</span>
+                                            <span class="second"><?php echo $count;?></span>
+                                        
+                                        </div>
+                                        <div class="row">
+                                            <span class="first ex_width">Followers:</span>
+                                            <span class="second "><?php echo $info->reviews;?></span>
+                                        </div>
+                                        <div class="row">
+                                            <span class="first ex_width">Reviews:</span>
+                                            <span class="second"><?php echo $info->reviews;?></span>
+                                        </div>
+                                        <a title="Book" class="gradient-button" href="booking-step1.html">Book</a>
+                                    </div>
+                                    <div class="more-information" style="display: none;">
+                                        <p>Stylish and individually designed room featuring a satellite TV, mini bar and a 24-hour room service menu.</p>
+                                        <p><strong>Room Facilities:</strong> Safety Deposit Box, Air Conditioning, Desk, Ironing Facilities, Seating Area, Heating, Shower, Bath, Hairdryer, Toilet, Bathroom, Pay-per-view Channels, TV, Telephone</p>
+                                        <p><strong>Bed Size(s):</strong> 1 Double </p>
+                                        <p><strong>Room Size:</strong>  16 square metres</p>
+                                    </div>
+                                </li>
+                                <!--//room-->
+                                
+                                
+                            </ul>
+                            
+                        </article>
+                    <!--//post-->
+                    
 				
 					<!--inner navigation-->
 					<nav class="inner-nav">
