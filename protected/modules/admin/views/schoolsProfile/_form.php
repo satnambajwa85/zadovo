@@ -70,12 +70,13 @@
 		<?php echo $form->textField($model,'website',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'website'); ?>
 	</div>
-
-	<div class="row">
+    
+    <div class="row">
 		<?php echo $form->labelEx($model,'cities_id'); ?>
-		<?php echo $form->textField($model,'cities_id'); ?>
+        <?php echo $form->dropDownlist($model,'cities_id',CHtml::listData(Cities::model()->findAll(),'id','name'));?>
 		<?php echo $form->error($model,'cities_id'); ?>
 	</div>
+    
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'address1'); ?>

@@ -53,7 +53,7 @@ class SchoolsProfile extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('logo, about_school, telephone, email, website,password,user_name, cities_id, login_id, memberships_id', 'required'),
+			array('logo, about_school, telephone, email, website,password,cities_id, login_id, memberships_id', 'required'),
 			array('cities_id, likes, follower, want_to_join, reviews, activation, status, login_id, memberships_id', 'numerical', 'integerOnly'=>true),
 			array('name, email, website', 'length', 'max'=>100),
 			array('logo, address2', 'length', 'max'=>45),
