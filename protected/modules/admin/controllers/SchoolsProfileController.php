@@ -99,15 +99,15 @@ class SchoolsProfileController extends Controller
 				if ($img->processed) {
 					#THUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 300;
-					$img->image_x           = 300;
+					$img->image_x         	= 650;
+					$img->image_y           = 480;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/SchoolsProfile/large/');
 					
 					#STHUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 100;
-					$img->image_x           = 100;
+					$img->image_x         	= 270;
+					$img->image_y           = 155;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/SchoolsProfile/sthumb/');
 			 
@@ -147,6 +147,8 @@ class SchoolsProfileController extends Controller
 		{
 			$model->attributes=$_POST['SchoolsProfile'];
 			$targetFolder = Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
+			
 			if (!empty($_FILES['SchoolsProfile']['name']['logo'])) {
 				$tempFile		=	$_FILES['SchoolsProfile']['tmp_name']['logo'];
 				$targetPath		=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
@@ -165,14 +167,14 @@ class SchoolsProfileController extends Controller
 				if ($img->processed) {
 					#THUMB Image
 					$img->image_resize      =	true;
-					$img->image_y         	=	300;
-					$img->image_x           =	300;
+					$img->image_x         	=	650;
+					$img->image_y           =	480;
 					$img->file_new_name_body=	$newName;
 					$img->process('uploads/SchoolsProfile/large/');
 					#STHUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 100;
-					$img->image_x           = 100;
+					$img->image_y         	= 155;
+					$img->image_x           = 270;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/SchoolsProfile/sthumb/');
 					$fileName	=	$img->file_dst_name;
@@ -180,9 +182,9 @@ class SchoolsProfileController extends Controller
 				}
 				$model->logo	=	$fileName;
 				if($_POST['SchoolsProfile']['oldImage']!=''){
-					@unlink($targetFolder.'original/'.$_POST['SchoolsProfile']['oldImage']);
-					@unlink($targetFolder.'large/'.$_POST['SchoolsProfile']['oldImage']);
-					@unlink($targetFolder.'sthumb/'.$_POST['SchoolsProfile']['oldImage']);
+					unlink($targetFolder1.'original/'.$_POST['SchoolsProfile']['oldImage']);
+					unlink($targetFolder1.'large/'.$_POST['SchoolsProfile']['oldImage']);
+					@unlink($targetFolder1.'sthumb/'.$_POST['SchoolsProfile']['oldImage']);
 				}
 			}
 			else{
