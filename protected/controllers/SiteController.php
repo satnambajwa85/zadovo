@@ -33,8 +33,8 @@ class SiteController extends Controller
 
 	public function actionIndex()
 	{
-		$data	=	Menus::model()->findAllByAttributes(array('status'=>1));
-	
+		$this->layout='inner';	
+		$data	=	Menus::model()->findAllByAttributes(array('status'=>1));	
 		$this->render('index',array('menu'=>$data));
 	}
 
@@ -197,8 +197,6 @@ class SiteController extends Controller
 	}
 	public function actionSearch()
 	{	
-		$this->layout='inner';
-		
 		$cities			=	Cities::model()->findAllByAttributes(array('published'=>1,'status'=>1));
 		foreach($cities as $citiesId){
 				$cId[]	=	$citiesId->id;
@@ -265,9 +263,15 @@ class SiteController extends Controller
 		$info		=  	UserProfiles::model()->findByPk($id);
 		$count		=	UserReviews::model()->count($id); 
 		$add		=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
-	
-		 
-		$this->render('profile',array('info'=>$info,'count'=>$count,'add'=>$add));
+		$userLog			=	new CDbCriteria();
+		$userLog->condition =	'login_id = :loginId';
+		$userLog->params	=	array(':loginId'=>$info->login_id);
+		$Logcount			=	UserReviews::model()->count($userLog);
+		$logPages			=	new CPagination($Logcount);
+		$logPages->pageSize	=	10;
+		$logPages->applyLimit($userLog);
+		$log				=	UserLog::model()->findAll($userLog);		 
+		$this->render('profile',array('info'=>$info,'count'=>$count,'add'=>$add,'log'=>$log));
 	
 		 
 	}
@@ -277,7 +281,6 @@ class SiteController extends Controller
 	
 		$this->render('review',array('review'=>$review));
 	}
-	//dynamicSercState
 	public function actionDynamicSercCountries()
 	{	
 		 $getId = '';
@@ -308,10 +311,6 @@ class SiteController extends Controller
 		 		die; 
 	
 	}
-	
-	/**
-		 * This is the action to handle external exceptions.
-		 */
 	public function actionPage($id)
 	{
 		$data 	=	Cms::model()->findByPk($id);
@@ -319,11 +318,10 @@ class SiteController extends Controller
 		
 		
 		$this->render('content',array('data'=>$data,'add'=>$add));
-	}
-	
-	 public function actionSchoolProfile($id)
+	}	
+	public function actionSchoolProfile($id)
 	{	
-		$this->layout='inner';
+		
 		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
 		$info				=	SchoolsProfile::model()->findByPk($id);
 		$blog				=	Blog::model()->findAllbyAttributes(array('status'=>1,'published'=>1,'schools_profile_id'=>$info->id));
@@ -403,8 +401,8 @@ class SiteController extends Controller
 		
 		$this->render('schoolProfile',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages));
 	 }
-	 public function actionSchoolDataResponce($id)
-	 {
+	public function actionSchoolDataResponce($id)
+	{
 		$info				=	SchoolsProfile::model()->findByPk($id);
 		
 		$data	=	array('follower'=>$info->follower,'likes'=>$info->likes ,'want_to_join'=>$info->want_to_join);
@@ -637,11 +635,6 @@ class SiteController extends Controller
 		}
 		$this->render('contact',array('model'=>$model));
 	}
-
-
-				/**
-				 * Displays the login page
-				 */
 	public function actionLogin()
 	{	
 		$this->layout='inner';
@@ -685,8 +678,6 @@ class SiteController extends Controller
 		}
 		$this->render('login',array('model'=>$model));
 	}
-		
-	//Forgot password
 	public function actionForgetPassword()
 	{	
 	

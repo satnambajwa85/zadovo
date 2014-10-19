@@ -1006,6 +1006,7 @@ aside article	{padding:14px 10% 20px;width:80%;}
 .bookings .b-info 	{width:63%;}
 .bookings .actions 	{width:33%;}
 .score span			{font-size:5em;}
+.room-types li span{width: 100% !important;}
 }
 
 
@@ -1203,6 +1204,7 @@ footer .bottom				{border:none;padding:0;}
 @media screen and (max-width: 540px) {
 .slider		{height:304px;}
 .lb-wrap {width:80%;left:10%;}
+.room-types li span{width: 100% !important;}
 }
 
 @media screen and (max-width: 480px) {
@@ -1219,6 +1221,7 @@ footer .bottom				{border:none;padding:0;}
 .destinations .ribbon {width:114%;margin:20px 0 0 -7%;}
 
 .flights .full-width .gradient-button {bottom:71px !important;}
+.room-types li span{width: 100% !important;}
 }
 
 /*PRINT*/
@@ -1246,6 +1249,15 @@ footer .bottom				{border:none;padding:0;}
 
 .content {padding:80px 0 0;}
 }
-
-
+ .room-types li span.left {
+    margin: 0 3% 0 0;
+}
+.room-types li span {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    width: 33.2%;
+}
+.room-types li span img{}
+.ex_width{ width:80px !important;} 
 input[type="search"],input[type="email"],input[type="text"],input[type="number"],input[type="password"] {border:1px solid #ccc;font:normal 1.2em 'OpenSansRegular';color:#999;padding:6px 4%;width:60.4%;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px; margin-bottom:10px;}

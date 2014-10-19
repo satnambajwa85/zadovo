@@ -69,6 +69,7 @@ class SchoolsProfileController extends Controller
 		if(isset($_POST['SchoolsProfile']))
 		{
 			$login->attributes	=	$_POST['SchoolsProfile'];
+			$login->user_name	=	$_POST['SchoolsProfile']['email'];
 			$login->password	=	md5($login->password);
 			$login->add_date	=	date('Y-m-d H:i:s');
 			$login->last_login	=	date('Y-m-d H:i:s');
@@ -80,50 +81,55 @@ class SchoolsProfileController extends Controller
 					$model->attributes	=	$_POST['SchoolsProfile'];
 					$model->login_id	=	$login->id;
 					
-			$targetFolder = Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
-			if (!empty($_FILES['SchoolsProfile']['name']['logo'])) {
-				$tempFile = $_FILES['SchoolsProfile']['tmp_name']['logo'];
-				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-				$targetFile = $targetPath.'/'.$_FILES['SchoolsProfile']['name']['logo'];
-				$pat = $targetFile;
-				move_uploaded_file($tempFile,$targetFile);
-				$absoPath = $pat;
-				$newName = time();
-				$img = Yii::app()->imagemod->load($pat);
-				# ORIGINAL
-				$img->file_max_size = 5000000; // 5 MB
-				$img->file_new_name_body = $newName;
-				$img->process('uploads/SchoolsProfile/original/');
-				$img->processed;
-				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
-				if ($img->processed) {
-					#THUMB Image
-					$img->image_resize      = true;
-					$img->image_y         	= 300;
-					$img->image_x           = 300;
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/SchoolsProfile/large/');
-					
-					#STHUMB Image
-					$img->image_resize      = true;
-					$img->image_y         	= 100;
-					$img->image_x           = 100;
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/SchoolsProfile/sthumb/');
-			 
-					$fileName	=	$img->file_dst_name;
-					$img->clean();
-	
-				}
-				$model->logo	=	$fileName;
-			}
+					$targetFolder = Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
+					if (!empty($_FILES['SchoolsProfile']['name']['logo'])) {
+						$tempFile = $_FILES['SchoolsProfile']['tmp_name']['logo'];
+						$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+						$targetFile = $targetPath.'/'.$_FILES['SchoolsProfile']['name']['logo'];
+						$pat = $targetFile;
+						move_uploaded_file($tempFile,$targetFile);
+						$absoPath = $pat;
+						$newName = time();
+						$img = Yii::app()->imagemod->load($pat);
+						# ORIGINAL
+						$img->file_max_size = 5000000; // 5 MB
+						$img->file_new_name_body = $newName;
+						$img->process('uploads/SchoolsProfile/original/');
+						$img->processed;
+						#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+						if ($img->processed) {
+							#THUMB Image
+							$img->image_resize      = true;
+							$img->image_x         	= 850;
+							$img->image_y           = 530;
+							$img->file_new_name_body = $newName;
+							$img->process('uploads/SchoolsProfile/large/');
+							
+							#STHUMB Image
+							$img->image_resize      = true;
+							$img->image_x         	= 270;
+							$img->image_y           = 155;
+							$img->file_new_name_body = $newName;
+							$img->process('uploads/SchoolsProfile/sthumb/');
+					 
+							$fileName	=	$img->file_dst_name;
+							$img->clean();
 			
-			
-			
+						}
+						$model->logo	=	$fileName;
+					}
 					if($model->save())
 						$this->redirect(array('view','id'=>$model->id));
+					else{
+					CVarDumper::dump($model,10,1);	
+					die;
+						}	
 				}
 			}
+			else{
+					CVarDumper::dump($login,10,1);	
+					die;
+						}	
 		}
 		$this->render('create',array(
 			'model'=>$model,
@@ -147,6 +153,8 @@ class SchoolsProfileController extends Controller
 		{
 			$model->attributes=$_POST['SchoolsProfile'];
 			$targetFolder = Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
+			
 			if (!empty($_FILES['SchoolsProfile']['name']['logo'])) {
 				$tempFile		=	$_FILES['SchoolsProfile']['tmp_name']['logo'];
 				$targetPath		=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
@@ -165,14 +173,14 @@ class SchoolsProfileController extends Controller
 				if ($img->processed) {
 					#THUMB Image
 					$img->image_resize      =	true;
-					$img->image_y         	=	300;
-					$img->image_x           =	300;
+					$img->image_x         	=	850;
+					$img->image_y           =	530;
 					$img->file_new_name_body=	$newName;
 					$img->process('uploads/SchoolsProfile/large/');
 					#STHUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 100;
-					$img->image_x           = 100;
+					$img->image_y         	= 155;
+					$img->image_x           = 270;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/SchoolsProfile/sthumb/');
 					$fileName	=	$img->file_dst_name;
@@ -180,9 +188,9 @@ class SchoolsProfileController extends Controller
 				}
 				$model->logo	=	$fileName;
 				if($_POST['SchoolsProfile']['oldImage']!=''){
-					@unlink($targetFolder.'original/'.$_POST['SchoolsProfile']['oldImage']);
-					@unlink($targetFolder.'large/'.$_POST['SchoolsProfile']['oldImage']);
-					@unlink($targetFolder.'sthumb/'.$_POST['SchoolsProfile']['oldImage']);
+					@unlink($targetFolder1.'original/'.$_POST['SchoolsProfile']['oldImage']);
+					@unlink($targetFolder1.'large/'.$_POST['SchoolsProfile']['oldImage']);
+					@unlink($targetFolder1.'sthumb/'.$_POST['SchoolsProfile']['oldImage']);
 				}
 			}
 			else{

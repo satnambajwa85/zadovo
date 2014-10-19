@@ -25,10 +25,6 @@
 		<?php echo $form->textField($model,'email',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'age'); ?>
-		<?php echo $form->textField($model,'age',array('size'=>2,'maxlength'=>2)); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'gender'); ?>

@@ -26,10 +26,10 @@ if($coun > 0){
 						<ul>
 							
 							<li class="description"><a href="#description" title="Description">Overview</a></li>
-							<li class="facilities"><a href="#facilities" title="Facilities">Facilities</a></li>
+							<!--<li class="facilities"><a href="#facilities" title="Facilities">Facilities</a></li>-->
 							<li class="location"><a href="#location" title="Location">Location</a></li>
 							<li class="reviews"><a href="#reviews" title="Reviews">Reviews</a></li>
-							<li class="things-to-do"><a href="#things-to-do" title="Things to do">Things to do</a></li>
+							<li class="things-to-do"><a href="#things-to-do" title="Things to do">Blog</a></li>
 						</ul>
 					</nav>
 					<!--//inner navigation-->
@@ -102,8 +102,30 @@ if($coun > 0){
 					<section id="location" class="tab-content">
 						<article>
 							<!--map-->
-								<div class="gmap" id="map_canvas">
-                                <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=204391744755492960801.0004cf06106345ca4e606&amp;hl=en&amp;ie=UTF8&amp;ll=31.360062,75.552973&amp;spn=0,0&amp;t=m&amp;iwloc=0004cf0624d99ced51314&amp;output=embed"></iframe>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv2OOJAC5AxVNXGBIMH5njntbvrZnGxLQ">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: -34.397, lng: 150.644},
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map_canvas'),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+                                
+                                
+                                <div class="gmap" id="map_canvas">
+                               <!-- <iframe width="640" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=<?php echo $info->address1.' '.$info->address2;?>&output=embed"></iframe>-->
+                                
+                                
+                                
+                               
+                                
+                                
+                                <!--<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=204391744755492960801.0004cf06106345ca4e606&amp;hl=en&amp;ie=UTF8&amp;ll=31.360062,75.552973&amp;spn=0,0&amp;t=m&amp;iwloc=0004cf0624d99ced51314&amp;output=embed"></iframe>-->
                                 </div>
 							<!--//map-->
 						</article>
@@ -113,7 +135,7 @@ if($coun > 0){
 					<!--reviews-->
 					<section id="reviews" class="tab-content">
 						<article>
-							<h1>Hotel Score and Score Breakdown</h1>
+							<h1>Students Reviews and Score Breakdown</h1>
 							<dl class="chart">
 								<dt>Clean</dt>
 								<dd><span id="data-one" style="width:80%;"><?php echo $info->follower;?>&nbsp;&nbsp;&nbsp;</span></dd>
@@ -135,9 +157,9 @@ if($coun > 0){
                     <li>
 									<figure class="left">
                                     <?php if(Yii::app()->user->id && Yii::app()->user->profileId	==	$data->userProfiles->id) {	?>
-							<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/users/thumb/'.$data->userProfiles->image.'" width="70" />',array('/user/userProfile'),array('class'=>'fl'));?>
+							<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/users/thumb/'.$data->userProfiles->image.'" width="70" height="70" />',array('/user/userProfile'),array('class'=>'fl'));?>
 							<?php	} else { ?>
-							<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/users/thumb/'.$data->userProfiles->image.'" width="70"  />',array('/site/profile','id'=>$data->userProfiles->id),array('class'=>'fl'));?>
+							<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/users/thumb/'.$data->userProfiles->image.'" width="70" height="70" />',array('/site/profile','id'=>$data->userProfiles->id),array('class'=>'fl'));?>
 							<?php	} ?>
                             </figure>
 							<address><span><?php echo CHtml::link($data->userProfiles->first_name.' '.$data->userProfiles->last_name,array('/user/userProfile'))?>
@@ -155,27 +177,15 @@ if($coun > 0){
 					<!--things to do-->
 					<section id="things-to-do" class="tab-content">
 						<article>
-							<h1>London</h1>
-							<figure class="left_pic"><img src="images/uploads/london1.jpg" alt="Things to do - London general" /></figure>
-							<p class="teaser">London is a diverse and exciting city with some of the best sights and attractions in the world. </p>
-							<p>See London from above on the London Eye; meet a celebrity at Madame Tussauds; examine some of the world’s most precious treasures at the British Museum or come face-to-face with the dinosaurs at the Natural History Museum.</p>
 							
-							<h1>Sports and nature</h1>
-							<figure class="left_pic"><img src="images/uploads/london2.jpg" alt="Things to do - London Sports and nature" /></figure>
-							<p class="teaser">London is one of the greenest capitals in the world, with plenty of green and open spaces. There are more than 3000 open spaces.</p>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.<br />Ut wisi enim ad minim veniam, quis nostrud exerci. </p>
-							
-							<h1>Nightlife</h1>
-							<figure class="left_pic"><img src="images/uploads/london3.jpg" alt="Things to do - London Nightlife" /></figure>
-							<p class="teaser">Looking for nightclubs in London? Take a look at our guide to London clubs. Browse for club ideas, regular club nights and one-off events. </p>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.<br />Ut wisi enim ad minim veniam, quis nostrud exerci. </p>
-							
-							<h1>Culture and history</h1>
-							<figure class="left_pic"><img src="images/uploads/london4.jpg" alt="Things to do - London general" /></figure>
-							<p class="teaser">For a display of British pomp and ceremony, watch the Changing the Guard ceremony outside Buckingham Palace.</p>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.<br />Ut wisi enim ad minim veniam, quis nostrud exerci. </p>
+                            <?php foreach($bData as $blog){?>
+                            <!--<h1><?php echo $blog->title;?></h1>-->
+							<figure class="left_pic"> <img src="uploads\blog\sthumb\<?php echo $blog->image;?>" alt=""  /> </figure>
+							<p class="teaser"><?php echo $blog->title;?></p>
+							<p><?php echo $blog->description;?></p>
 							<hr />
-							<a href="#" class="gradient-button right" title="Read more">Read more</a>
+                            <?php }?>
+                            <!--<a href="#" class="gradient-button right" title="Read more">Read more</a>-->
 						</article>
 					</section>
 					<!--//things to do-->

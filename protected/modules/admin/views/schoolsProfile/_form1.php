@@ -21,9 +21,9 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'user_name'); ?>
-		<?php echo $form->textField($model,'user_name',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'user_name'); ?>
+		<?php echo $form->labelEx($model,'email'); ?>
+		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->error($model,'email'); ?>
 	</div>
 
 	<div class="row">
@@ -58,22 +58,15 @@
 		<?php echo $form->textField($model,'telephone',array('size'=>12,'maxlength'=>12)); ?>
 		<?php echo $form->error($model,'telephone'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'website'); ?>
 		<?php echo $form->textField($model,'website',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'website'); ?>
 	</div>
 
-	<div class="row">
+	 <div class="row">
 		<?php echo $form->labelEx($model,'cities_id'); ?>
-		<?php echo $form->textField($model,'cities_id'); ?>
+        <?php echo $form->dropDownlist($model,'cities_id',CHtml::listData(Cities::model()->findAll(),'id','name'));?>
 		<?php echo $form->error($model,'cities_id'); ?>
 	</div>
 
@@ -90,46 +83,32 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'likes'); ?>
-		<?php echo $form->textField($model,'likes'); ?>
-		<?php echo $form->error($model,'likes'); ?>
+		
+		<?php echo $form->hiddenField($model,'likes'); ?>
+		<?php echo $form->hiddenField($model,'follower'); ?>
+		<?php echo $form->hiddenField($model,'want_to_join'); ?>
+		<?php echo $form->hiddenField($model,'reviews'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'follower'); ?>
-		<?php echo $form->textField($model,'follower'); ?>
-		<?php echo $form->error($model,'follower'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'want_to_join'); ?>
-		<?php echo $form->textField($model,'want_to_join'); ?>
-		<?php echo $form->error($model,'want_to_join'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'reviews'); ?>
-		<?php echo $form->textField($model,'reviews'); ?>
-		<?php echo $form->error($model,'reviews'); ?>
-	</div>
-
-	<div class="row">
+	
+    <div class="row">
 		<?php echo $form->labelEx($model,'activation'); ?>
-		<?php echo $form->textField($model,'activation'); ?>
+		<?php echo $form->radioButtonlist($model,'activation',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'activation'); ?>
 	</div>
-
-	<div class="row">
+    
+    
+    <div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->radioButtonlist($model,'status',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'memberships_id'); ?>
-		<?php echo $form->textField($model,'memberships_id'); ?>
-		<?php echo $form->error($model,'memberships_id'); ?>
+		<?php 
+		$model->memberships_id=1;
+		echo $form->hiddenField($model,'memberships_id'); ?>
 	</div>
 
 	<div class="row buttons">
