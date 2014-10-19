@@ -97,7 +97,7 @@
 							<li><a id="GoToContact" href="#contact">Contact us</a></li>		
 						</ul>
 						<div class="navbar-right">
-							<a id="GoToDownload" href="#" class="btn btn-primary">Sign In</a>
+                        	<?php echo CHtml::link('Sign In',array('/site/login'),array('class'=>'btn btn-primary','id'=>'GoToDownload'));?>
 						</div>	
 					</div><!--/.nav-collapse -->
 				</div>
