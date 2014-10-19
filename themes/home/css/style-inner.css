@@ -1258,6 +1258,8 @@ footer .bottom				{border:none;padding:0;}
     position: relative;
     width: 33.2%;
 }
-.room-types li span img{}
+.room-types li span img{ 
+   
+}
 .ex_width{ width:80px !important;} 
 input[type="search"],input[type="email"],input[type="text"],input[type="number"],input[type="password"] {border:1px solid #ccc;font:normal 1.2em 'OpenSansRegular';color:#999;padding:6px 4%;width:60.4%;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px; margin-bottom:10px;}
