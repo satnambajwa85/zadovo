@@ -15,10 +15,8 @@
 							<div class="clearfix"></div>
 				<?php $form=$this->beginWidget('CActiveForm', array('id'=>'search-form','action'=>Yii::app()->createUrl('/site/search'),'method'=>'get',));?>
                 	<fieldset class="subscribe-form">
-                    	<select class="subscribe" name="stateSelectReviews" tabindex="2"><option value="AK">AK</option>
-                                    <option value="AL">AL</option>
-                                    <option value="AR">AR</option>
-                                <option value="AZ">AZ</option></select>
+                    	 <?php echo CHtml::dropDownlist('cities_id','',CHtml::listData(Cities::model()->findAll(),'id','name'),array('empty' => '--Select a city--','class'=>'subscribe'));?>
+                         
 						<?php echo CHtml::textField('term','',array('class'=>'subscribe','placeholder'=>'Search by..'));
 						echo CHtml::submitButton('Search',array('class'=>'subscribe-button')); ?>
 					</fieldset> 

@@ -35,6 +35,42 @@ if($coun > 0){
 					<!--//inner navigation-->
 					<!--description-->
 					<section id="description" class="tab-content">
+                    	<article>
+                        
+                        <div class="col-md-12 school-review">
+			<ul class="fl review-icon">
+				<?php if(Yii::app()->user->id) { ?>
+				<li>
+					<div id="loading"></div>
+					<span class="icon-heart add-fav heart-add-fav" data-toggle="tooltip" data-placement="bottom" title="Add favorite" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'like'));?>">Like</span>
+				</li>
+				<li>
+					<div id="join-school-loading"></div>
+					<span class="icon-bookmark  join-school" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'))?>" data-toggle="tooltip" data-placement="bottom" title="Join your school"> Join</span>
+				</li>
+				
+				<li>
+					<div id="want-to-join-loading"></div>
+					<span class="icon-ok want-to-join want-to-join-bt" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'));?>" data-toggle="tooltip" data-placement="bottom" title="Want to join">Want to join</span>
+				</li>
+				<li><?php echo CHtml::link('write review&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-chevron-right"></span>','',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Write your review to school','class'=>'write-review-to-school','id'=>'userReviewa'))?></li>
+				
+				<?php } else { ?>
+				<li>
+					<?php echo CHtml::Link('<span class="icon-heart">Like</span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Add favorite','class'=>'add-fav','id'=>'internal_sign-in2'))?>
+				</li>
+				<li><?php echo CHtml::Link('<span class="icon-bookmark">Join</span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Join your school','class'=>'join-school2','id'=>'internal_sign-in3'))?></li>
+				<li><?php echo CHtml::Link('<span class="icon-ok">Want to join</span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Want to join','class'=>'want-to-join','id'=>'internal_sign-in4'))?></li>
+				<li><?php echo CHtml::link('write review&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-chevron-right"></span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Write your review to school','class'=>'write-review-to-school','id'=>'internal_sign-in5'))?></li>
+				
+				<?php } ?>
+				
+			</ul>
+		
+		</div>
+        
+        
+                        </article>
 						<article>
 							<h1>General</h1>
 							<div class="text-wrap">	
