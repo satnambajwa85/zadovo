@@ -39,7 +39,7 @@ class SchoolsProfile extends CActiveRecord
 	 */
 	public $user_name;
 	public $password;
-	
+	public $term_conditions;
 	public function tableName()
 	{
 		return 'schools_profile';
