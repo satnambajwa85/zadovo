@@ -95,6 +95,7 @@ class UserProfiles extends CActiveRecord
 		return array(
 			'cities' => array(self::BELONGS_TO, 'Cities', 'cities_id'),
 			'states' => array(self::BELONGS_TO, 'States', 'states_id'),
+			'ratings' => array(self::HAS_MANY, 'Rating', 'user_profiles_id'),
 			'login' => array(self::BELONGS_TO, 'Login', 'login_id'),
 			'logins' => array(self::MANY_MANY, 'Login', 'user_profiles_has_login(user_profiles_id, login_id)'),
 			'userReviews' => array(self::HAS_MANY, 'UserReviews', 'user_profiles_id'),

@@ -321,15 +321,14 @@ class SiteController extends Controller
 	}	
 	public function actionSchoolProfile($id)
 	{	
-		
 		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
 		$info				=	SchoolsProfile::model()->findByPk($id);
 		$blog				=	Blog::model()->findAllbyAttributes(array('status'=>1,'published'=>1,'schools_profile_id'=>$info->id));
 		if(isset($_POST['date'])){
 			$cat=$_POST['date'];
 			$criteria			=	new CDbCriteria();
-			$criteria->condition = 'schools_profile_id = :sId and add_date = :dId';
-			$criteria->params = array(':sId'=>$id,':dId'=>$cat);
+			$criteria->condition= 'schools_profile_id = :sId and add_date = :dId';
+			$criteria->params	= array(':sId'=>$id,':dId'=>$cat);
 			$count				=	UserReviews::model()->count($criteria);
 			$pages				=	new CPagination($count);
 			$pages->pageSize	=	10;
@@ -338,36 +337,29 @@ class SiteController extends Controller
 		}else{
 			$cat=0;
 			$criteria			=	new CDbCriteria();
-			$criteria->condition ='schools_profile_id='.$id;
+			$criteria->condition='schools_profile_id='.$id;
 			$count				=	UserReviews::model()->count($criteria);
-			$criteria->order = 'add_date DESC';
+			$criteria->order	= 'add_date DESC';
 			$pages				=	new CPagination($count);
 			$pages->pageSize	=	10;
 			$pages->applyLimit($criteria);
-			$fetchReview				=	UserReviews::model()->findAll($criteria);
+			$fetchReview		=	UserReviews::model()->findAll($criteria);
 		
 		}
-		
 		$criteria = new CDbCriteria;
 		$criteria->condition = 'is_joined = :frnd and schools_profile_id = :pid';
 		$criteria->params = array(':pid'=>$id,':frnd'=>'1');
 		$friendList	=	SchoolsProfileHasLogin::model()->findAll($criteria);
 		$count =	count($friendList);
-		
 		$loginIds = '0,';
 		foreach($friendList as $friends){
-			
 			$loginIds	.=	$friends->login_id.',';
 		}
-		
 		$loginIds	=substr($loginIds, 0, -1);
-		
-		
 		$criteria1 = new CDbCriteria;
 		$qterm		=	'';
 		$baseCondidtion = 't.status = 1 ';
 		if(!empty($_REQUEST['term'])){ 
-			
 			$qterm	=(isset($_REQUEST['term']))?'%'.$_REQUEST['term'].'%':'%%';
 			$criteria1->condition = ' login_id IN ('.$loginIds.')  AND (first_name  Like :qterm OR last_name   Like :qterm OR address   Like :qterm )';
 			$criteria1->params = array(':qterm'=>$qterm);
@@ -379,11 +371,8 @@ class SiteController extends Controller
 									'pageSize'=>10,
 								),
 							));
-		
 			}
-		
-		else{ 
-			
+		else{
 			$qterm	='%%';
 			$criteria1->condition = 'login_id IN ('.$loginIds.')  AND (first_name  Like :qterm OR last_name  Like :qterm) ';
 			$criteria1->params = array(':qterm'=>$qterm);
@@ -395,20 +384,17 @@ class SiteController extends Controller
 									'pageSize'=>10,
 								),
 							));
-		
 			}
-		 
-		
+		//$profile	=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
 		$this->render('schoolProfile',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages));
-	 }
+	}
 	public function actionSchoolDataResponce($id)
 	{
 		$info				=	SchoolsProfile::model()->findByPk($id);
-		
 		$data	=	array('follower'=>$info->follower,'likes'=>$info->likes ,'want_to_join'=>$info->want_to_join);
 		echo $data;
 		die;
-	 }
+	}
 	public function	actionSchoolProfileEvent($id,$action)
 	{	
 		if($action=='like'){

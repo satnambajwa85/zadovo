@@ -6,7 +6,7 @@
 							<div class="scrolltop wow fadeInUp" data-wow-delay="0.4s">
 								<ul>
 									<li><h3><span>Welcome to</span> ZADOVO</h3>
-                                    	<h4><span>Your community resource to find and share information about schools</span></h4>
+                                    	<h4><span>Collaborate, find and share information about the schools in your area. Zadovo helps you steer your child's career in the right direction.</span></h4>
                                     </li>
 									
 								</ul>

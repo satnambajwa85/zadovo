@@ -158,13 +158,13 @@
 
 Our mission is to help parents across the country to choose the right school and hence, the right education path for their children.
 				</p>
-<p class="hide">
+<p id="moreS" class="hide">
 It's after X standard that the students come across a fork in their education path and have to make a conscious decision of choosing the next course in their career.  Zadovo facilitates this decision-making process by offering a platter of options available for the students of IX and X because it is exactly the right time to make up their minds and make their first career decisions. 
 
 Also for the students studying in standard XII, a myriad of options is available to pick from. They can select any course from a field that piques their interest the most. Zadovo gives them extended information about the courses that can be taken up according to the school chosen. Students can explore a long list of colleges and can then shortlist one that fits all their criteria.
 </p>
 				<p>
-					<a href="#" class="btn btn-primary btn-lg">Read More</a>
+					<a href="javascript:void();" class="btn btn-primary btn-lg" onClick="$('#moreS').removeClass('hide');$(this).hide();">Read More</a>
 				</p>
 
                 <h4 class="heading text-center" style="padding-top:50px;">Featured Colleges </h4>
@@ -410,7 +410,7 @@ Fret not. Our experts will clear the air and forklift you on the correct track.
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3 social-widget">
-						<h3 class="heading" style="font-size: 2.7em;">Follow us</h5>
+						<h3 class="heading" style="font-size: 2.7em;">Follow us</h3>
 						<div class="socila-wrapper">
 							<a href="#" class="social-link"><i class="fa fa-facebook"></i></a>
 							<a href="#" class="social-link"><i class="fa fa-twitter"></i></a>

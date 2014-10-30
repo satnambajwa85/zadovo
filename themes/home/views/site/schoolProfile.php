@@ -1,3 +1,4 @@
+<link href="<?php echo Yii::app()->theme->baseUrl;?>/css/jRating.css" rel="stylesheet">
 <?php 
 $coun	=	count($info->ratings);
 $sum	=	0;
@@ -59,7 +60,7 @@ if($coun > 0){
                 </li>
 				
 				<?php } else { ?>
-				<li>
+                <li>
 					<a href="#nothing" title="Please Login" class="message">Like</a>
 				</li>
 				<li>
@@ -180,9 +181,12 @@ if($coun > 0){
                         
                     
                     
-                    	
-						<article>
-							<h1>General</h1>
+                    <?php $rating	=	Rating::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'schools_profile_id'=>$info->id));?>
+						<article style="position:relative;" >
+                        	<div style="position:absolute;right:20px;">
+                        	<div class="basic" data-average="<?php echo (isset($rating->title))?($rating->title*2):'0';?>" data-id="1"></div>
+							</div>
+                            <h1>General</h1>
 							<div class="text-wrap">	
 								<p><?php echo $info->about_school;?></p>
 							</div>
@@ -378,10 +382,14 @@ if($coun > 0){
  
 
 <?php Yii::app()->clientScript->registerScript('modelScript','$(document).ready(function(){
+	var basePathWeb	=	"'.Yii::app()->theme->baseUrl.'";
 	$.fn.modal.defaults={width:500,height:300};
 	$(".modal").modal({draggable:true});
 	$(".message").modal({position:{width:220,bottom:"0px",right:"0px"},shadow:false,showSpeed:1000,closeSpeed:1000,overlay:false,autoOpen:true,autoClose:5000,draggable:false,message:"Hello World, <br/> This is a test."});
+	$(".basic").jRating({
+			bigStarsPath : basePathWeb+"/images/stars.png",
+			smallStarsPath : basePathWeb+"/images/small.png",
+			phpPath : "'.Yii::app()->createUrl('/user/rating',array('id'=>$info->id)).'"});
 
 	});', CClientScript::POS_END);?>
-
- 
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/jRating.jquery.js', CClientScript::POS_END);?>

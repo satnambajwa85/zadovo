@@ -596,14 +596,16 @@ class UserController extends Controller
 	public function actionRating($id)
 	{
 		$getRate	=	$_REQUEST['rating'];
-		 $userRating	=	$getRate/2;
-		 
-		$rating							=	 new Rating;
+		 $userRating=	$getRate/2;
+		
+		
+		$rating	=	Rating::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'schools_profile_id'=>$id));
+		if(empty($rating))
+			$rating						=	new Rating;
 		$rating->title					=	$userRating;
 		$rating->user_profiles_id		=	Yii::app()->user->profileId;
 		$rating->login_id				=	Yii::app()->user->userId;
-		$rating->schools_profile_id		=	$id;
-		
+		$rating->schools_profile_id		=	$id;		
 		if($rating->save()){
 			$schoolRating					=	Rating::model()->findByAttributes(array('schools_profile_id'=>$rating->schools_profile_id,'status'=>1,'published'=>1));
 			$rate	=	$schoolRating->title;
