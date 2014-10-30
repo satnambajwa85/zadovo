@@ -97,7 +97,7 @@
 							<li><a id="GoToContact" href="#contact">Contact us</a></li>		
 						</ul>
 						<div class="navbar-right">
-							<a id="GoToDownload" href="#" class="btn btn-primary">Sign In</a>
+                        	<?php echo CHtml::link('Sign In',array('/site/login'),array('class'=>'btn btn-primary','id'=>'GoToDownload'));?>
 						</div>	
 					</div><!--/.nav-collapse -->
 				</div>
@@ -118,35 +118,35 @@
 						<i class="fa fa-comments-o"></i>
 						<h5>Review a School </h5>
 						<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean  .
+						Review and rate your school to help fellow parents find the best school for their child.
 						</p>
 					</li>
 					<li>
 						<i class="fa fa-gears"></i>
 						<h5>Stream Option </h5>
 						<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean  .
+						Across-the-board researched data to help students of class IX and X make an informed decision before choosing a new stream.
 						</p>
 					</li>
 					<li>
 						<i class="fa fa-graduation-cap"></i>
 						<h5>After XII Course Guide </h5>
 						<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean  .
+						A hands-down search mechanism that eases the stressful process of picking out the right college after XII via a resourceful guide with umpteen courses and college options
 						</p>
 					</li>
 					<li>
 						<i class="fa fa-sun-o"></i>
 						<h5>Cafe Zadovo [Blog]</h5>
 						<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean  .
+						Cafe Zidovo has a panel of experts that can offer advice on any of your career, course or college related query. Feel free to clarify any questions that you might have with respect to your career and future.
 						</p>
 					</li>
 					<li>
 						<i class="fa fa-university"></i>
 						<h5>College Guide</h5>
 						<p>
-						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean  .
+						A guide with vast pool of information related to 10,000+ colleges.
 						</p>
 					</li>
 				</ul>
@@ -154,11 +154,19 @@
 			<div class="half-box-right">
 				<h3 class="heading">Description</h3>
 				<p>
-				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. 
+				Zadovo is your go-to guide to pick the right school for your child's promising future. It's an online resource to share comprehensive information about a school encompassing its key features, its strengths and weaknesses through honest reviews of parents, guardians and students. This in turn assists fellow parents in ascertaining a great education for their progeny.
+
+Our mission is to help parents across the country to choose the right school and hence, the right education path for their children.
 				</p>
+<p class="hide">
+It's after X standard that the students come across a fork in their education path and have to make a conscious decision of choosing the next course in their career.  Zadovo facilitates this decision-making process by offering a platter of options available for the students of IX and X because it is exactly the right time to make up their minds and make their first career decisions. 
+
+Also for the students studying in standard XII, a myriad of options is available to pick from. They can select any course from a field that piques their interest the most. Zadovo gives them extended information about the courses that can be taken up according to the school chosen. Students can explore a long list of colleges and can then shortlist one that fits all their criteria.
+</p>
 				<p>
 					<a href="#" class="btn btn-primary btn-lg">Read More</a>
 				</p>
+
                 <h4 class="heading text-center" style="padding-top:50px;">Featured Colleges </h4>
 				<div class="tablet-wrapper">
 					<div class="flexslider">
@@ -190,7 +198,7 @@
 						<i class="fa fa-coffee fa-3x"></i>
 						<h4>Sign up free</h4>
 						<p>
-						Delectus voluptaria definiebas cu duo, an qui mucius aliquando sententiae. Est no omnis imperdiet sit cibo facilisi.
+						It's a breeze to sign up with Zidovo using your Email ID or Facebook ID and inscribe yourself to a riveting world of information on school and colleges.
 						</p>
 						<a href="#">Learn more</a>
 					</div>
@@ -198,7 +206,7 @@
 						<i class="fa fa-comments-o fa-3x"></i>
 						<h4>Review a School</h4>
 						<p>
-						Delectus voluptaria definiebas cu duo, an qui mucius aliquando sententiae. Est no omnis imperdiet sit cibo facilisi.
+						After sign up, give reviews of your school. These reviews will act as a beacon for parents, students, and caregivers in making a cognizant choice.
 						</p>
 						<a href="#">Learn more</a>
 					</div>
@@ -206,7 +214,7 @@
 						<i class="fa fa-graduation-cap fa-3x"></i>
 						<h4>Free Career Guide</h4>
 						<p>
-						Delectus voluptaria definiebas cu duo, an qui mucius aliquando sententiae. Est no omnis imperdiet sit cibo facilisi.
+						Get answers to all your questions here. Zidovo is your one-stop resource to find selective information when it comes to making a crucial career choice.
 						</p>
 						<a href="#">Learn more</a>
 					</div>
@@ -214,7 +222,7 @@
 						<i class="fa fa-university fa-3x"></i>
 						<h4>Find College</h4>
 						<p>
-						Delectus voluptaria definiebas cu duo, an qui mucius aliquando sententiae. Est no omnis imperdiet sit cibo facilisi.
+						Complete college guide that helps you choose the educational institute that you have always dreamt of being a part of.
 						</p>
 						<a href="#">Learn more</a>
 					</div>
@@ -225,7 +233,7 @@
 		
 		<!-- Start gallery -->
 		<section id="gallery">
-			<h3 class="heading text-center">What do you want to do in your Career?</h3>
+			<h3 class="heading text-center">Where do you want to see yourself in the future?</h3>
 			<div class="list_carousel responsive"  style="height:450px;">
             	<div class="homethreecontainers">
 <table cellspacing="0" cellpadding="0" border="0" align="center">
@@ -271,7 +279,7 @@ Search careers with key words
 </div>
 <div style="margin: 0 20px; height: 105px">
 <p class="blocktopfont">
-Describe your dream career in a few words:
+Enter the keywords that describe your dream career and we'll help you find the right path.:
 </p>
 <div class="separator" style="padding-top:25px;"><input type="text" lang="en" autocomplete="off" size="10" class="gsc-input" name="search" title="search" style="width: 100%; padding: 5px; border: medium none; margin: 0px; height: auto; outline: medium none; color:#666;" ></div>
 
@@ -295,44 +303,10 @@ Browse careers by sector
 </div>
 <div style="margin: 0 17px; height: 105px">
 <p class="blocktopfont">
-There are over 445 career options in 33 sectors for you to look at. Find yours in one of these:
+Find your career from just below.
 </p>
 <div class="form-group has-success" >
-<select name="a" id="aa" class="form-control chzn-select" style="background:#fff; color:#666666; padding:5px; border:none;">
-<option value="banking-insurance-and-finance">Banking, Insurance &amp; Finance</option>
-<option value="engineering-technology">Engineering &amp; Technology</option>
-<option value="unorganised-sector">Unorganised Sector</option>
-<option value="management-marketing">Management &amp; Marketing</option>
-<option value="designing-art">Designing &amp; Art</option>
-<option value="healthcare">Healthcare</option>
-<option value="agriculture">Agriculture</option>
-<option value="science-research">Science &amp; Research</option>
-<option value="media-entertainment-animation">Media, Entertainment &amp; Animation</option>
-<option value="it-or-software">Information Technology / Software</option>
-<option value="tourism-hospitality-and-travel">Tourism, Hospitality &amp; Travel</option>
-<option value="humanistic-studies">Humanistic Studies</option>
-<option value="education-skill-development">Education / Skill Development</option>
-<option value="law-order">Law &amp; Order</option>
-<option value="public-admin-government">Public Admin &amp; Government</option>
-<option value="aerospace-aviation">Aerospace &amp; Aviation</option>
-<option value="defense-military">Defense &amp; Military</option>
-<option value="building-hardware-furnishings">Building, Hardware &amp; Home Furnishings</option>
-<option value="ites-bpo">ITES / BPO</option>
-<option value="chemicals-and-pharmaceuticals">Chemicals &amp; Pharmaceuticals</option>
-<option value="sports">Sports</option>
-<option value="organised-retail">Organised Retail</option>
-<option value="food-processing">Food Processing</option>
-<option value="electronics-hardware">Electronics &amp; Hardware</option>
-<option value="textiles-and-garments">Textiles &amp; Garments</option>
-<option value="transportation-logistics-warehousing">Transportation / Logistics / Warehousing &amp; Packaging</option>
-<option value="telecom">Telecom</option>
-<option value="automobile-autocomponents">Automobile / Autocomponents</option>
-<option value="gems-and-jewellery">Gems &amp; Jewellery</option>
-<option value="real-estate">Real Estate</option>
-<option value="building-and-construction">Building &amp; Construction</option>
-<option value="leather-and-goods">Leather &amp; Leather Goods</option>
-<option value="handlooms-and-handicrafts">Handlooms &amp; Handicrafts</option>
-</select>
+<?php echo CHtml::dropDownlist('Categories','',CHtml::listData(Career::model()->findAll(),'id','title'),array('empty' => '--Select a Category--','class'=>'form-control chzn-select','id'=>"aa",'style'=>"background:#fff; color:#666666; padding:5px; border:none;"));?>
 </div>
 </div>
 <div style="clear:both;"></div>
@@ -354,7 +328,7 @@ Tell us what you like to do
 </div>
 <div style="margin: 0 15px; height: 105px">
 <p class="blocktopfont">
-Take psychometric assessment & tell us about the type of work you might enjoy. We'll suggest careers that match your interests and aptitude.
+Fret not. Our experts will clear the air and forklift you on the correct track.
 </p>
 </div>
 <div style="clear:both;padding-top:15px;"></div>
