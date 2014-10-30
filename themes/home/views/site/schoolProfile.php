@@ -35,24 +35,31 @@ if($coun > 0){
 					<!--//inner navigation-->
 					<!--description-->
 					<section id="description" class="tab-content">
-                    	<article>
+                    	<article id="message" class="hide sucess_message">
                         
-                        <div class="col-md-12 school-review">
-			<ul class="fl review-icon">
+                        </article>
+                    	<article>
+							<h1>Students Reviews and Score Breakdown</h1>
+                            
+                            <div class="score">
+								<span class="achieved">8 </span>
+								<span> / 10</span>
+								<p class="info">Based on <?php echo $info->reviews;?> reviews</p>
+								<p class="disclaimer">Student reviews are written by <strong>Users</strong> at this school.</p>
+							</div>
+                            
+                            <div>
+              <ul class="fl review-icon">
 				<?php if(Yii::app()->user->id) { ?>
 				<li>
-					<div id="loading"></div>
-					<span class="icon-heart add-fav heart-add-fav" data-toggle="tooltip" data-placement="bottom" title="Add favorite" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'like'));?>">Like</span>
+                	<?php echo CHtml::ajaxLink('Like',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'like'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>					
 				</li>
 				<li>
-					<div id="join-school-loading"></div>
-					<span class="icon-bookmark  join-school" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'))?>" data-toggle="tooltip" data-placement="bottom" title="Join your school"> Join</span>
-				</li>
-				
+					<?php echo CHtml::ajaxLink('Join',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>                   
+				</li>				
 				<li>
-					<div id="want-to-join-loading"></div>
-					<span class="icon-ok want-to-join want-to-join-bt" id="<?php echo Yii::app()->createUrl('/site/schoolProfileEvent',array('id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'));?>" data-toggle="tooltip" data-placement="bottom" title="Want to join">Want to join</span>
-				</li>
+					<?php echo CHtml::ajaxLink('Want To Join',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>
+                </li>
 				<li><?php echo CHtml::link('write review&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-chevron-right"></span>','',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Write your review to school','class'=>'write-review-to-school','id'=>'userReviewa'))?></li>
 				
 				<?php } else { ?>
@@ -66,11 +73,53 @@ if($coun > 0){
 				<?php } ?>
 				
 			</ul>
-		
-		</div>
-        
-        
+                            </div>
+							<dl class="chart">
+								<dt>Follower</dt>
+								<dd ><span id="data-one" style="width:80%;"><?php echo $info->follower;?>&nbsp;&nbsp;&nbsp;</span></dd>
+								<dt class="active">Reviews</dt>
+								<dd><span id="data-two" style="width:60%;"><?php echo $info->reviews;?>&nbsp;&nbsp;&nbsp;</span></dd>
+								<dt class="active">Likes</dt>
+								<dd><span id="data-three" style="width:80%;"><?php echo $info->likes;?>&nbsp;&nbsp;&nbsp;</span></dd>
+								<dt class="active">Want To Join</dt>
+								<dd><span id="data-four" style="width:100%;"><?php echo $info->want_to_join;?>&nbsp;&nbsp;&nbsp;</span></dd>
+							</dl>
+						
+                        <section id="profile-map" class="review-box success-map" >	
+             
+            <div id="popup_box" class="col-md-6">
+                <span id="popupBoxClose" class="icon-remove cursor" ></span>
+                <div class="row schoolReview">
+                                <h1 class="comment">write your review</h1>
+                                <?php $review =	new UserReviews; $form=$this->beginWidget('CActiveForm', array(	
+                                                    'id'=>'user-search-form',
+                                                    'action'=>Yii::app()->createUrl('/user/reviews'),
+                                                    'method'=>'POST',));?>
+                                    <?php echo $form->hiddenField($info,'id'); ?>	
+                                    <?php echo $form->hiddenField($review,'sName',array('value'=>''.$info->name.'')); ?>
+                                    <?php echo $form->hiddenField($review,'sAddress',array('value'=>''.$info->address1.'')); ?>
+                                    <?php echo $form->hiddenField($review,'simg',array('value'=>''.$info->logo.'')); ?>
+                                <div class="col-md-12 clear">
+                                    
+                                    <?php echo $form->textArea($review,'reviews',array('class'=>'form-control')); ?>
+                                    
+                                    <?php echo $form->error($review,'reviews'); ?>
+                                    <div>&nbsp;</div>
+                                    <?php echo CHtml::submitButton('SUBMIT',array('class'=>'btn btn-danger fr mr15')); ?>
+                                
+                                </div>
+                                <?php $this->endWidget();?>
+                                
+                </div>
+            </div> 									 
+        </section>
+                        
+                        
                         </article>
+                        
+                    
+                    
+                    	
 						<article>
 							<h1>General</h1>
 							<div class="text-wrap">	

@@ -145,34 +145,34 @@
 </div>
 <div class="white">
 	<section class="container theme-showcase">
-	<section id="profile-map" class="review-box success-map" >	
-		 
-	<div id="popup_box" class="col-md-6">
-		<span id="popupBoxClose" class="icon-remove cursor" ></span>
-		<div class="row schoolReview">
-						<h1 class="comment">write your review</h1>
-						<?php $review =	new UserReviews; $form=$this->beginWidget('CActiveForm', array(	
-											'id'=>'user-search-form',
-											'action'=>Yii::app()->createUrl('/user/reviews'),
-											'method'=>'POST',));?>
-							<?php echo $form->hiddenField($info,'id'); ?>	
-							<?php echo $form->hiddenField($review,'sName',array('value'=>''.$info->name.'')); ?>
-							<?php echo $form->hiddenField($review,'sAddress',array('value'=>''.$info->address1.'')); ?>
-							<?php echo $form->hiddenField($review,'simg',array('value'=>''.$info->logo.'')); ?>
-					 	<div class="col-md-12 clear">
-							
-							<?php echo $form->textArea($review,'reviews',array('class'=>'form-control')); ?>
-							
-							<?php echo $form->error($review,'reviews'); ?>
-							<div>&nbsp;</div>
-							<?php echo CHtml::submitButton('SUBMIT',array('class'=>'btn btn-danger fr mr15')); ?>
-						
-						</div>
-						<?php $this->endWidget();?>
-						
-		</div>
-	</div> 									 
-</section>
+        <section id="profile-map" class="review-box success-map" >	
+             
+            <div id="popup_box" class="col-md-6">
+                <span id="popupBoxClose" class="icon-remove cursor" ></span>
+                <div class="row schoolReview">
+                                <h1 class="comment">write your review</h1>
+                                <?php $review =	new UserReviews; $form=$this->beginWidget('CActiveForm', array(	
+                                                    'id'=>'user-search-form',
+                                                    'action'=>Yii::app()->createUrl('/user/reviews'),
+                                                    'method'=>'POST',));?>
+                                    <?php echo $form->hiddenField($info,'id'); ?>	
+                                    <?php echo $form->hiddenField($review,'sName',array('value'=>''.$info->name.'')); ?>
+                                    <?php echo $form->hiddenField($review,'sAddress',array('value'=>''.$info->address1.'')); ?>
+                                    <?php echo $form->hiddenField($review,'simg',array('value'=>''.$info->logo.'')); ?>
+                                <div class="col-md-12 clear">
+                                    
+                                    <?php echo $form->textArea($review,'reviews',array('class'=>'form-control')); ?>
+                                    
+                                    <?php echo $form->error($review,'reviews'); ?>
+                                    <div>&nbsp;</div>
+                                    <?php echo CHtml::submitButton('SUBMIT',array('class'=>'btn btn-danger fr mr15')); ?>
+                                
+                                </div>
+                                <?php $this->endWidget();?>
+                                
+                </div>
+            </div> 									 
+        </section>
 <div class="clear"></div>
 		<div class="row">
 		  <div class="row col-md-12">
