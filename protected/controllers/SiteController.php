@@ -428,7 +428,7 @@ class SiteController extends Controller
 					$findId->term_conditions	=	1;
 					//echo	$findId->likes;die; 
 					if($findId->save()){
-						$findId						=	 UserReviews::model()->findByPk($id);
+						$findId		=	UserReviews::model()->findByPk($id);
 						$data		=	array('like'=>$findId->like,'disLike'=>$findId->dislike);
 						echo CJSON::encode ($data);die;
 					}

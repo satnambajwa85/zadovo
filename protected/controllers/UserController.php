@@ -397,11 +397,12 @@ class UserController extends Controller
 			$model->user_profiles_id		=	Yii::app()->user->profileId;
 			$model->add_date				=	date('Y:m:d') ;
 			if($model->save()){
-				$findId						=	 SchoolsProfile::model()->findByPk($model->schools_profile_id);
+				$findId						=	SchoolsProfile::model()->findByPk($model->schools_profile_id);
 				$count						=	$findId->reviews;
 				$findId->reviews			=	$count+1 ;
 				$findId->phone				=	1;
 				$findId->term_conditions	=	1;
+				$findId->password			=	1;
 				
 				if($findId->save()){
 					$userReview				=	UserProfiles::model()->findByAttributes(array('login_id'=>Yii::app()->user->userId));
@@ -409,31 +410,32 @@ class UserController extends Controller
 					$userReview->reviews	=	$recviewCount+1 ;
 					if($userReview->save()){
 						$userLog				=	new UserLog;
-						$rating					=	Rating::model()->findByAttributes(array('status'=>1,'published'=>1,'schools_profile_id'=>$model->schools_profile_id));
-						$rate	=	$rating->title;
-						if($rate==0){
-							$ratingColor	=0;
-						}
-						if($rate==1.0 or 1.5){
-							$ratingColor	=2;
-						}
-						if($rate==2.0 or 2.5){
-							$ratingColor	=3;
-						}
-						if($rate==3.0 or 3.5){
-							$ratingColor	=6;
-						}
-						if($rate==4.0 or 4.5){
-							$ratingColor	=8;
-						}
-						if($rate==5.0 or 5.5){
-							$ratingColor	=9;
-						}
-						
+						/*$rating					=	Rating::model()->findByAttributes(array('status'=>1,'published'=>1,'schools_profile_id'=>$model->schools_profile_id));
+						if(!empty($rating)){
+							$rate	=	$rating->title;
+							if($rate==0){
+								$ratingColor	=0;
+							}
+							if($rate==1.0 or 1.5){
+								$ratingColor	=2;
+							}
+							if($rate==2.0 or 2.5){
+								$ratingColor	=3;
+							}
+							if($rate==3.0 or 3.5){
+								$ratingColor	=6;
+							}
+							if($rate==4.0 or 4.5){
+								$ratingColor	=8;
+							}
+							if($rate==5.0 or 5.5){
+								$ratingColor	=9;
+							}
+						}*/
 						$userLog->login_id		=	Yii::app()->user->userId;
 						$userLog->add_date		=	date('Y:m:d H:i:s');
 						$userLog->published		=	1;
-						$userLog->description =	'<div class="fl"><span class="glyphicon glyphicon-pencil"><strong> Reviewed</strong></span> '.CHtml::link($findId->name,array('/site/schoolProfile','id'=>$model->schools_profile_id)).' and rated it </div><div class="small-rating level-'.$ratingColor.'">'.$rate.'</div>';
+						$userLog->description =	'<div class="fl"><span class="glyphicon glyphicon-pencil"><strong> Reviewed</strong></span> '.CHtml::link($findId->name,array('/site/schoolProfile','id'=>$model->schools_profile_id)).' and it </div><div class="small-rating level-9">Reviewed</div>';
 						if($userLog->save()){	
 								$this->redirect(Yii::app()->createUrl('/site/schoolProfile&id='.$model->schools_profile_id));
 								echo 'Hello';die;
@@ -443,7 +445,9 @@ class UserController extends Controller
 					
 					
 				}
-				CVarDumper::dump($findId,10,1);die;
+				else{
+					CVarDumper::dump($findId,10,1);die;
+				}
 			}
 				 
 		}
