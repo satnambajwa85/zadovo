@@ -89,7 +89,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdd22b', end
 .room-types .image-overlay {background-image:url(../images/themes/yellow/ico/magnify.png);}
 .gmap .infoBox		{background-image:url(../images/themes/yellow/bgr/map-popup-hotel.png);}
 .score .achieved		{color:#FDD22B;}
-.chart dd span		{background:#FDD22B;}
+.chart dd span		{background:#FDD22B !important;}
 .reviews .pro		{background-image:url(../images/themes/yellow/ico/plus.png);}
 .tags li a:hover		{background-color:#FDD22B;}
 .get_inspired li:hover figcaption,
@@ -154,3 +154,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdd22b', end
 .locations .one-fourth  .ribbon:focus,
 .locations .one-fourth  .ribbon:hover {background:#FDD22B;}
 }
+
+
+.chart dd 			{height:45px;margin:0 0 1px;-webkit-border-radius:0 15px 15px 0;-moz-border-radius:0 15px 15px 0;border-radius:0 15px 15px 0; display:block !important;}

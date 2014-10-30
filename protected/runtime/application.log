@@ -1,0 +1,119 @@
+2014/10/30 07:54:39 [warning] [application] Failed to set unsafe attribute "sName" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 07:54:39 [warning] [application] Failed to set unsafe attribute "sAddress" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 07:54:39 [warning] [application] Failed to set unsafe attribute "simg" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 07:55:25 [warning] [application] Failed to set unsafe attribute "sName" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 07:55:25 [warning] [application] Failed to set unsafe attribute "sAddress" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 07:55:25 [warning] [application] Failed to set unsafe attribute "simg" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 07:55:25 [error] [php] Trying to get property of non-object (D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php:414)
+Stack trace:
+#0 D:\xamp\htdocs\extentions\test\framework\web\filters\CFilterChain.php(133): UserController->runAction()
+#1 D:\xamp\htdocs\extentions\test\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\xamp\htdocs\extentions\test\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\xamp\htdocs\extentions\test\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#4 D:\xamp\htdocs\extentions\test\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\xamp\htdocs\extentions\test\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\xamp\htdocs\extentions\test\framework\web\CController.php(265): UserController->runActionWithFilters()
+#7 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(282): UserController->run()
+#8 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\xamp\htdocs\extentions\test\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\xamp\htdocs\extentions\test\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/extentions/test/zadovo/index.php?r=user/reviews
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (414)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:01:33 [warning] [application] Failed to set unsafe attribute "sName" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:01:33 [warning] [application] Failed to set unsafe attribute "sAddress" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:01:33 [warning] [application] Failed to set unsafe attribute "simg" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:01:45 [warning] [application] Failed to set unsafe attribute "sName" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:01:45 [warning] [application] Failed to set unsafe attribute "sAddress" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:01:45 [warning] [application] Failed to set unsafe attribute "simg" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:02:42 [warning] [application] Failed to set unsafe attribute "sName" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:02:42 [warning] [application] Failed to set unsafe attribute "sAddress" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:02:42 [warning] [application] Failed to set unsafe attribute "simg" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:15:42 [warning] [application] Failed to set unsafe attribute "sName" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:15:42 [warning] [application] Failed to set unsafe attribute "sAddress" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:15:42 [warning] [application] Failed to set unsafe attribute "simg" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:16:51 [warning] [application] Failed to set unsafe attribute "sName" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:16:51 [warning] [application] Failed to set unsafe attribute "sAddress" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:16:51 [warning] [application] Failed to set unsafe attribute "simg" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:17:04 [warning] [application] Failed to set unsafe attribute "sName" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:17:04 [warning] [application] Failed to set unsafe attribute "sAddress" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:17:04 [warning] [application] Failed to set unsafe attribute "simg" of "UserReviews".
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\UserController.php (394)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:31:56 [error] [php] Argument 3 passed to CClientScript::registerScriptFile() must be of the type array, integer given, called in D:\xamp\htdocs\extentions\test\zadovo\themes\home\views\site\schoolProfile.php on line 320 and defined (D:\xamp\htdocs\extentions\test\framework\web\CClientScript.php:642)
+Stack trace:
+#0 D:\xamp\htdocs\extentions\test\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 D:\xamp\htdocs\extentions\test\framework\web\CController.php(869): SiteController->renderFile()
+#2 D:\xamp\htdocs\extentions\test\framework\web\CController.php(782): SiteController->renderPartial()
+#3 D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\SiteController.php(402): SiteController->render()
+#4 unknown(0): SiteController->actionSchoolProfile()
+#5 D:\xamp\htdocs\extentions\test\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#6 D:\xamp\htdocs\extentions\test\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#7 D:\xamp\htdocs\extentions\test\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 D:\xamp\htdocs\extentions\test\framework\web\CController.php(286): SiteController->runAction()
+#9 D:\xamp\htdocs\extentions\test\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(282): SiteController->run()
+#11 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 D:\xamp\htdocs\extentions\test\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 D:\xamp\htdocs\extentions\test\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/extentions/test/zadovo/index.php?r=site/schoolProfile&id=6
+in D:\xamp\htdocs\extentions\test\zadovo\themes\home\views\site\schoolProfile.php (320)
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\SiteController.php (402)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2014/10/30 08:40:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "schoolProfile".' in D:\xamp\htdocs\extentions\test\framework\web\CController.php:483
+Stack trace:
+#0 D:\xamp\htdocs\extentions\test\framework\web\CController.php(270): CController->missingAction('schoolProfile')
+#1 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(282): CController->run('schoolProfile')
+#2 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(141): CWebApplication->runController('user/schoolProf...')
+#3 D:\xamp\htdocs\extentions\test\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\xamp\htdocs\extentions\test\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/extentions/test/zadovo/index.php?r=user/schoolProfile
+HTTP_REFERER=http://localhost/extentions/test/zadovo/index.php?r=site/login
+---

@@ -18,6 +18,64 @@ if($coun > 0){
 					<!--gallery-->
 					<section class="gallery" id="crossfade">
 						<?php echo CHtml::link('<img width="850" height="531" src="'.Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/large/'.$info->logo.'" alt="'.$info->name.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
+                        
+                        <div class="black_strip">
+                        	<ul class="fl review-icon " style="float:right;">
+				<?php if(Yii::app()->user->id) { ?>
+				<li>
+                	<?php echo CHtml::ajaxLink('Like',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'like'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>					
+				</li>
+				<li>
+					<?php echo CHtml::ajaxLink('Join',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>                   
+				</li>				
+				<li>
+					<?php echo CHtml::ajaxLink('Want To Join',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>
+                </li>
+				<li>
+				<a href="#modal_text" title="Write your review" class="modal">Write review</a>
+                <div id="modal_text">
+
+<h1 class="comment">write your review</h1>
+<?php $review =	new UserReviews; $form=$this->beginWidget('CActiveForm', array(	
+                    'id'=>'user-search-form',
+                    'action'=>Yii::app()->createUrl('/user/reviews'),
+                    'method'=>'POST',));?>
+    <?php echo $form->hiddenField($info,'id'); ?>	
+    <?php echo $form->hiddenField($review,'sName',array('value'=>''.$info->name.'')); ?>
+    <?php echo $form->hiddenField($review,'sAddress',array('value'=>''.$info->address1.'')); ?>
+    <?php echo $form->hiddenField($review,'simg',array('value'=>''.$info->logo.'')); ?>
+<div class="col-md-12 clear">
+    
+    <?php echo $form->textArea($review,'reviews',array('class'=>'form-control')); ?>
+    
+    <?php echo $form->error($review,'reviews'); ?>
+    <div>&nbsp;</div>
+    <?php echo CHtml::submitButton('SUBMIT',array('class'=>'btn btn-danger fr mr15')); ?>
+
+</div>
+<?php $this->endWidget();?>
+
+</div>
+                </li>
+				
+				<?php } else { ?>
+				<li>
+					<a href="#nothing" title="Please Login" class="message">Like</a>
+				</li>
+				<li>
+				<a href="#nothing" title="Please Login" class="message">Join</a>
+                </li>
+				<li>
+				<a href="#nothing" title="Please Login" class="message">Want to join</a>
+				</li>
+				<li>
+				<a href="#nothing" title="Please Login" class="message">Write review</a>
+
+                </li>
+				<?php } ?>
+				
+			</ul>
+                        </div>
                     </section>
 					<!--//gallery-->
 				
@@ -26,7 +84,6 @@ if($coun > 0){
 						<ul>
 							
 							<li class="description"><a href="#description" title="Description">Overview</a></li>
-							<!--<li class="facilities"><a href="#facilities" title="Facilities">Facilities</a></li>-->
 							<li class="location"><a href="#location" title="Location">Location</a></li>
 							<li class="reviews"><a href="#reviews" title="Reviews">Reviews</a></li>
 							<li class="things-to-do"><a href="#things-to-do" title="Things to do">Blog</a></li>
@@ -38,7 +95,7 @@ if($coun > 0){
                     	<article id="message" class="hide sucess_message">
                         
                         </article>
-                    	<article>
+                    	<!--<article>
 							<h1>Students Reviews and Score Breakdown</h1>
                             
                             <div class="score">
@@ -60,16 +117,47 @@ if($coun > 0){
 				<li>
 					<?php echo CHtml::ajaxLink('Want To Join',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>
                 </li>
-				<li><?php echo CHtml::link('write review&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-chevron-right"></span>','',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Write your review to school','class'=>'write-review-to-school','id'=>'userReviewa'))?></li>
+				<li>
+				<a href="#modal_text" title="Write your review" class="modal">Write review</a>
+                <div id="modal_text">
+
+<h1 class="comment">write your review</h1>
+<?php $review =	new UserReviews; $form=$this->beginWidget('CActiveForm', array(	
+                    'id'=>'user-search-form',
+                    'action'=>Yii::app()->createUrl('/user/reviews'),
+                    'method'=>'POST',));?>
+    <?php echo $form->hiddenField($info,'id'); ?>	
+    <?php echo $form->hiddenField($review,'sName',array('value'=>''.$info->name.'')); ?>
+    <?php echo $form->hiddenField($review,'sAddress',array('value'=>''.$info->address1.'')); ?>
+    <?php echo $form->hiddenField($review,'simg',array('value'=>''.$info->logo.'')); ?>
+<div class="col-md-12 clear">
+    
+    <?php echo $form->textArea($review,'reviews',array('class'=>'form-control')); ?>
+    
+    <?php echo $form->error($review,'reviews'); ?>
+    <div>&nbsp;</div>
+    <?php echo CHtml::submitButton('SUBMIT',array('class'=>'btn btn-danger fr mr15')); ?>
+
+</div>
+<?php $this->endWidget();?>
+
+</div>
+                </li>
 				
 				<?php } else { ?>
 				<li>
-					<?php echo CHtml::Link('<span class="icon-heart">Like</span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Add favorite','class'=>'add-fav','id'=>'internal_sign-in2'))?>
+					<a href="#nothing" title="Please Login" class="message">Like</a>
 				</li>
-				<li><?php echo CHtml::Link('<span class="icon-bookmark">Join</span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Join your school','class'=>'join-school2','id'=>'internal_sign-in3'))?></li>
-				<li><?php echo CHtml::Link('<span class="icon-ok">Want to join</span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Want to join','class'=>'want-to-join','id'=>'internal_sign-in4'))?></li>
-				<li><?php echo CHtml::link('write review&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon-chevron-right"></span>','#',array('data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Write your review to school','class'=>'write-review-to-school','id'=>'internal_sign-in5'))?></li>
-				
+				<li>
+				<a href="#nothing" title="Please Login" class="message">Join</a>
+                </li>
+				<li>
+				<a href="#nothing" title="Please Login" class="message">Want to join</a>
+				</li>
+				<li>
+				<a href="#nothing" title="Please Login" class="message">Write review</a>
+
+                </li>
 				<?php } ?>
 				
 			</ul>
@@ -85,37 +173,10 @@ if($coun > 0){
 								<dd><span id="data-four" style="width:100%;"><?php echo $info->want_to_join;?>&nbsp;&nbsp;&nbsp;</span></dd>
 							</dl>
 						
-                        <section id="profile-map" class="review-box success-map" >	
-             
-            <div id="popup_box" class="col-md-6">
-                <span id="popupBoxClose" class="icon-remove cursor" ></span>
-                <div class="row schoolReview">
-                                <h1 class="comment">write your review</h1>
-                                <?php $review =	new UserReviews; $form=$this->beginWidget('CActiveForm', array(	
-                                                    'id'=>'user-search-form',
-                                                    'action'=>Yii::app()->createUrl('/user/reviews'),
-                                                    'method'=>'POST',));?>
-                                    <?php echo $form->hiddenField($info,'id'); ?>	
-                                    <?php echo $form->hiddenField($review,'sName',array('value'=>''.$info->name.'')); ?>
-                                    <?php echo $form->hiddenField($review,'sAddress',array('value'=>''.$info->address1.'')); ?>
-                                    <?php echo $form->hiddenField($review,'simg',array('value'=>''.$info->logo.'')); ?>
-                                <div class="col-md-12 clear">
-                                    
-                                    <?php echo $form->textArea($review,'reviews',array('class'=>'form-control')); ?>
-                                    
-                                    <?php echo $form->error($review,'reviews'); ?>
-                                    <div>&nbsp;</div>
-                                    <?php echo CHtml::submitButton('SUBMIT',array('class'=>'btn btn-danger fr mr15')); ?>
-                                
-                                </div>
-                                <?php $this->endWidget();?>
-                                
-                </div>
-            </div> 									 
-        </section>
                         
                         
-                        </article>
+                        
+                        </article>-->
                         
                     
                     
@@ -187,10 +248,10 @@ if($coun > 0){
 					<section id="location" class="tab-content">
 						<article>
 							<!--map-->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv2OOJAC5AxVNXGBIMH5njntbvrZnGxLQ">
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv2OOJAC5AxVNXGBIMH5njntbvrZnGxLQ">
     </script>
     <script type="text/javascript">
-      function initialize() {
+     /* function initialize() {
         var mapOptions = {
           center: { lat: -34.397, lng: 150.644},
           zoom: 8
@@ -198,20 +259,11 @@ if($coun > 0){
         var map = new google.maps.Map(document.getElementById('map_canvas'),
             mapOptions);
       }
-      google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+      google.maps.event.addDomListener(window, 'load', initialize);*/
+</script>-->
                                 
                                 
-                                <div class="gmap" id="map_canvas">
-                               <!-- <iframe width="640" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=<?php echo $info->address1.' '.$info->address2;?>&output=embed"></iframe>-->
-                                
-                                
-                                
-                               
-                                
-                                
-                                <!--<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=204391744755492960801.0004cf06106345ca4e606&amp;hl=en&amp;ie=UTF8&amp;ll=31.360062,75.552973&amp;spn=0,0&amp;t=m&amp;iwloc=0004cf0624d99ced51314&amp;output=embed"></iframe>-->
-                                </div>
+                                <div class="gmap" id="map_canvas"></div>
 							<!--//map-->
 						</article>
 					</section>
@@ -230,8 +282,15 @@ if($coun > 0){
 							</div>
                             
 							<dl class="chart">
-								<dt>Follower</dt>
+								
+                                
+                                <dt class="active">Follower</dt>
 								<dd ><span id="data-one" style="width:80%;"><?php echo $info->follower;?>&nbsp;&nbsp;&nbsp;</span></dd>
+                                
+                                
+                                
+                                
+                                
 								<dt class="active">Reviews</dt>
 								<dd><span id="data-two" style="width:60%;"><?php echo $info->reviews;?>&nbsp;&nbsp;&nbsp;</span></dd>
 								<dt class="active">Likes</dt>
@@ -314,5 +373,15 @@ if($coun > 0){
 				</aside>
 				<!--//sidebar-->
 			</div>
+            
+			<!--//column-->
+ 
 
+<?php Yii::app()->clientScript->registerScript('modelScript','$(document).ready(function(){
+	$.fn.modal.defaults={width:500,height:300};
+	$(".modal").modal({draggable:true});
+	$(".message").modal({position:{width:220,bottom:"0px",right:"0px"},shadow:false,showSpeed:1000,closeSpeed:1000,overlay:false,autoOpen:true,autoClose:5000,draggable:false,message:"Hello World, <br/> This is a test."});
 
+	});', CClientScript::POS_END);?>
+
+ 

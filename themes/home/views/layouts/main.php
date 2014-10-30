@@ -70,6 +70,8 @@
 	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/inner/jquery.prettyPhoto.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/inner/selectnav.js"></script>
 	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/inner/scripts.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl;?>/js/inner/jquery.modal.js"></script>
+
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$('dt').each(function() {
@@ -102,7 +104,7 @@
 		$(".three-fourth .one-fourth").height(maxHeight);	
 	});	
 	</script>
-	<script>selectnav('nav'); </script>
+	<script type="text/javascript">selectnav('nav'); </script>
 	
 	<script type="text/javascript">			
 		/* Template Styles-----------------------------------------------------------------------------------*/
