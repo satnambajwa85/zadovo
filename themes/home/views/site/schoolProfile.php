@@ -136,14 +136,22 @@ if($coun > 0){
 					<section id="reviews" class="tab-content">
 						<article>
 							<h1>Students Reviews and Score Breakdown</h1>
+                            
+                            <div class="score">
+								<span class="achieved">8 </span>
+								<span> / 10</span>
+								<p class="info">Based on <?php echo $info->reviews;?> reviews</p>
+								<p class="disclaimer">Student reviews are written by <strong>Users</strong> at this school.</p>
+							</div>
+                            
 							<dl class="chart">
-								<dt>Clean</dt>
-								<dd><span id="data-one" style="width:80%;"><?php echo $info->follower;?>&nbsp;&nbsp;&nbsp;</span></dd>
-								<dt>Comfort</dt>
+								<dt>Follower</dt>
+								<dd ><span id="data-one" style="width:80%;"><?php echo $info->follower;?>&nbsp;&nbsp;&nbsp;</span></dd>
+								<dt class="active">Reviews</dt>
 								<dd><span id="data-two" style="width:60%;"><?php echo $info->reviews;?>&nbsp;&nbsp;&nbsp;</span></dd>
-								<dt>Location</dt>
+								<dt class="active">Likes</dt>
 								<dd><span id="data-three" style="width:80%;"><?php echo $info->likes;?>&nbsp;&nbsp;&nbsp;</span></dd>
-								<dt>Staff</dt>
+								<dt class="active">Want To Join</dt>
 								<dd><span id="data-four" style="width:100%;"><?php echo $info->want_to_join;?>&nbsp;&nbsp;&nbsp;</span></dd>
 							</dl>
 						</article>
