@@ -21,7 +21,8 @@ if($coun > 0){
 						<?php echo CHtml::link('<img width="850" height="531" src="'.Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/large/'.$info->logo.'" alt="'.$info->name.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
                         
                         <div class="black_strip">
-                        	<ul class="fl review-icon " style="float:right;">
+                        	<div class="b_left_s"><p>8/12</p><span>Average Rating by users</span></div>
+                        	<ul class="fl review-icon " style="float:right; margin-top:16px;">
 				<?php if(Yii::app()->user->id) { ?>
 				<li>
                 	<?php echo CHtml::ajaxLink('Like',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'like'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>					
@@ -61,16 +62,16 @@ if($coun > 0){
 				
 				<?php } else { ?>
                 <li>
-					<a href="#nothing" title="Please Login" class="message">Like</a>
+				<a href="#nothing" title="Please Login" class="message"><p class="like"> 21 Like</p></a>
 				</li>
 				<li>
-				<a href="#nothing" title="Please Login" class="message">Join</a>
+				<a href="#nothing" title="Please Login" class="message"><p class="join">120 Join</p></a>
                 </li>
 				<li>
-				<a href="#nothing" title="Please Login" class="message">Want to join</a>
+				<a href="#nothing" title="Please Login" class="message"><p class="like1"> 50 Want to join</p></a>
 				</li>
 				<li>
-				<a href="#nothing" title="Please Login" class="message">Write review</a>
+				<a href="#nothing" title="Please Login" class="message"><p class="comments_1">29 Write review</p> </a>
 
                 </li>
 				<?php } ?>
@@ -96,92 +97,14 @@ if($coun > 0){
                     	<article id="message" class="hide sucess_message">
                         
                         </article>
-                    	<!--<article>
-							<h1>Students Reviews and Score Breakdown</h1>
-                            
-                            <div class="score">
-								<span class="achieved">8 </span>
-								<span> / 10</span>
-								<p class="info">Based on <?php echo $info->reviews;?> reviews</p>
-								<p class="disclaimer">Student reviews are written by <strong>Users</strong> at this school.</p>
-							</div>
-                            
-                            <div>
-              <ul class="fl review-icon">
-				<?php if(Yii::app()->user->id) { ?>
-				<li>
-                	<?php echo CHtml::ajaxLink('Like',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'like'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>					
-				</li>
-				<li>
-					<?php echo CHtml::ajaxLink('Join',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>                   
-				</li>				
-				<li>
-					<?php echo CHtml::ajaxLink('Want To Join',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>
-                </li>
-				<li>
-				<a href="#modal_text" title="Write your review" class="modal">Write review</a>
-                <div id="modal_text">
-
-<h1 class="comment">write your review</h1>
-<?php $review =	new UserReviews; $form=$this->beginWidget('CActiveForm', array(	
-                    'id'=>'user-search-form',
-                    'action'=>Yii::app()->createUrl('/user/reviews'),
-                    'method'=>'POST',));?>
-    <?php echo $form->hiddenField($info,'id'); ?>	
-    <?php echo $form->hiddenField($review,'sName',array('value'=>''.$info->name.'')); ?>
-    <?php echo $form->hiddenField($review,'sAddress',array('value'=>''.$info->address1.'')); ?>
-    <?php echo $form->hiddenField($review,'simg',array('value'=>''.$info->logo.'')); ?>
-<div class="col-md-12 clear">
-    
-    <?php echo $form->textArea($review,'reviews',array('class'=>'form-control')); ?>
-    
-    <?php echo $form->error($review,'reviews'); ?>
-    <div>&nbsp;</div>
-    <?php echo CHtml::submitButton('SUBMIT',array('class'=>'btn btn-danger fr mr15')); ?>
-
-</div>
-<?php $this->endWidget();?>
-
-</div>
-                </li>
-				
-				<?php } else { ?>
-				<li>
-					<a href="#nothing" title="Please Login" class="message">Like</a>
-				</li>
-				<li>
-				<a href="#nothing" title="Please Login" class="message">Join</a>
-                </li>
-				<li>
-				<a href="#nothing" title="Please Login" class="message">Want to join</a>
-				</li>
-				<li>
-				<a href="#nothing" title="Please Login" class="message">Write review</a>
-
-                </li>
-				<?php } ?>
-				
-			</ul>
-                            </div>
-							<dl class="chart">
-								<dt>Follower</dt>
-								<dd ><span id="data-one" style="width:80%;"><?php echo $info->follower;?>&nbsp;&nbsp;&nbsp;</span></dd>
-								<dt class="active">Reviews</dt>
-								<dd><span id="data-two" style="width:60%;"><?php echo $info->reviews;?>&nbsp;&nbsp;&nbsp;</span></dd>
-								<dt class="active">Likes</dt>
-								<dd><span id="data-three" style="width:80%;"><?php echo $info->likes;?>&nbsp;&nbsp;&nbsp;</span></dd>
-								<dt class="active">Want To Join</dt>
-								<dd><span id="data-four" style="width:100%;"><?php echo $info->want_to_join;?>&nbsp;&nbsp;&nbsp;</span></dd>
-							</dl>
-						
-                        
-                        
-                        
-                        </article>-->
+                    	
                         
                     
                     
-                    <?php $rating	=	Rating::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'schools_profile_id'=>$info->id));?>
+					<?php if(Yii::app()->user->id) { 
+					$rating	=	Rating::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'schools_profile_id'=>$info->id));
+					}
+					?>
 						<article style="position:relative;" >
                         	<div style="position:absolute;right:20px;">
                         	<div class="basic" data-average="<?php echo (isset($rating->title))?($rating->title*2):'0';?>" data-id="1"></div>
