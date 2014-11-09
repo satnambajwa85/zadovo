@@ -37,11 +37,9 @@
 						</div>
 						
 						<div class="deals clearfix">
-                        
-                        
 						       <?php $this->widget('zii.widgets.CListView', array(
 									'dataProvider'=>$fech_result,
-									'itemView'=>'_school',
+									'itemView'=>'_course',
 									'id'=>'featured_company', 
 									'htmlOptions'=>array('class'=>'col-md-12','style'=>'min-width:300px;'),
 									'ajaxUpdate'=>true, 
@@ -55,24 +53,6 @@
 										'nextPageLabel'=>'Next »',
 										),
 								)); ?>
-							<!--
-							<div class="bottom-nav">
-								<a href="#" class="scroll-to-top" title="Back up">Back up</a> 
-								<div class="pager">
-									<span><a href="#">First page</a></span>
-									<span><a href="#">&lt;</a></span>
-									<span class="current">1</span>
-									<span><a href="#">2</a></span>
-									<span><a href="#">3</a></span>
-									<span><a href="#">4</a></span>
-									<span><a href="#">5</a></span>
-									<span><a href="#">6</a></span>
-									<span><a href="#">7</a></span>
-									<span><a href="#">8</a></span>
-									<span><a href="#">&gt;</a></span>
-									<span><a href="#">Last page</a></span>
-								</div>
-							</div>-->
 						</div>
 					</section>
 				<!--//three-fourth content-->

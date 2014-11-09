@@ -25,16 +25,16 @@ if($coun > 0){
                         	<ul class="fl review-icon " style="float:right; margin-top:16px;">
 				<?php if(Yii::app()->user->id) { ?>
 				<li>
-                	<?php echo CHtml::ajaxLink('<p class="like">Like<p>',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'like'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>					
+                	<?php echo CHtml::ajaxLink('Like',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'like'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>					
 				</li>
 				<li>
-					<?php echo CHtml::ajaxLink('<p class="join">Join</p>',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>                   
+					<?php echo CHtml::ajaxLink('Join',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>                   
 				</li>				
 				<li>
-					<?php echo CHtml::ajaxLink('<p class="like1">Want To Join</p>',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>
+					<?php echo CHtml::ajaxLink('Want To Join',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>
                 </li>
 				<li>
-				<a href="#modal_text" title="Write your review" class="modal"><p class="comments_1">Write review</p></a>
+				<a href="#modal_text" title="Write your review" class="modal">Write review</a>
                 <div id="modal_text">
 
 <h1 class="comment">write your review</h1>
@@ -241,16 +241,7 @@ if($coun > 0){
 							<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/users/thumb/'.$data->userProfiles->image.'" width="70" height="70" />',array('/site/profile','id'=>$data->userProfiles->id),array('class'=>'fl'));?>
 							<?php	} ?>
                             </figure>
-							<address><span>
-							 <?php if(Yii::app()->user->id && Yii::app()->user->profileId	==	$data->userProfiles->id) {	?>
-							<?php echo CHtml::link($data->userProfiles->first_name.' '.$data->userProfiles->last_name,array('/user/userProfile'))?>
-                            <?php	} else { ?>
-							<?php echo CHtml::link($data->userProfiles->first_name.' '.$data->userProfiles->last_name,array('/site/profile','id'=>$data->userProfiles->id))?>
-							<?php	} ?>
-                            
-                            
-							
-							
+							<address><span><?php echo CHtml::link($data->userProfiles->first_name.' '.$data->userProfiles->last_name,array('/user/userProfile'))?>
                             </span><br /><?php echo $data->userProfiles->cities->name?></address>
 						            <div class="pro"><p><?php echo $data->reviews; ?></p></div>
 									<!--<div class="con"><p>noisy neigbourghs spoilt the rather calm environment</p></div>-->

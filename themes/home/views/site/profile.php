@@ -31,7 +31,6 @@
                                             <span class="first ex_width">Reviews:</span>
                                             <span class="second"><?php echo $info->reviews;?></span>
                                         </div>
-                                        <a title="Book" class="gradient-button" href="booking-step1.html">Book</a>
                                     </div>
                                     <div class="more-information" style="display: none;">
                                         <p>Stylish and individually designed room featuring a satellite TV, mini bar and a 24-hour room service menu.</p>

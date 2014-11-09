@@ -281,7 +281,7 @@ Search careers with key words
 <p class="blocktopfont">
 Enter the keywords that describe your dream career and we'll help you find the right path.:
 </p>
-<div class="separator" style="padding-top:25px;"><input type="text" lang="en" autocomplete="off" size="10" class="gsc-input" name="search" title="search" style="width: 100%; padding: 5px; border: medium none; margin: 0px; height: auto; outline: medium none; color:#666;" ></div>
+<div class="separator"><input type="text" lang="en" autocomplete="off" size="10" class="gsc-input" name="search" title="search" style="width: 100%; padding: 5px; border: medium none; margin: 0px; height: auto; outline: medium none; color:#666;" ></div>
 
 </div>
 <div style="clear:both;"></div>

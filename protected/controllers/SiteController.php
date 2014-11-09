@@ -258,6 +258,59 @@ class SiteController extends Controller
 		
 		$this->render('search',array('fech_result'=>$dataProvider,'add'=>$add,'count'=>$count,'cities'=>$cities,));
 	}
+	
+	public function actionCourses()
+	{	
+		$cities			=	Cities::model()->findAllByAttributes(array('published'=>1,'status'=>1));
+		foreach($cities as $citiesId){
+				$cId[]	=	$citiesId->id;
+		}
+		
+		$add			=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
+		$criteria1 		= new CDbCriteria;
+		$qterm			=	'';
+		$baseCondidtion = 't.status = 1 ';
+		if(!empty($_REQUEST['term'])){ 
+			
+			$qterm	=(isset($_REQUEST['term']))?'%'.$_REQUEST['term'].'%':'%%';
+			$criteria1->condition = '(name  Like :qterm OR address1   Like :qterm)';
+			$criteria1->params = array(':qterm'=>$qterm);
+			$models	=	 SchoolsProfile::model()->findAll($criteria1);
+			$count	=	count($models);
+			$dataProvider=new CActiveDataProvider('SchoolsProfile', array(
+								'criteria'=>$criteria1,
+								'pagination'=>array(
+									'pageSize'=>10,
+								),
+							));
+		
+			}
+		elseif(!empty($_GET['cities_id'])){ 
+			
+			$baseCondidtion .= ' AND career.career_id='.$_GET['cities_id'];
+			$city	=	Career::model()->findByPk($_GET['cities_id']);
+			Yii::app()->session['cities_id']	=	$city->name;
+			$dataProvider=new CActiveDataProvider('CareerOptions', array(
+										'criteria'=>array(
+										'join'=>'join career on career.id = t.career_id',
+										'condition'=>$baseCondidtion,),
+										'pagination'=>array(
+											'pageSize'=>10,
+										),
+									));
+			$count	=	count($dataProvider);
+		
+		}
+		else{
+			$qterm	='%%';
+			$criteria1->condition	=	'(title  Like :qterm) ';
+			$criteria1->params 		= array(':qterm'=>$qterm);
+			$models					=	CareerOptions::model()->findAll($criteria1);
+			$count					=	count($models);
+			$dataProvider			=	new CActiveDataProvider('CareerOptions',array('criteria'=>$criteria1,'pagination'=>array('pageSize'=>12,),));
+		}
+		$this->render('courses',array('fech_result'=>$dataProvider,'add'=>$add,'count'=>$count,'cities'=>$cities,));
+	}
 	public function actionProfile($id)
 	{	
 		$info		=  	UserProfiles::model()->findByPk($id);
@@ -641,7 +694,7 @@ class SiteController extends Controller
 				   
 				Yii::app()->user->setFlash('success','You are sucessfully logged in.');
 				if(Yii::app()->user->userType=='Administrator'){
-					$this->redirect(Yii::app()->createUrl('/admin/admin'));
+					$this->redirect(Yii::app()->createUrl('/admin/schoolsProfile/admin'));
 					
 				}
 				if(Yii::app()->user->userType=='school/college'){

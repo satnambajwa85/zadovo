@@ -50,11 +50,16 @@
 		<?php echo $form->error($model,'address'); ?>
 	</div>
 
-	<div class="row">
+    <div class="row">
 		<?php echo $form->labelEx($model,'image'); ?>
 		<?php echo $form->fileField($model,'image',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'image'); ?>
+		<?php if(isset($model->image)){ ?> 
+		<?php echo $form->hiddenField($model,'oldImage',array('value'=>$model->image)); ?>
+		<img width="100" height="100" src="<?php echo Yii::app()->request->baseUrl.'/uploads/users/thumb/'.$model->image;?>" alt="image"/>
+		<?php }?>
 	</div>
+    
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'postcode'); ?>

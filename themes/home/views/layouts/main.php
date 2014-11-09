@@ -23,7 +23,15 @@
 			<!--logo-->
 			<h1 class="logo"><?php echo CHtml::link('<img src="'.Yii::app()->theme->baseUrl.'/images/txt/logo.png" alt="Zadovo" />',array('/site'));?></h1>
 		</div>
-		
+		<div class="collapse navbar-collapse">
+						<div class="navbar-right">
+                        	<?php if(Yii::app()->user->id)
+									echo CHtml::link('Logout',array('/site/logout'),array('class'=>'btn btn-primary','id'=>'GoToDownload'));
+								else
+									echo CHtml::link('Sign In',array('/site/login'),array('class'=>'btn btn-primary','id'=>'GoToDownload'));
+							?>
+						</div>	
+					</div>
 		
 	</header>
 	<!--//header-->

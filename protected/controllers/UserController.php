@@ -229,44 +229,92 @@ class UserController extends Controller
 	$add		=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
 		
 		
-		$this->render('editProfile',array('info'=>$model,'sechools'=>$sechools,'schoolName'=>$schoolName,'add'=>$add,'fech_result'=>$dataProvider,'log'=>$log,'count'=>$count));
+		$this->render('editProfile1',array('info'=>$model,'sechools'=>$sechools,'schoolName'=>$schoolName,'add'=>$add,'fech_result'=>$dataProvider,'log'=>$log,'count'=>$count));
 	}		
 	
 	public function actionUpload()
-	{   
-		$img		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+	{
+		$img			=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+		$oldImg			=	$img->image;
+		
 		$targetFolder1	=	Yii::app()->baseUrl.'/uploads/users/thumb/'.$img->image.'';
-		@unlink($targetFolder1);
-		$path	=	Yii::app()->baseUrl.'/uploads/users/thumb/';
+		//@unlink($targetFolder1);
+		//$path	=	Yii::app()->baseUrl.'/uploads/users/';
 		Yii::import("ext.EAjaxUpload.qqFileUploader");
-        $folder='uploads/users/thumb/';// folder for uploaded files
+		$folder='uploads/users/';// folder for uploaded files
         $allowedExtensions = array("jpg");//array("jpg","jpeg","gif","exe","mov" and etc...
         $sizeLimit = 2 * 1024 * 1024;// maximum file size in bytes
         $minSizeLimit = 0 * 1024 * 1024;// maximum file size in bytes
         $uploader = new qqFileUploader($allowedExtensions, $sizeLimit, $minSizeLimit);
         $result = $uploader->handleUpload($folder);
-        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
-        $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
+        //$return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+        $fileSize=filesize($folder.$result['filename']);
         $fileName=$result['filename'];//GETTING FILE NAME\
-			$model	=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
-			$model->image	=$fileName;
-			if($model->save()){
-					$log					=	new UserLog;
-					$log->name				=	Yii::app()->user->userName;
-					$log->description		=	'UPDATED user profile picture';
-					$log->image				=	$path.$fileName;
-					
-				 	$log->login_id			=	Yii::app()->user->userId;
-					$log->add_date			=	date('Y:m:d H:i:s');
-					
-				if($log->save()){
-				 
-					Yii::app()->user->setFlash('image','Your have changed your profile image');
-				}
-				
-				
+
+		
+		
+		$targetFolder = Yii::app()->request->baseUrl.'/uploads/users/';
+		$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/users/';
+		
+		$tempFile = $result['filename'];
+		$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+		$targetFile = $targetPath.'/'.$result['filename'];
+		$pat = $targetFile;
+						//move_uploaded_file($tempFile,$targetFile);
+		$absoPath = $pat;
+						
+		$newName = time();
+		$img = Yii::app()->imagemod->load($pat);
+		# ORIGINAL
+		$img->file_max_size = 5000000; // 5 MB
+		$img->file_new_name_body = $newName;
+		$img->process('uploads/users/original/');
+		$img->processed;
+		#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+		if ($img->processed) {
+			#THUMB Image
+			$img->image_resize      = true;
+			$img->image_x         	= 850;
+			$img->image_y           = 530;
+			$img->file_new_name_body = $newName;
+			$img->process('uploads/users/large/');
+			
+			#STHUMB Image
+			$img->image_resize      = true;
+			$img->image_x         	= 270;
+			$img->image_y           = 155;
+			$img->file_new_name_body = $newName;
+			$img->process('uploads/users/thumb/');
+		
+			$fileName	=	$img->file_dst_name;
+			$img->clean();
+		
+		}
+		if($oldImg!=''){
+			@unlink($targetFolder1.'original/'.$oldImg);
+			@unlink($targetFolder1.'large/'.$oldImg);
+			@unlink($targetFolder1.'thumb/'.$oldImg);
+		}
+		
+		
+		$model			=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+		$model->image	=	$fileName;
+		if($model->save()){
+			$log					=	new UserLog;
+			$log->name				=	Yii::app()->user->userName;
+			$log->description		=	'UPDATED user profile picture';
+			$log->image				=	Yii::app()->baseUrl.'/uploads/users/thumb/'.$fileName;
+			$log->login_id			=	Yii::app()->user->userId;
+			$log->add_date			=	date('Y:m:d H:i:s');
+			if($log->save()){
+				Yii::app()->user->setFlash('image','Your have changed your profile image');
 			}
-		 echo $return;// it's array
+			$result['success']	=	true;
+			$result['filename']	=	$fileName;
+			
+			$return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+			echo $return;
+		}
 	}
      
 	public function actionDelete($id,$action)

@@ -69,6 +69,46 @@ class UserProfilesController extends Controller
 		if(isset($_POST['UserProfiles']))
 		{
 			$model->attributes=$_POST['UserProfiles'];
+			
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/users/';
+			if (!empty($_FILES['UserProfiles']['name']['image'])) {
+				$tempFile = $_FILES['UserProfiles']['tmp_name']['image'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['UserProfiles']['name']['image'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/users/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_x         	= 850;
+					$img->image_y           = 530;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/users/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_x         	= 270;
+					$img->image_y           = 155;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/users/thumb/');
+			 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->image	=	$fileName;
+			}
+			
+			
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -93,6 +133,54 @@ class UserProfilesController extends Controller
 		if(isset($_POST['UserProfiles']))
 		{
 			$model->attributes=$_POST['UserProfiles'];
+			
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/users/';
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/users/';
+			if (!empty($_FILES['UserProfiles']['name']['image'])) {
+				$tempFile = $_FILES['UserProfiles']['tmp_name']['image'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['UserProfiles']['name']['image'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/users/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_x         	= 850;
+					$img->image_y           = 530;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/users/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_x         	= 270;
+					$img->image_y           = 155;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/users/thumb/');
+			 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->image	=	$fileName;
+				if($_POST['UserProfiles']['oldImage']!=''){
+					@unlink($targetFolder1.'original/'.$_POST['UserProfiles']['oldImage']);
+					@unlink($targetFolder1.'large/'.$_POST['UserProfiles']['oldImage']);
+					@unlink($targetFolder1.'thumb/'.$_POST['UserProfiles']['oldImage']);
+				}
+			}
+			else{
+				$oldImage		=	$_POST['UserProfiles']['oldImage'];
+				$model->image	=	$oldImage;
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

@@ -120,10 +120,6 @@ class SchoolsProfileController extends Controller
 					}
 					if($model->save())
 						$this->redirect(array('view','id'=>$model->id));
-					else{
-					CVarDumper::dump($model,10,1);	
-					die;
-						}	
 				}
 			}
 			else{

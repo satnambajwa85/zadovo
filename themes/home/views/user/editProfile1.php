@@ -1,23 +1,18 @@
 <div class="content clearfix">
-<div class="gray">
-<?php if(Yii::app()->user->hasFlash('error')):?>
-				<div class="flash-error">
-					<?php echo Yii::app()->user->getFlash('error'); ?>
-				</div>
-				<?php endif; ?>
+				<!--breadcrumbs-->
 				
-				<?php if(Yii::app()->user->hasFlash('success')):?>
-				<div class="flash-success">
-					<?php echo Yii::app()->user->getFlash('success'); ?>
-				</div>
-				<?php endif; ?>
-				
-<section class="container theme-showcase">
-		<div class="row mt24">
-		 		<div class="fl updat-img">
-					<?php $path =	Yii::app()->request->baseUrl.'/uploads/users/thumb/';?>
-						<img width="119px" height="131px" src="<?php echo $path.$info->image;?>" alt="image"/>
-					<div class="edit-photo">
+				<!--//breadcrumbs-->
+
+				<!--hotel three-fourth content-->
+				<section class="three-fourth">
+					<!--gallery-->
+					<article class="static-content post-comment">
+                        <ul class="room-types">
+                                <!--room-->
+                                <li>
+                                	<?php $path =	Yii::app()->request->baseUrl.'/uploads/users/thumb/';?>
+                                    <span class="left"><img width="270" height="152" alt="" src="<?php echo Yii::app()->request->baseUrl.'/uploads/users/thumb/'.$info->image;?>">
+                                    <div class="edit-photo">
 					<?php $this->widget('ext.EAjaxUpload.EAjaxUpload',
 							array(
 									'id'=>'uploadFile',								
@@ -32,50 +27,60 @@
 						
 					
 					</div>
-		 
-	
-				</div>
-			<div class="col-md-8">
-				<div class="user-info">
-							<h1><?php echo Yii::app()->user->userName;?></h1>
-							<p><?php echo $info->gender;?>&nbsp;,<?php echo (date('Y-m-d'))-($info->date_of_birth);?> year old</p>
-							<?php if(!empty($schoolName)){ ?>
-							<h3><?php echo $schoolName->name; ?></h3>
-							<?php } else { ?>
-							<?php echo CHtml::link('<h3>Search school and join.</h3>',array('/site/search'));?>
-							<?php } ?>
-							<div class="user-bref">
-							<ul>
-								<li><?php echo CHtml::link('<span>'.$count.'</span>','#')?><p>Friends</p></li>
-								<li><?php echo CHtml::link('<span>0</span>','#')?><p>Followers</p></li>
-								<li><?php echo CHtml::link('<span>'.$info->reviews.'</span>','#')?><p>Reviews</p></li>
-							</ul>
+                                    
+                                    </span>
+                                    <div class="meta">
+                                        <h1><?php echo $info->first_name.' '.$info->last_name;?></h1>
+                                        <p><?php echo $info->gender;?>,&nbsp;<?php echo (date('Y-m-d'))-($info->date_of_birth);?> year old</p>
+                                        
+                                        <a class="more-info" title="more info" href="javascript:void(0)">+ more info</a>
+                                    </div>
+                                    <div class="room-information">
+                                        <div class="row">
+                                            <span class="first ex_width">Friends:</span>
+                                            <span class="second"><?php echo $count;?></span>
+                                        
+                                        </div>
+                                        <div class="row">
+                                            <span class="first ex_width">Followers:</span>
+                                            <span class="second "><?php echo $info->reviews;?></span>
+                                        </div>
+                                        <div class="row">
+                                            <span class="first ex_width">Reviews:</span>
+                                            <span class="second"><?php echo $info->reviews;?></span>
+                                        </div>
+                                    </div>
+                                    <div class="more-information" style="display: none;">
+                                        <p>Stylish and individually designed room featuring a satellite TV, mini bar and a 24-hour room service menu.</p>
+                                        <p><strong>Room Facilities:</strong> Safety Deposit Box, Air Conditioning, Desk, Ironing Facilities, Seating Area, Heating, Shower, Bath, Hairdryer, Toilet, Bathroom, Pay-per-view Channels, TV, Telephone</p>
+                                        <p><strong>Bed Size(s):</strong> 1 Double </p>
+                                        <p><strong>Room Size:</strong>  16 square metres</p>
+                                    </div>
+                                </li>
+                                <!--//room-->
+                                
+                                
+                            </ul>
+                            
+                        </article>
+                    <!--//post-->
+                    
+				
+					<!--inner navigation-->
+					<nav class="inner-nav">
+						<ul>
 							
-							</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
-<div class="clear"></div>
-<div class="white">
-	<section class="container theme-showcase">
-		<div class="row">
-		  <div class="col-md-12">
-			<div class="profile-bar">
-			<ul class="tabs"><li rel="tab1">PROFILE INFO</li></ul>
-			<ul class="tabs"><li rel="tab2">SET PASSWORD</li></ul>
-			<ul class="tabs"><li rel="tab3">friends</li></ul>
-			<ul class="tabs"><li rel="tab4">reviews</li></ul>
-			 
-		</div>
-		  </div>
-		  
-		</div>
-		<div class="row white mt21">
-		  <div class="col-md-8">
-				<div class="tab_container span8"> 
-			 <div id="tab1" class="tab_content"> 
+							<li class="description"><a href="#description" title="Description">Profile info</a></li>
+							<li class="location"><a href="#activity" title="Location">Recent Activity</a></li>
+							<li class="things-to-do"><a href="#friends" title="Things to do">Friends</a></li>
+                            <li class="reviews"><a href="#reviews" title="Reviews">Reviews</a></li>
+							
+						</ul>
+					</nav>
+					<!--//inner navigation-->
+					<!--description-->
+					<section id="description" class="tab-content">
+						<article>
 				<?php $form=$this->beginWidget('CActiveForm', array(
 									'id'=>'user-pofile-form',
 									'enableClientValidation'=>false,
@@ -182,9 +187,15 @@
 							<?php echo CHtml::submitButton('UPDATE',array('class'=>'btn btn-danger')); ?>	
 						</div>
 					<?php $this->endWidget(); ?>
-		 	 </div><!-- #tab1 -->
-			 <div id="tab2" class="tab_content"> 
-				<?php $model = new Changepassword;
+		 				</article>
+					</section>
+					<!--//description-->
+					
+					<!--facilities-->
+					<section id="activity" class="tab-content">
+						<article>
+							
+                            <?php $model = new Changepassword;
 						$form=$this->beginWidget('CActiveForm', array(
 						'id'=>'Change-password',
 						'action'=>Yii::app()->createUrl('/user/ChangePassword'),
@@ -221,11 +232,26 @@
 				
 				</div>
 				<?php $this->endWidget(); ?>
-				  			
-	 		 </div><!-- #tab1 -->
-			 <div id="tab3" class="tab_content"> 
-				<aside class="col-md-12">
-					<?php $form=$this->beginWidget('CActiveForm', array(	
+						</article>
+					</section>
+					<!--//facilities-->
+					
+				
+					<!--reviews-->
+					<section id="reviews" class="tab-content">
+						<article>
+						
+                        
+                        
+						</article>
+					</section>
+					<!--//reviews-->
+					
+					<!--things to do-->
+					<section id="friends" class="tab-content">
+						<article>
+							
+                         <?php $form=$this->beginWidget('CActiveForm', array(	
 											'id'=>'user-search-form',
 											'action'=>Yii::app()->createUrl('/user/userProfile'),
 											'method'=>'POST',));?>
@@ -280,32 +306,36 @@
 						)); ?>
 						<?php } ?>
 					</div>
-				</aside>
-			 </div><!-- #tab1 -->	
-			 <div id="tab4" class="tab_content">
-			 </div><!-- #tab1 -->	
-		 		
-		</div> <!-- .tab_container --> 
-	
-		  </div>
-			<div class="col-md-4">
-			 	 		 	
-					<div class="row">
-					<?php foreach($add as $list){ ?>
-					<div class="addver">
-						<img width="100%" height="200" src="<?php echo Yii::app()->baseUrl;?>/uploads/Advertisements/large/<?php echo $list->image ?>" alt="<?php echo $list->description;?>"/>
-					</div>
-					<?php } ?>
-					
-					
-				</div>
-   
-		
-			</div>
-		</div>
-		
+			
+</article>
 </section>
-</div>
-<div class="spacer27"></div>
-
-</div>
+				</section>
+				<!--sidebar-->
+				<aside class="right-sidebar">
+					<!--Need Help Booking?-->
+					<article class="default clearfix">
+						<h2>Need Help?</h2>
+						<p>Call our customer services team on the number below to speak to one of our advisors who will help you with school selection.</p>
+						<p class="number">1- 555 - 555 - 555</p>
+					</article>
+					<!--//Need Help Booking?-->
+					
+					<!--Deal of the day-->
+					<?php foreach($add as $list){ ?>
+					<article class="default clearfix">
+						<h2><?php //echo $list->title; ?></h2>
+						<div class="deal-of-the-day">
+							<a href="<?php echo $list->link; ?>" target="_blank">
+								<figure><img src="<?php echo Yii::app()->baseUrl;?>/uploads/addvertise/large/<?php echo $list->image ?>" alt="<?php echo $list->description;?>" width="230" height="130" /></figure>
+								<h3><?php echo $list->advertiseCategories->name;?></h3>
+								<p><span class="price"> <small><?php echo $list->description;?></small></span></p>
+							</a>
+						</div>
+					</article>
+					
+					<?php } ?>
+                    
+					<!--//Deal of the day-->
+				</aside>
+				<!--//sidebar-->
+</div>			

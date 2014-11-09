@@ -43,7 +43,7 @@ $('.search-form form').submit(function(){
 		'first_name',
 		'last_name',
 		'email',
-		'age',
+		//'age',
 		'gender',
 		/*
 		'address',

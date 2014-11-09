@@ -22,7 +22,7 @@ $this->menu=array(
 		'first_name',
 		'last_name',
 		'email',
-		'age',
+		//'age',
 		'gender',
 		'address',
 		'image',
