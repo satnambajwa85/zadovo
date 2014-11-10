@@ -270,26 +270,27 @@ if($coun > 0){
                         	<div>
 <?php $form=$this->beginWidget('CActiveForm', array('id'=>'blog-form','enableAjaxValidation'=>false,'htmlOptions'=>array('enctype'=>'multipart/form-data'),)); ?>
 	<?php echo $form->errorSummary($model); ?>
-	<div class="row">
+	<div class="f-item active">
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
-
-	<div class="row">
+<div class="clear"></div>
+	<div class="f-item active">
 		<?php echo $form->labelEx($model,'description'); ?>
 		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'description'); ?>
 	</div>
-
-	<div class="row">
+	<div class="clear"></div>
+	<div class="f-item active mt10">
 		<?php echo $form->labelEx($model,'image'); ?>
         <?php echo $form->fileField($model,'image',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'image'); ?>
 	</div>
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+    <div class="clear"></div>
+	<p class="f-item active mt30">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'gradient-button')); ?>
+	</p>
 
 <?php $this->endWidget(); ?>
 
