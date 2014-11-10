@@ -42,6 +42,11 @@ $('.search-form form').submit(function(){
 		'id',
 		'user_name',
 		'password',
+		array(
+            'name'=>'Role',
+            'value'=>'$data->roles->name'
+        ),
+		//'',
 		'add_date',
 		'last_login',
 		'login_status',
@@ -49,7 +54,6 @@ $('.search-form form').submit(function(){
 		'block',
 		'activation',
 		'status',
-		'roles_id',
 		*/
 		array(
 			'class'=>'CButtonColumn',

@@ -465,28 +465,22 @@ class SiteController extends Controller
 					$findId->likes				=	$count+1;
 					$findId->phone				=	1;
 					$findId->term_conditions	=	1;
-					//echo	$findId->likes;die; 
 					if($findId->save()){
 						$findId		=	UserReviews::model()->findByPk($id);
 						$data		=	array('like'=>$findId->like,'disLike'=>$findId->dislike);
 						echo CJSON::encode ($data);die;
 					}
 				}
-					
 			}
 			else{
-				$response = array('ststus'=>'No','message'=>'You have already Liked ');
+				$response = array('status'=>'No','message'=>'You have already Liked ');
 				echo json_encode($response);die;
 			}
-			
-			
 		}
-		
 		if($action=='wantToJoin'){ 
 			$like						=	SchoolsProfileHasLogin::model()->findByAttributes(array('login_id'=>Yii::app()->user->userId,'schools_profile_id'=>$id));
 			if($like == NULL)
 				$like						=	new SchoolsProfileHasLogin;
-			
 			if(!$like->is_want_to_join ){
 				$like->is_want_to_join 		=	1;
 				$like->login_id				=	Yii::app()->user->userId;
@@ -498,7 +492,7 @@ class SiteController extends Controller
 					$findId->phone				=	1;
 					$findId->term_conditions	=	1;
 					if($findId->save()){
-						$response = array('ststus'=>'Yes','message'=>'You have successfully send request to school');
+						$response = array('status'=>'Yes','message'=>'You have successfully send request to school');
 						echo json_encode($response);die;
 					}
 				
@@ -581,7 +575,7 @@ class SiteController extends Controller
 				}
 			}
 			else{
-						$response = array('ststus'=>'No','message'=>'You have already Liked ');
+						$response = array('status'=>'No','message'=>'You have already Liked ');
 						echo CJSON::encode($response);die;
 
 			}
@@ -630,7 +624,7 @@ class SiteController extends Controller
 				}
 			}
 			else{
-						$response = array('ststus'=>'No','message'=>'You have already Disliked ');
+						$response = array('status'=>'No','message'=>'You have already Disliked ');
 						echo CJSON::encode($response);die;
 			}
  		}
