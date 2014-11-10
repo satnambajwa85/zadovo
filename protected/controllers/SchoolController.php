@@ -34,12 +34,13 @@ class SchoolController extends Controller
 	public function actionIndex()
 	{	
 	
-		$id					=	Yii::app()->user->userId;
-		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
-		$info				=	SchoolsProfile::model()->findByAttributes(array('login_id'=>$id));
-		$blog				=	Blog::model()->findAllbyAttributes(array('status'=>1,'published'=>1,'schools_profile_id'=>$info->id));
 		
-		$cat=0;
+		
+		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
+		$info				=	SchoolsProfile::model()->findByAttributes(array('login_id'=>Yii::app()->user->userId));
+		$id					=	$info->id;
+		$blog				=	Blog::model()->findAllbyAttributes(array('status'=>1,'published'=>1,'schools_profile_id'=>$info->id));
+		$cat				=	0;
 		$criteria			=	new CDbCriteria();
 		$criteria->condition=	'schools_profile_id='.$id;
 		$count				=	UserReviews::model()->count($criteria);
@@ -47,15 +48,26 @@ class SchoolController extends Controller
 		$pages				=	new CPagination($count);
 		$pages->pageSize	=	10;
 		$pages->applyLimit($criteria);
-		$fetchReview				=	UserReviews::model()->findAll($criteria);
+		$fetchReview		=	UserReviews::model()->findAll($criteria);
 		
 		$criteria				=	new CDbCriteria;
-		$criteria->condition	=	'is_joined = :frnd and schools_profile_id = :pid';
-		$criteria->params		=	array(':pid'=>$id,':frnd'=>'1');
+		$criteria->condition	=	'schools_profile_id = :pid';
+		$criteria->params		=	array(':pid'=>$id);
 		$friendList				=	SchoolsProfileHasLogin::model()->findAll($criteria);
 		$count					=	count($friendList);
 		$loginIds				=	'0,';
+		$likes			=	0;	
+		$join			=	0;	
+		$is_want_to_join=	0;	
+		
 		foreach($friendList as $friends){
+		
+			if($friends->is_want_to_join)
+				$is_want_to_join=$is_want_to_join+1;
+			if($friends->is_joined)
+				$join+=1;
+			if($friends->is_like)
+				$likes+=1;
 			$loginIds	.=	$friends->login_id.',';
 		}
 		$loginIds		=	substr($loginIds, 0, -1);
@@ -69,14 +81,62 @@ class SchoolController extends Controller
 		$criteria1->params = array(':qterm'=>$qterm);
 		$models	=	 UserProfiles::model()->findAll($criteria1);
 		$count	=	count($models);
-		$dataProvider=new CActiveDataProvider('UserProfiles', array(
-							'criteria'=>$criteria1,
-							'pagination'=>array(
-								'pageSize'=>10,
-							),
-						));
+		$dataProvider=new CActiveDataProvider('UserProfiles', array('criteria'=>$criteria1,'pagination'=>array('pageSize'=>10,),));
 		
-		$this->render('schoolProfile',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages));
+		
+		$model				=	new Blog;
+		if(isset($_POST['Blog']))
+		{
+			$model->attributes	=	$_POST['Blog'];
+			$model->add_date	=	date('Y-m-d H:i:s');
+			$model->status		=	1;
+			$model->published	=	1;
+			$model->schools_profile_id	=	$id;
+			$model->user_profiles_id	=	29;
+			$model->login_id	=	Yii::app()->user->userId;
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/blog/';
+			if (!empty($_FILES['Blog']['name']['image'])) {
+				$tempFile = $_FILES['Blog']['tmp_name']['image'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['Blog']['name']['image'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/blog/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_x         	= 850;
+					$img->image_y           = 530;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/blog/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_x         	= 270;
+					$img->image_y           = 155;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/blog/sthumb/');
+			 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->image	=	$fileName;
+			}
+			if($model->save())
+				$this->redirect(array('/school'));
+		}
+		
+		
+		$this->render('schoolProfile',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages,'likes'=>$likes,'join'=>$join,'want_to_join'=>$is_want_to_join,'model'=>$model));
 	 }
 	
 	public function actionSchoolRegister()

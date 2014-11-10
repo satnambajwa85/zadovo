@@ -70,13 +70,48 @@ class BlogController extends Controller
 		if(isset($_POST['Blog']))
 		{
 			$model->attributes=$_POST['Blog'];
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/blog/';
+			if (!empty($_FILES['Blog']['name']['image'])) {
+				$tempFile = $_FILES['Blog']['tmp_name']['image'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['Blog']['name']['image'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/blog/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_x         	= 850;
+					$img->image_y           = 530;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/blog/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_x         	= 270;
+					$img->image_y           = 155;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/blog/sthumb/');
+			 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->image	=	$fileName;
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		$this->render('create',array('model'=>$model,));
 	}
 
 	/**
@@ -94,6 +129,43 @@ class BlogController extends Controller
 		if(isset($_POST['Blog']))
 		{
 			$model->attributes=$_POST['Blog'];
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/blog/';
+			if (!empty($_FILES['Blog']['name']['image'])) {
+				$tempFile = $_FILES['Blog']['tmp_name']['image'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['Blog']['name']['image'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/blog/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_x         	= 850;
+					$img->image_y           = 530;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/blog/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_x         	= 270;
+					$img->image_y           = 155;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/blog/sthumb/');
+			 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->image	=	$fileName;
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

@@ -9,7 +9,7 @@ audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 h1 {font:normal 2.3em/1.2 'ChunkFiveRegular';color:#999;padding:24px 0 44px;-webkit-text-shadow:0 1px 0 rgba(238, 238, 238, 1);-moz-text-shadow:0 1px 0 rgba(238, 238, 238, 1);text-shadow:0 1px 0 rgba(238, 238, 238, 1);}
 h2 {font:normal 1.8em/1.2 'ChunkFiveRegular';color:#41AFAA;padding:0 0 13px;}
 h3 {font:normal 1.7em 'ChunkFiveRegular';color:#999;padding:0 0 17px;}
-h4 {font:normal 1.6em 'OpenSansSemibold';letter-spacing:-0.03em;padding:0 0 15px;}
+h4 {font:normal 1.6em 'ChunkFiveRegular';letter-spacing:-0.03em;padding:0 0 15px;}
 h5 {font:normal 1.5em 'OpenSansBold';letter-spacing:-0.1px;color:#3F3F3F;}
 h6 {font:normal 1.3em 'OpenSansSemibold';color:#333;}
 
@@ -251,8 +251,8 @@ header .ribbon 		{float:right;position:absolute;top:-1px;right:-2px;z-index:2;ba
 .deals .description  a 	{font-style:italic;color:#3FBFB8;font-family:'OpenSansSemibold';}
 
 .deals .full-width						{height:auto !important;}
-.deals .full-width figure  					{float:left;margin:0 2% 0 0;width:32%;}
-.deals .full-width .details				{float:left;width:64%;padding:15px 2% 0 0;}
+.deals .full-width figure  					{float:left;margin:0 2% 0 0;width:32%;padding:5px;}
+.deals .full-width .details				{float:left;width:62%;padding:15px 2% 0 0;}
 .deals .full-width  h1					{width:auto;max-width:74%;}
 .deals .full-width  .address				{width:auto;max-width:60%;clear:left;padding:0 25px 0 0;}
 .deals .full-width  .rating				{width:10%;float:left;}
@@ -609,9 +609,9 @@ div.radio span 		{background: url(../images/bgr/custom-form-elements.png) 0 0 no
 div.radio input 		{height: 20px;width:20px;padding:0;cursor:pointer;opacity:0;}
 div.radio .checked	{background-position:0 -21px;}
 
-div.selector			{width:100% !important;position:relative;border:1px solid #ccc;line-height:30px;height: 30px;margin:0;font:normal 1.2em 'OpenSansRegular';color:#999;background:#fff;-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;-webkit-box-shadow:0 1px 1px rgba(204, 204, 204, 1) inset, 0 1px 0 rgba(255,255,255,1);-moz-box-shadow:0 1px 1px rgba(204, 204, 204, 1) inset, 0 1px 0 rgba(255,255,255,1);box-shadow:0 1px 1px rgba(204, 204, 204, 1) inset, 0 1px 0 rgba(255,255,255,1);}
-div.selector span 	{display:inline-block;width:92%;line-height:31px;height: 30px;padding:0 4%;background:url(../images/ico/spinner.png) 97% 8px no-repeat;white-space:nowrap;}
-div.selector select 	{position:absolute;top: 10px;left: 0;font:normal 12px 'OpenSansRegular';color:#666;border:none;opacity:0;}
+div.selector			{width:98% !important;position:relative;border:1px solid #ccc;line-height:30px;height: 30px;margin:0;font:normal 1.2em 'OpenSansRegular';color:#999;background:#fff;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 1px 1px rgba(204, 204, 204, 1) inset, 0 1px 0 rgba(255,255,255,1);-moz-box-shadow:0 1px 1px rgba(204, 204, 204, 1) inset, 0 1px 0 rgba(255,255,255,1);box-shadow:0 1px 1px rgba(204, 204, 204, 1) inset, 0 1px 0 rgba(255,255,255,1);}
+div.selector span 	{display:inline-block;width:92% !important;line-height:31px;height: 30px;padding:0 4%;background:url(../images/ico/spinner.png) 97% 8px no-repeat;white-space:nowrap;}
+div.selector select 	{width:100% !important;position:absolute;top: 10px;left: 0;font:normal 12px 'OpenSansRegular';color:#666;border:none;opacity:0;}
 div.selector option	{font:normal 12px 'OpenSansRegular';color:#666;border:none;}
 
 div.checker			{height:16px;width:16px;float:left;}
@@ -1310,7 +1310,7 @@ opacity: .3;  /*Opera9.0+ã€Firefox1.5+ã€Safariã€Chrome*/backgroun
 .b_left_s p{font-size:28px;padding:0}
 .b_left_s span{font-size:11px;}
 .refine-search-results input {width:90%;}
-.refine-search-results dl dd{padding:20px 0;}
+.refine-search-results dl dd{padding:11px 0;}
 .refine-search-results .searchbtn {border-radius: 4px;width: 100px;padding: 11px;}
 .navbar-right {float: right;margin-top: 5px;}
 .btn {background: #fff;border-radius: 4px;border: none;font-weight: 400;font-size: 14px;line-height: 20px;color: #2e363e;}

@@ -9,9 +9,13 @@
                         <?php $form=$this->beginWidget('CActiveForm', array('id'=>'search-form','action'=>Yii::app()->createUrl('/site/search'),'method'=>'get',));?>
                 	<dl>
 							<dd>
+                          <h4>Search by City</h4>  
                          <?php echo CHtml::dropDownlist('cities_id',(isset($_REQUEST['cities_id']))?$_REQUEST['cities_id']:'',CHtml::listData(Cities::model()->findAll(),'id','name'),array('empty' => '--Select a city--','class'=>'subscribe'));?>
+                         
+                         
 							</dd>
 							<dd>
+                            <h4>Search by Name</h4>
                          	<?php echo CHtml::textField('term',(isset($_REQUEST['term']))?$_REQUEST['term']:'',array('class'=>'subscribe','placeholder'=>'Search by..'));?>
 							</dd>
 							<dd>

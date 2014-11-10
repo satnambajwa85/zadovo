@@ -459,7 +459,7 @@ input.subscribe::-webkit-input-placeholder {
   color: #fff;
 }
 
- select.subscribe{
+select.subscribe{
 	position:relative;
 	width:30%;
 	padding:12px 20px 15px 20px;
@@ -470,6 +470,11 @@ input.subscribe::-webkit-input-placeholder {
 	background:none;
 	border:4px solid #b4bac1;
 }
+select.subscribe option{
+	-webkit-appearance:none;
+	background:none;
+}
+
 select.subscribe:-moz-placeholder {
   color: #fff;
 }
@@ -479,7 +484,7 @@ select.subscribe::-moz-placeholder {
 }
 
 select.subscribe:-ms-input-placeholder {
-  color: #fff;
+	color: #fff;
 }
 
 select.subscribe::-webkit-input-placeholder {
@@ -1321,5 +1326,4 @@ a.openpanel:active{
 .homethreecontainers .blockcontainer{background-image:url("../images-mcg/dark-transparent.png");min-height:300px}
 .homethreecontainers .blocktopfont{font-size:14px;color:#fff}.homethreecontainers .blockbottomfont{font-size:12px;color:#fff}.homethreecontainers .headingbottomdots{position:relative;overflow:hidden;width:10px;height:40px;margin:0 auto 15px}.homethreecontainers .headingbottomimage{position:absolute;overflow:hidden;left:125px;bottom:0;width:34px;height:34px}.homethreecontainers .blockheading{position:relative;overflow:hidden;width:200px;height:60px;margin:15px auto;text-align:center;font-size:26px}
 .homethreecontainers .blocktopfont{font-size:14px;color:#fff}.homethreecontainers .blockbottomfont{font-size:12px;color:#fff}
-
-
+select option {background:#666 !important;}
