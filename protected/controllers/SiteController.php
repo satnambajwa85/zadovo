@@ -46,6 +46,8 @@ class SiteController extends Controller
 		{
 			
 			$model->attributes		=	$_POST['Register'];
+			
+			
 			$model->add_date		=	date('Y-m-d H:i:s');
 			$model->register_date	=	date('Y-m-d H:i:s');
 			$model->image			=	'noimage.jpg';
@@ -68,8 +70,6 @@ class SiteController extends Controller
 				if($user->save()){
 					$model->login_id	=	$user->id;
 					if($model->save()){
-						
-						
 						$body = $this->renderPartial('/mailtemplates/reg_mail_tpl',array('email'=>$_POST['Register']['email'],'password'=>$_POST['Register']['password']), true);
 						$to = $_POST['Register']['email'];
 						$headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -85,13 +85,18 @@ class SiteController extends Controller
 						die;
 					}
 					else {
-							
 						Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
-						 
+						$this->redirect(array('site/login'));
 						die;
 					}
+				}else{
+				CVarDumper::dump($user,10,1);
+				die;	
 				}
-			}
+			}else{
+				CVarDumper::dump($user,10,1);
+				die;	
+				}
 				
 
 		}
@@ -671,6 +676,7 @@ class SiteController extends Controller
 	public function actionLogin()
 	{	
 		$model=new LoginForm;
+		$model1	=	new	Register;
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
@@ -708,7 +714,57 @@ class SiteController extends Controller
 				Yii::app()->user->setFlash('login','Username or password not valid.');
 			}
 		}
-		$this->render('login',array('model'=>$model));
+		
+		
+		if(isset($_POST['Register']))
+		{
+			
+			$model1->attributes		=	$_POST['Register'];
+			$model1->user_name		=	$_POST['Register']['email'];
+			$model1->add_date		=	date('Y-m-d H:i:s');
+			$model1->register_date	=	date('Y-m-d H:i:s');
+			$model1->image			=	'noimage.jpg';
+			$model1->send_mail		=	1;
+			$user	 				=	new Login();
+			$user->user_name		=	$_POST['Register']['email'];
+			$user->password			=	md5($_POST['Register']['password']);
+			$user->block			=	1;
+			$user->activation		=	1;
+			$user->roles_id			=	2;
+			$model1->login_id		=	1;
+			$model1->states_id		=	1;
+			$model1->cities_id		=	1;
+			$valid					=	$model1->validate();
+			$valid					=	$user->validate() && $valid;
+			if($valid){
+				if($user->save()){
+					$model1->login_id	=	$user->id;
+					if($model1->save()){
+						$body = $this->renderPartial('/mailtemplates/reg_mail_tpl',array('email'=>$_POST['Register']['email'],'password'=>$_POST['Register']['password']), true);
+						$to = $_POST['Register']['email'];
+						$headers  = 'MIME-Version: 1.0' . "\r\n";
+						$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+						$headers .= "From: ".Yii::app()->params['adminEmail']."\r\nReply-To: ".Yii::app()->params['adminEmail'];  
+						$subject = "Account Details";
+						 
+						mail($to,$subject,$body,$headers);
+						$this->redirect(array('site/login'));
+						Yii::app()->user->setFlash('register','Check email .');
+						Yii::app()->user->setFlash('create','Thank you for join us.');
+						$this->redirect(array('site/login'));
+						die;
+					}
+					else {
+						Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
+						$this->redirect(array('site/login'));
+						die;
+					}
+				}
+			}
+				
+
+		}
+		$this->render('login',array('model'=>$model,'model1'=>$model1));
 	}
 	public function actionForgetPassword()
 	{	

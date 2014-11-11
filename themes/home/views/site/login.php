@@ -49,29 +49,53 @@
                 
                             	</div>
                                 
-                                <div class="one-half"  style="margin-right:0px; margin-left:20px; box-shadow:none;"  >
-                            	<form>
-					<h1>Register</h1>
-					<div class="f-item">
-						<label for="f_name">First Name</label>
-						<input type="text" name="f_name" id="f_name">
-					</div>
-					<div class="f-item">
-						<label for="l_name">Last name</label>
-						<input type="text" name="l_name" id="l_name">
-					</div>
-					<div class="f-item">
-						<label for="email">E-mail address</label>
-						<input type="email" name="email" id="email">
-					</div>
-					<div class="f-item">
-						<label for="password">Password</label>
-						<input type="password" name="password" id="password">
-					</div>
-					
-					
-					<input type="submit" class="gradient-button" value="Create Account" name="register" id="register">
-				</form>
+                                <div class="one-half"  style="margin-right:0px; margin-left:20px; box-shadow:none;">
+                          <?php $form=$this->beginWidget('CActiveForm',array('id'=>'sign-form2','htmlOptions'=>array(),'enableClientValidation'=>false));?>
+							  <div class="f-item">
+								<?php echo $form->labelEx($model1,'first_name'); ?>
+								<?php echo $form->textField($model1,'first_name',array('class'=>'form-control')); ?>
+								<?php echo $form->error($model1,'first_name'); ?>
+								
+							  </div>
+							  <div class="f-item">
+								<?php echo $form->labelEx($model1,'last_name'); ?>
+								<?php echo $form->textField($model1,'last_name',array('class'=>'form-control')); ?>
+								<?php echo $form->error($model1,'last_name'); ?>
+							  </div>
+							  <div class="f-item">
+								<?php echo $form->labelEx($model1,'date_of_birth'); ?>
+								<?php echo $form->textField($model1,'date_of_birth',array('class'=>'form-control')); ?>
+								<?php echo $form->error($model1,'date_of_birth'); ?>
+							 </div>
+							  
+							  <div class="f-item">
+								<?php echo $form->labelEx($model1,'email'); ?>
+								<?php echo $form->textField($model1,'email',array('class'=>'form-control')); ?>
+								<?php echo $form->error($model1,'email'); ?>
+							  </div>
+							  
+                              <div class="f-item">
+								<?php echo $form->labelEx($model1,'password'); ?>
+								<?php echo $form->passwordField($model1,'password',array('class'=>'form-control')); ?>
+								<?php echo $form->error($model1,'password'); ?>
+							 </div>
+                             
+							  <div class="f-item">
+								 <?php echo $form->labelEx($model1,'gender',array('class'=>'fl')); ?>
+									<?php echo $form->radioButtonlist($model1,'gender',array('Male'=>'Male','Female'=>'Female'),array('separator'=>'')); ?>
+									<?php echo $form->error($model1,'gender'); ?>
+							  </div>
+							  <div class="clear"></div>
+							  <div class="f-item">
+								<div class="fl"><?php echo $form->checkBox($model1,'term_conditions'); ?></div>
+								<div class="fl"><?php echo $form->labelEx($model1,'term_conditions'); ?></div>
+								<br/>
+								<?php echo $form->error($model1,'term_conditions'); ?>
+							  </div>
+							<div class="clear col-md-4"> 
+								<?php echo CHtml::submitButton('Create Account',array('class'=>'gradient-button','name'=>"register",'id'=>"register")); ?>
+							</div>
+						<?php $this->endWidget(); ?>
                             	</div>
                             </div>
 							
