@@ -82,10 +82,10 @@ class SchoolsProfileController extends Controller
 					$model->login_id	=	$login->id;
 					
 					$targetFolder = Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
-					if (!empty($_FILES['SchoolsProfile']['name']['logo'])) {
-						$tempFile = $_FILES['SchoolsProfile']['tmp_name']['logo'];
+					if (!empty($_FILES['SchoolsProfile']['name']['image'])) {
+						$tempFile = $_FILES['SchoolsProfile']['tmp_name']['image'];
 						$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-						$targetFile = $targetPath.'/'.$_FILES['SchoolsProfile']['name']['logo'];
+						$targetFile = $targetPath.'/'.$_FILES['SchoolsProfile']['name']['image'];
 						$pat = $targetFile;
 						move_uploaded_file($tempFile,$targetFile);
 						$absoPath = $pat;
@@ -116,16 +116,39 @@ class SchoolsProfileController extends Controller
 							$img->clean();
 			
 						}
-						$model->logo	=	$fileName;
+						$model->image	=	$fileName;
+					}
+					if (!empty($_FILES['SchoolsProfile']['name']['logo'])) {
+						$tempFile = $_FILES['SchoolsProfile']['tmp_name']['logo'];
+						$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+						$targetFile = $targetPath.'/'.$_FILES['SchoolsProfile']['name']['logo'];
+						$pat = $targetFile;
+						move_uploaded_file($tempFile,$targetFile);
+						$absoPath = $pat;
+						$newName = time();
+						$img = Yii::app()->imagemod->load($pat);
+						# ORIGINAL
+						$img->file_max_size = 5000000; // 5 MB
+						$img->file_new_name_body = $newName;
+						$img->process('uploads/SchoolsProfile/original/');
+						$img->processed;
+						#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+						if ($img->processed) {
+							#THUMB Image
+							$img->image_resize      = true;
+							$img->image_x         	= 270;
+							$img->image_y           = 155;
+							$img->file_new_name_body = $newName;
+							$img->process('uploads/SchoolsProfile/logo/');
+							$fileName1	=	$img->file_dst_name;
+							$img->clean();
+						}
+						$model->logo	=	$fileName1;
 					}
 					if($model->save())
 						$this->redirect(array('view','id'=>$model->id));
 				}
 			}
-			else{
-					CVarDumper::dump($login,10,1);	
-					die;
-						}	
 		}
 		$this->render('create',array(
 			'model'=>$model,
@@ -167,6 +190,41 @@ class SchoolsProfileController extends Controller
 				$img->processed;
 				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
+					#logo Image
+					$img->image_resize      = true;
+					$img->image_y         	= 115;
+					$img->image_x           = 150;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/SchoolsProfile/logo/');
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+				}
+				$model->logo	=	$fileName;
+				if($_POST['SchoolsProfile']['oldImage']!=''){
+					@unlink($targetFolder1.'logo/'.$_POST['SchoolsProfile']['oldImage']);
+				}
+			}
+			else{
+				$oldImage	=	$_POST['SchoolsProfile']['oldImage'];
+				$model->logo	=	$oldImage;
+			}
+			
+			if (!empty($_FILES['SchoolsProfile']['name']['image'])) {
+				$tempFile		=	$_FILES['SchoolsProfile']['tmp_name']['image'];
+				$targetPath		=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile		=	$targetPath.'/'.$_FILES['SchoolsProfile']['name']['image'];
+				$pat			=	$targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath		=	$pat;
+				$newName		=	time();
+				$img			=	Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/SchoolsProfile/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
 					#THUMB Image
 					$img->image_resize      =	true;
 					$img->image_x         	=	850;
@@ -182,16 +240,16 @@ class SchoolsProfileController extends Controller
 					$fileName	=	$img->file_dst_name;
 					$img->clean();
 				}
-				$model->logo	=	$fileName;
-				if($_POST['SchoolsProfile']['oldImage']!=''){
-					@unlink($targetFolder1.'original/'.$_POST['SchoolsProfile']['oldImage']);
-					@unlink($targetFolder1.'large/'.$_POST['SchoolsProfile']['oldImage']);
-					@unlink($targetFolder1.'sthumb/'.$_POST['SchoolsProfile']['oldImage']);
+				$model->image	=	$fileName;
+				if($_POST['SchoolsProfile']['oldImage1']!=''){
+					@unlink($targetFolder1.'original/'.$_POST['SchoolsProfile']['oldImage1']);
+					@unlink($targetFolder1.'large/'.$_POST['SchoolsProfile']['oldImage1']);
+					@unlink($targetFolder1.'sthumb/'.$_POST['SchoolsProfile']['oldImage1']);
 				}
 			}
 			else{
-				$oldImage	=	$_POST['SchoolsProfile']['oldImage'];
-				$model->logo	=	$oldImage;
+				$oldImage1		=	$_POST['SchoolsProfile']['oldImage1'];
+				$model->image	=	$oldImage1;
 			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));

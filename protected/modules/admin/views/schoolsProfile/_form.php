@@ -40,11 +40,19 @@
 		<?php echo $form->error($model,'logo'); ?>
 		<?php if(isset($model->logo)){ ?> 
 		<?php echo $form->hiddenField($model,'oldImage',array('value'=>$model->logo)); ?>
-		<img width="100" height="100" src="<?php echo Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/sthumb/'.$model->logo;?>" alt="image"/>
+		<img width="100" height="100" src="<?php echo Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/logo/'.$model->logo;?>" alt="image"/>
 		<?php }?>
 	</div>
     
-    
+    <div class="row">
+		<?php echo $form->labelEx($model,'image'); ?>
+		<?php echo $form->fileField($model,'image',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'image'); ?>
+		<?php if(isset($model->logo)){ ?> 
+		<?php echo $form->hiddenField($model,'oldImage1',array('value'=>$model->image)); ?>
+		<img width="100" height="100" src="<?php echo Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/sthumb/'.$model->image;?>" alt="image"/>
+		<?php }?>
+	</div>
     
 
 	<div class="row">
@@ -52,7 +60,19 @@
 		<?php echo $form->textArea($model,'about_school',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'about_school'); ?>
 	</div>
-
+    
+    <div class="row">
+		<?php echo $form->labelEx($model,'board'); ?>
+		<?php echo $form->textField($model,'board',array('size'=>12, 'maxlength'=>12)); ?>
+		<?php echo $form->error($model,'board'); ?>
+	</div>
+    
+    <div class="row">
+		<?php echo $form->labelEx($model,'principal'); ?>
+		<?php echo $form->textField($model,'principal',array('size'=>12, 'maxlength'=>12)); ?>
+		<?php echo $form->error($model,'principal'); ?>
+	</div>
+    
 	<div class="row">
 		<?php echo $form->labelEx($model,'telephone'); ?>
 		<?php echo $form->textField($model,'telephone',array('size'=>12,'maxlength'=>12)); ?>

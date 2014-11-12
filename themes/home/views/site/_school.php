@@ -1,6 +1,6 @@
 <?php  $path	=	Yii::app()->baseUrl.'/uploads/SchoolsProfile/sthumb/';?> 
 <article class="one-fourth">
-	<figure><?php echo Chtml::link('<img width="270" height="152" src="'.$path.$data->logo.'" alt="'.$data->name.'"/>',array('/site/schoolProfile','id'=>$data->id));?></figure>
+	<figure><?php echo Chtml::link('<img width="270" height="152" src="'.$path.$data->image.'" alt="'.$data->name.'"/>',array('/site/schoolProfile','id'=>$data->id));?></figure>
     <div class="details">
     <h1>
     <?php echo CHtml::link($data->name,array('/site/schoolProfile','id'=>$data->id),array('title'=>''.$data->name.''));?><span class="stars">

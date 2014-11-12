@@ -7,8 +7,12 @@
  * @property integer $id
  * @property string $name
  * @property string $logo
+ * @property string $image
  * @property string $about_school
+ * @property string $board
+ * @property string $principal
  * @property string $telephone
+ * @property string $phone
  * @property string $email
  * @property string $website
  * @property integer $cities_id
@@ -53,15 +57,16 @@ class SchoolsProfile extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('logo, about_school, telephone, email, website,password,cities_id, login_id, memberships_id', 'required'),
+			array('logo, about_school, telephone, email, website, cities_id, password, login_id, memberships_id', 'required'),
 			array('cities_id, likes, follower, want_to_join, reviews, activation, status, login_id, memberships_id', 'numerical', 'integerOnly'=>true),
-			array('name, email, website', 'length', 'max'=>100),
+			array('name, image, principal, email, website', 'length', 'max'=>100),
 			array('logo, address2', 'length', 'max'=>45),
+			array('board, phone', 'length', 'max'=>50),
 			array('telephone', 'length', 'max'=>12),
 			array('address1', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, logo, about_school, telephone, email, website, cities_id, address1, address2, likes, follower, want_to_join, reviews, activation, status, login_id, memberships_id', 'safe', 'on'=>'search'),
+			array('id, name, logo, image, about_school, board, principal, telephone, phone, email, website, cities_id, address1, address2, likes, follower, want_to_join, reviews, activation, status, login_id, memberships_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -93,8 +98,12 @@ class SchoolsProfile extends CActiveRecord
 			'id' => 'ID',
 			'name' => 'Name',
 			'logo' => 'Logo',
+			'image' => 'Image',
 			'about_school' => 'About School',
+			'board' => 'Board',
+			'principal' => 'Principal',
 			'telephone' => 'Telephone',
+			'phone' => 'Phone',
 			'email' => 'Email',
 			'website' => 'Website',
 			'cities_id' => 'Cities',
@@ -132,8 +141,12 @@ class SchoolsProfile extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('logo',$this->logo,true);
+		$criteria->compare('image',$this->image,true);
 		$criteria->compare('about_school',$this->about_school,true);
+		$criteria->compare('board',$this->board,true);
+		$criteria->compare('principal',$this->principal,true);
 		$criteria->compare('telephone',$this->telephone,true);
+		$criteria->compare('phone',$this->phone,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('website',$this->website,true);
 		$criteria->compare('cities_id',$this->cities_id);
