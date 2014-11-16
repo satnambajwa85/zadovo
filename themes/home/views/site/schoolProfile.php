@@ -29,13 +29,13 @@ if($coun > 0){
                         	<ul class="fl review-icon " style="float:right; margin-top:16px;">
 				<?php if(Yii::app()->user->id) { ?>
 				<li>
-                	<?php echo CHtml::ajaxLink('<p class="like">Like<p>',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'like'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>					
+                	<?php echo CHtml::ajaxLink('<p class="like">'.$likes.' Like<p>',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'like'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>					
 				</li>
 				<li>
-					<?php echo CHtml::ajaxLink('<p class="join">Join</p>',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>                   
+					<?php echo CHtml::ajaxLink('<p class="join">'.$join.' Join</p>',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'joined'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>                   
 				</li>				
 				<li>
-					<?php echo CHtml::ajaxLink('<p class="like1">Want To Join</p>',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>
+					<?php echo CHtml::ajaxLink('<p class="like1">'.$want_to_join.' Want To Join</p>',array('/site/schoolProfileEvent','id'=>Yii::app()->request->getQuery('id'),'action'=>'wantToJoin'),$ajaxOptions=array ('type'=>'POST','success'=>'function(response){var jsonObj = JSON.parse(response);jQuery("#message").html(jsonObj.message);jQuery("#message").removeClass("hide"); }'),$htmlOptions=array ());?>
                 </li>
 				<li>
 				<a href="#modal_text" title="Write your review" class="modal"><p class="comments_1">Write review</p></a>

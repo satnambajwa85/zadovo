@@ -33,9 +33,6 @@ class SchoolController extends Controller
 
 	public function actionIndex()
 	{	
-	
-		
-		
 		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
 		$info				=	SchoolsProfile::model()->findByAttributes(array('login_id'=>Yii::app()->user->userId));
 		$id					=	$info->id;
@@ -61,7 +58,6 @@ class SchoolController extends Controller
 		$is_want_to_join=	0;	
 		
 		foreach($friendList as $friends){
-		
 			if($friends->is_want_to_join)
 				$is_want_to_join=$is_want_to_join+1;
 			if($friends->is_joined)
@@ -70,6 +66,7 @@ class SchoolController extends Controller
 				$likes+=1;
 			$loginIds	.=	$friends->login_id.',';
 		}
+		
 		$loginIds		=	substr($loginIds, 0, -1);
 		$criteria1		=	new CDbCriteria;
 		$qterm			=	'';
@@ -136,7 +133,7 @@ class SchoolController extends Controller
 		}
 		
 		
-		$this->render('schoolProfile',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages,'likes'=>$likes,'join'=>$join,'want_to_join'=>$is_want_to_join,'model'=>$model));
+		$this->render('index',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages,'likes'=>$likes,'join'=>$join,'want_to_join'=>$is_want_to_join,'model'=>$model));
 	 }
 	
 	public function actionSchoolRegister()
@@ -219,6 +216,103 @@ class SchoolController extends Controller
 		}
 		
 		$this->render('schoolRegister',array('model'=>$model));
+	}
+	
+	public function actionEdit()
+	{
+		$model				=	SchoolsProfile::model()->findByAttributes(array('login_id'=>Yii::app()->user->userId));
+		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
+		
+		if(isset($_POST['SchoolsProfile']))
+		{
+			$model->attributes	=	$_POST['SchoolsProfile'];
+			$model->user_name	=	$model->login->user_name;
+			$model->password	=	$model->login->password;
+		
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
+			
+			if (!empty($_FILES['SchoolsProfile']['name']['logo'])) {
+				$tempFile		=	$_FILES['SchoolsProfile']['tmp_name']['logo'];
+				$targetPath		=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile		=	$targetPath.'/'.$_FILES['SchoolsProfile']['name']['logo'];
+				$pat			=	$targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath		=	$pat;
+				$newName		=	time();
+				$img			=	Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/SchoolsProfile/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#logo Image
+					$img->image_resize      = true;
+					$img->image_y         	= 115;
+					$img->image_x           = 150;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/SchoolsProfile/logo/');
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+				}
+				$model->logo	=	$fileName;
+				if($_POST['SchoolsProfile']['oldImage']!=''){
+					@unlink($targetFolder1.'logo/'.$_POST['SchoolsProfile']['oldImage']);
+				}
+			}
+			else{
+				$oldImage	=	$_POST['SchoolsProfile']['oldImage'];
+				$model->logo	=	$oldImage;
+			}
+			
+			if (!empty($_FILES['SchoolsProfile']['name']['image'])) {
+				$tempFile		=	$_FILES['SchoolsProfile']['tmp_name']['image'];
+				$targetPath		=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile		=	$targetPath.'/'.$_FILES['SchoolsProfile']['name']['image'];
+				$pat			=	$targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath		=	$pat;
+				$newName		=	time();
+				$img			=	Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/SchoolsProfile/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      =	true;
+					$img->image_x         	=	850;
+					$img->image_y           =	530;
+					$img->file_new_name_body=	$newName;
+					$img->process('uploads/SchoolsProfile/large/');
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 155;
+					$img->image_x           = 270;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/SchoolsProfile/sthumb/');
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+				}
+				$model->image	=	$fileName;
+				if($_POST['SchoolsProfile']['oldImage1']!=''){
+					@unlink($targetFolder1.'original/'.$_POST['SchoolsProfile']['oldImage1']);
+					@unlink($targetFolder1.'large/'.$_POST['SchoolsProfile']['oldImage1']);
+					@unlink($targetFolder1.'sthumb/'.$_POST['SchoolsProfile']['oldImage1']);
+				}
+			}
+			else{
+				$oldImage1		=	$_POST['SchoolsProfile']['oldImage1'];
+				$model->image	=	$oldImage1;
+			}
+			if($model->save())
+				$this->redirect(array('/school'));
+		}
+		$this->render('update',array('model'=>$model,'add'=>$add));
 	}
 	
 	public function actionProfile($id)

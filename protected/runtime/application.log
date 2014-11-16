@@ -179,3 +179,88 @@ in C:\wamp\www\zadovo\index.php (13)
 2014/11/16 08:20:50 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
 in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
 in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:32:33 [error] [php] Undefined variable: log (C:\wamp\www\zadovo\themes\home\views\school\profile.php:113)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): SchoolController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): SchoolController->renderPartial()
+#2 C:\wamp\www\zadovo\protected\controllers\SchoolController.php(231): SchoolController->render()
+#3 unknown(0): SchoolController->actionProfile()
+#4 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#5 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\wamp\www\framework\web\CController.php(287): SchoolController->runAction()
+#8 C:\wamp\www\framework\web\CController.php(266): SchoolController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(276): SchoolController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=school/profile&id=32
+in C:\wamp\www\zadovo\themes\home\views\school\profile.php (113)
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (231)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:46:49 [error] [php] Undefined variable: is_want_to_join (C:\wamp\www\zadovo\protected\controllers\SiteController.php:415)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#3 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#5 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site/schoolProfile&id=1
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (415)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 09:04:58 [error] [php] Undefined variable: add (C:\wamp\www\zadovo\themes\home\views\school\update.php:15)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): SchoolController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): SchoolController->renderPartial()
+#2 C:\wamp\www\zadovo\protected\controllers\SchoolController.php(310): SchoolController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SchoolController->actionEdit()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\CController.php(287): SchoolController->runAction()
+#6 C:\wamp\www\framework\web\CController.php(266): SchoolController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): SchoolController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=school/edit
+in C:\wamp\www\zadovo\themes\home\views\school\update.php (15)
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (310)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 09:48:02 [warning] [application] Failed to set unsafe attribute "user_name" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 09:48:02 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 09:48:02 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 09:49:37 [warning] [application] Failed to set unsafe attribute "user_name" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 09:49:37 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 09:49:37 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 10:02:17 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 10:02:17 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 10:09:37 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 10:09:37 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 10:09:56 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 10:09:56 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
+in C:\wamp\www\zadovo\index.php (13)

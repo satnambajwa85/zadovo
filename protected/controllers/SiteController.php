@@ -407,12 +407,23 @@ class SiteController extends Controller
 		$criteria = new CDbCriteria;
 		$criteria->condition = 'is_joined = :frnd and schools_profile_id = :pid';
 		$criteria->params = array(':pid'=>$id,':frnd'=>'1');
-		$friendList	=	SchoolsProfileHasLogin::model()->findAll($criteria);
-		$count =	count($friendList);
-		$loginIds = '0,';
+		$friendList		=	SchoolsProfileHasLogin::model()->findAll($criteria);
+		$count			=	count($friendList);
+		$loginIds		=	'0,';
+		$likes			=	0;	
+		$join			=	0;	
+		$is_want_to_join=	0;	
+		
 		foreach($friendList as $friends){
+			if($friends->is_want_to_join)
+				$is_want_to_join=$is_want_to_join+1;
+			if($friends->is_joined)
+				$join+=1;
+			if($friends->is_like)
+				$likes+=1;
 			$loginIds	.=	$friends->login_id.',';
 		}
+		
 		$loginIds	=substr($loginIds, 0, -1);
 		$criteria1 = new CDbCriteria;
 		$qterm		=	'';
@@ -444,7 +455,7 @@ class SiteController extends Controller
 							));
 			}
 		//$profile	=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
-		$this->render('schoolProfile',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages));
+		$this->render('schoolProfile',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'likes'=>$likes,'join'=>$join,'want_to_join'=>$is_want_to_join,'pages'=>$pages));
 	}
 	public function actionSchoolDataResponce($id)
 	{
@@ -675,7 +686,8 @@ class SiteController extends Controller
 	}
 	public function actionLogin()
 	{	
-		$model=new LoginForm;
+	
+		$model	=	new LoginForm;
 		$model1	=	new	Register;
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
@@ -683,7 +695,6 @@ class SiteController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-		
 		// collect user input data
 		if(isset($_POST['LoginForm']))
 		{
@@ -714,8 +725,6 @@ class SiteController extends Controller
 				Yii::app()->user->setFlash('login','Username or password not valid.');
 			}
 		}
-		
-		
 		if(isset($_POST['Register']))
 		{
 			

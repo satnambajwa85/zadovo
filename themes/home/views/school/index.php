@@ -111,7 +111,8 @@ if($coun > 0){
 					}
 					?>
 						<article style="position:relative;" >
-                        	<div style="position:absolute;right:20px;">
+                        	<div class="rate" style="position:absolute;right:20px;">
+                            <?php echo CHtml::link('Edit Profile',array('/school/edit'));?>
                         	<div class="basic" data-average="<?php echo (isset($rating->title))?($rating->title*2):'0';?>" data-id="1"></div>
 							</div>
                             <h1>General</h1>
