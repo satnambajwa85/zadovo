@@ -27,7 +27,12 @@
         
 						<div class="navbar-right">
                         	<?php if(Yii::app()->user->id){
-									echo CHtml::link('My Account',array('/school'),array('class'=>'btn btn-primary'));
+									if(Yii::app()->user->userType=='user')
+										echo CHtml::link('My Account',array('/user/userProfile'),array('class'=>'btn btn-primary'));
+									else
+										echo CHtml::link('My Account',array('/school'),array('class'=>'btn btn-primary'));
+									
+									
 									echo CHtml::link('Logout',array('/site/logout'),array('class'=>'btn btn-primary','id'=>'GoToDownload'));
 							}else
 									echo CHtml::link('Sign In',array('/site/login'),array('class'=>'btn btn-primary','id'=>'GoToDownload'));
