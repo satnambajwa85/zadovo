@@ -1,0 +1,181 @@
+2014/11/16 08:09:09 [error] [exception.CException] exception 'CException' with message 'Property "SchoolsProfile.image" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('image')
+#1 C:\wamp\www\zadovo\protected\models\SchoolsProfile.php(144): CActiveRecord->__get('image')
+#2 C:\wamp\www\zadovo\protected\modules\admin\views\schoolsProfile\admin.php(46): SchoolsProfile->search()
+#3 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#4 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#6 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('admin', Array, true)
+#7 C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php(297): CController->render('admin', Array)
+#8 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SchoolsProfileController->actionAdmin()
+#9 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('admin')
+#18 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/schoolsPr...')
+#19 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/zadovo/index.php?r=admin/schoolsProfile/admin
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/login
+---
+2014/11/16 08:09:54 [error] [exception.CException] exception 'CException' with message 'Property "SchoolsProfile.principal" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('principal')
+#1 C:\wamp\www\zadovo\protected\models\SchoolsProfile.php(147): CActiveRecord->__get('principal')
+#2 C:\wamp\www\zadovo\protected\modules\admin\views\schoolsProfile\admin.php(46): SchoolsProfile->search()
+#3 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#4 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#6 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('admin', Array, true)
+#7 C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php(297): CController->render('admin', Array)
+#8 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SchoolsProfileController->actionAdmin()
+#9 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('admin')
+#18 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/schoolsPr...')
+#19 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/zadovo/index.php?r=admin/schoolsProfile/admin
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/login
+---
+2014/11/16 08:10:36 [error] [exception.CException] exception 'CException' with message 'Property "SchoolsProfile.principal" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('principal')
+#1 C:\wamp\www\zadovo\protected\models\SchoolsProfile.php(147): CActiveRecord->__get('principal')
+#2 C:\wamp\www\zadovo\protected\modules\admin\views\schoolsProfile\admin.php(46): SchoolsProfile->search()
+#3 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#4 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#6 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('admin', Array, true)
+#7 C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php(297): CController->render('admin', Array)
+#8 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SchoolsProfileController->actionAdmin()
+#9 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('admin')
+#18 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/schoolsPr...')
+#19 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/zadovo/index.php?r=admin/schoolsProfile/admin
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/login
+---
+2014/11/16 08:10:50 [error] [exception.CException] exception 'CException' with message 'Property "SchoolsProfile.oldImage1" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('oldImage1')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('oldImage1')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(SchoolsProfile), 'oldImage1')
+#3 C:\wamp\www\framework\web\helpers\CHtml.php(1219): CHtml::activeInputField('hidden', Object(SchoolsProfile), 'oldImage1', Array)
+#4 C:\wamp\www\framework\web\widgets\CActiveForm.php(583): CHtml::activeHiddenField(Object(SchoolsProfile), 'oldImage1', Array)
+#5 C:\wamp\www\zadovo\protected\modules\admin\views\schoolsProfile\_form.php(52): CActiveForm->hiddenField(Object(SchoolsProfile), 'oldImage1', Array)
+#6 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#8 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#9 C:\wamp\www\zadovo\protected\modules\admin\views\schoolsProfile\update.php(21): CController->renderPartial('_form', Array)
+#10 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#11 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#12 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#13 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('update', Array, true)
+#14 C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php(257): CController->render('update', Array)
+#15 [internal function]: SchoolsProfileController->actionUpdate('1')
+#16 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SchoolsProfileController), Array)
+#17 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SchoolsProfileController), Object(ReflectionMethod), Array)
+#18 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#25 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('update')
+#27 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/schoolsPr...')
+#28 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#29 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/zadovo/index.php?r=admin/schoolsProfile/update&id=1
+HTTP_REFERER=http://localhost/zadovo/index.php?r=admin/schoolsProfile/admin
+---
+2014/11/16 08:12:58 [warning] [application] Failed to set unsafe attribute "user_name" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:12:58 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:12:58 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:13:33 [warning] [application] Failed to set unsafe attribute "user_name" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:13:33 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:13:33 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:17:54 [warning] [application] Failed to set unsafe attribute "user_name" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:17:54 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:17:54 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:19:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '' for column 'add_date' at row 1. The SQL statement executed was: UPDATE `login` SET `id`=:yp0, `user_name`=:yp1, `password`=:yp2, `add_date`=:yp3, `last_login`=:yp4, `login_status`=:yp5, `block`=:yp6, `activation`=:yp7, `status`=:yp8, `roles_id`=:yp9 WHERE `login`.`id`=42.
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\LoginController.php (96)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:19:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '' for column 'add_date' at row 1. The SQL statement executed was: UPDATE `login` SET `id`=:yp0, `user_name`=:yp1, `password`=:yp2, `add_date`=:yp3, `last_login`=:yp4, `login_status`=:yp5, `block`=:yp6, `activation`=:yp7, `status`=:yp8, `roles_id`=:yp9 WHERE `login`.`id`=42' in C:\wamp\www\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(1681): CDbCommand->execute()
+#1 C:\wamp\www\framework\db\ar\CActiveRecord.php(1061): CActiveRecord->updateByPk('42', Array)
+#2 C:\wamp\www\framework\db\ar\CActiveRecord.php(787): CActiveRecord->update(NULL)
+#3 C:\wamp\www\zadovo\protected\modules\admin\controllers\LoginController.php(96): CActiveRecord->save()
+#4 [internal function]: LoginController->actionUpdate('42')
+#5 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(LoginController), Array)
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(LoginController), Object(ReflectionMethod), Array)
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('update')
+#16 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/login/upd...')
+#17 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/zadovo/index.php?r=admin/login/update&id=42
+HTTP_REFERER=http://localhost/zadovo/index.php?r=admin/login/update&id=42
+---
+2014/11/16 08:20:50 [warning] [application] Failed to set unsafe attribute "user_name" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:20:50 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)
+2014/11/16 08:20:50 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
+in C:\wamp\www\zadovo\protected\modules\admin\controllers\SchoolsProfileController.php (173)
+in C:\wamp\www\zadovo\index.php (13)

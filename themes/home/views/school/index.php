@@ -18,11 +18,16 @@ if($coun > 0){
 				<section class="three-fourth">
 					<!--gallery-->
 					<section class="gallery" id="crossfade">
-						<?php echo CHtml::link('<img width="850" height="531" src="'.Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/large/'.$info->logo.'" alt="'.$info->name.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
+						<?php echo CHtml::link('<img width="850" height="531" src="'.Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/large/'.$info->image.'" alt="'.$info->name.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
+                                <div class="black_strip">
                         
-                        <div class="black_strip">
+                       <div class="image_position">
+                       	 <?php echo CHtml::link('<img width="150" height="115" src="'.Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/logo/'.$info->logo.'" alt="'.$info->name.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
+                       </div>
+                        
                         	<div class="b_left_s"><p>8/12</p><span>Average Rating by users</span></div>
                         	<ul class="fl review-icon " style="float:right; margin-top:16px;">
+				
 				<?php if(Yii::app()->user->id) { ?>
 				<li>
                 	<a href="javascript:void();"><p class="like"><?php echo $likes;?> Like</p></a>
