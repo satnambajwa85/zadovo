@@ -29,15 +29,13 @@ class SiteController extends Controller
 													'linkedin'=>$data->linkedin,
 												);
 		return true;
-	}
-
+	} 
 	public function actionIndex()
 	{
 		$this->layout='inner';	
 		$data	=	Menus::model()->findAllByAttributes(array('status'=>1));	
 		$this->render('index',array('menu'=>$data));
 	}
-
 	public function actionRegister()
 	{		
 		$model	=	new	Register;
@@ -263,7 +261,6 @@ class SiteController extends Controller
 		
 		$this->render('search',array('fech_result'=>$dataProvider,'add'=>$add,'count'=>$count,'cities'=>$cities,));
 	}
-	
 	public function actionCourses()
 	{	
 		$cities			=	Cities::model()->findAllByAttributes(array('published'=>1,'status'=>1));
