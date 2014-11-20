@@ -97,9 +97,6 @@
 				tis.toggleClass('active',state);
 			});
 		});
-		
-		$('.view-type li:first-child').addClass('active');
-		
 		$('#star').raty({
 			score    : 3,
 			starOff : 'images/ico/star-rating-off.png',
@@ -109,7 +106,6 @@
 		  }
 		});
 	});
-	
 	$(window).load(function () {
 		var maxHeight = 0;
 			
@@ -117,94 +113,8 @@
 			if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
 		});
 		$(".three-fourth .one-fourth").height(maxHeight);	
-	});	
-	</script>
-	<script type="text/javascript">selectnav('nav'); </script>
-	
-	<script type="text/javascript">			
-		/* Template Styles-----------------------------------------------------------------------------------*/
-
-		window.console = window.console || (function(){
-			var c = {}; c.log = c.warn = c.debug = c.info = c.error = c.time = c.dir = c.profile = c.clear = c.exception = c.trace = c.assert = function(){};
-			return c;
-		})();
-
-
-		jQuery(document).ready(function($) {
-	
-		// Color Changer
-		$(".yellow" ).click(function(){
-			$("#template-color" ).attr("href", "<?php echo Yii::app()->theme->baseUrl;?>/css/theme-yellow.css" );
-			return false;
-		});
-		
-		$(".orange" ).click(function(){
-			$("#template-color" ).attr("href", "<?php echo Yii::app()->theme->baseUrl;?>/css/theme-orange.css" );
-			return false;
-		});
-		
-		$(".strawberry" ).click(function(){
-			$("#template-color" ).attr("href", "<?php echo Yii::app()->theme->baseUrl;?>/css/theme-strawberry.css" );
-			return false;
-		});
-		
-		$(".pink" ).click(function(){
-			$("#template-color" ).attr("href", "<?php echo Yii::app()->theme->baseUrl;?>/css/theme-pink.css" );
-			return false;
-		});		
-		
-		$(".purple" ).click(function(){
-			$("#template-color" ).attr("href", "<?php echo Yii::app()->theme->baseUrl;?>/css/theme-purple.css" );
-			return false;
-		});
-
-		$(".blue" ).click(function(){
-			$("#template-color" ).attr("href", "<?php echo Yii::app()->theme->baseUrl;?>/css/theme-blue.css" );
-			return false;
-		});		
-		
-		$(".black" ).click(function(){
-			$("#template-color" ).attr("href", "<?php echo Yii::app()->theme->baseUrl;?>/css/theme-black.css" );
-			return false;
-		});		
-		
-		
-
-
-		$("#template-styles h2 a").click(function(e){
-			e.preventDefault();
-			var div = $("#template-styles");
-			console.log(div.css("left"));
-			if (div.css("left") === "-135px") {
-				$("#template-styles").animate({
-					left: "0px"
-				}); 
-			} else {
-				$("#template-styles").animate({
-					left: "-135px"
-				});
-			}
-		})
-		
-
-		$(".colors li a").click(function(e){
-			e.preventDefault();
-			$(this).parent().parent().find("a").removeClass("active");
-			$(this).addClass("active");
-		})
-		
-		$(".bg li a").click(function(e){
-			e.preventDefault();
-			$(this).parent().parent().find("a").removeClass("active");
-			$(this).addClass("active");
-			var bg = $(this).css("backgroundImage");
-			$("body,.main").css("backgroundImage",bg)
-		})
-
-			
-
 	});
-
+    selectnav('nav');
 	</script>
 </body>
 

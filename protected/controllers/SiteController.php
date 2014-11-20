@@ -276,7 +276,7 @@ class SiteController extends Controller
 										'join'=>'join career on career.id = t.career_id',
 										'condition'=>$baseCondidtion,),
 										'pagination'=>array(
-											'pageSize'=>10,
+											'pageSize'=>12,
 										),
 									));
 			$count	=	count($dataProvider);

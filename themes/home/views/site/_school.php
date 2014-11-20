@@ -1,5 +1,7 @@
 <?php  $path	=	Yii::app()->baseUrl.'/uploads/SchoolsProfile/sthumb/';?> 
-<article class="one-fourth">
+<!--<article class="one-fourth">-->
+<article class="full-width">
+
 	<figure><?php echo Chtml::link('<img width="270" height="152" src="'.$path.$data->image.'" alt="'.$data->name.'"/>',array('/site/schoolProfile','id'=>$data->id));?></figure>
     <div class="details">
     <h1>

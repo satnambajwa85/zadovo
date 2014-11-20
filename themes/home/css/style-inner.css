@@ -12,62 +12,44 @@ h3 {font:normal 1.7em 'ChunkFiveRegular';color:#999;padding:0 0 17px;}
 h4 {font:normal 1.6em 'ChunkFiveRegular';letter-spacing:-0.03em;padding:0 0 15px;}
 h5 {font:normal 1.5em 'OpenSansBold';letter-spacing:-0.1px;color:#3F3F3F;}
 h6 {font:normal 1.3em 'OpenSansSemibold';color:#333;}
-
 p 		{font-size:1.3em;padding:0 0 20px;}
 strong 		{font-family:'OpenSansSemibold';font-weight:normal;}
 strong.dark	{font-family:'OpenSansBold';color:#3F3F3F;}
-
 ul li	  {list-style:none;font-size:1.3em;}
 ol li 	  {list-style:decimal inside;font-size:1.3em;}
-
 img 	{border:none;display:block;}
 a 	{color:#666;outline:none;}
-
 nav a 	{text-decoration:none;}
-
 em {font-family: 'OpenSansBold';font-style:normal;color:#3FACAA;}
-
 hr	{background:#ccc;height:1px;border:none;width:100%;display:inline-block;margin:14px 0 4px;}
 table { border-collapse: collapse; border-spacing:0;}
-
 ::-moz-selection {background:#41AFAA;color:#fff;}
 ::selection 	 	{background:#41AFAA;color:#fff;}
-
 /* LAYOUT */
 header	 {background:#35404b;width:100%;position:absolute;top:0;left:0;z-index:220;border-bottom:5px solid #29323c;}
 .main 	 {width:100%;min-height:730px;padding:0 0 75px;background:#E9E6E0 url(../images/bgr/body.jpg) 0 0 repeat;display:inline-block;}
 footer 	 {background:#fff;width:100%;padding:23px 0;-webkit-box-shadow:0 0 2px rgba(0,0,0,0.2);-moz-box-shadow:0 0 2px rgba(0,0,0,0.2);box-shadow:0 0 2px rgba(0,0,0,0.2);}
 .wrap	 {width: 100%;max-width: 1140px;margin:0 auto;text-align:left;position:relative;}
-
-
 /*COMMON*/
 .txt-l    {text-align:left;} 
 .txt-r    {text-align:right;} 
 .txt-c    {text-align:center;} 
 .txt-j    {text-align:justify;}
-
 .nowrap   {white-space:nowrap;}
-
 .left     {float:left;}
 .right    {float:right;}
 .clear    {clear:both;display:block;}
-
 .clearfix:before, 
 .clearfix:after  	{content: "";display:table;}
 .clearfix:after 		{clear: both;}
 .oldie .clearfix   	{zoom:1;}
-
 .invisible 		{visibility:hidden;}
 .hidden			{display:none;}
-
 .noborder	{border:none;text-decoration:none;}
-
 .left_pic	{float:left;margin:5px 20px 10px 0;}
 .right_pic	{float:right;margin:5px 0 20px 10px;}
-
 /*HEADER*/
 .logo {float:left;display:block;padding:15px 0;}
-
 .main-nav			{float:left;display:block;width:100%;min-height:40px;background: rgb(193,182,174);background: -moz-linear-gradient(top, rgba(193,182,174,1) 0%, rgba(186,172,163,1) 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(193,182,174,1)), color-stop(100%,rgba(186,172,163,1)));background: -webkit-linear-gradient(top, rgba(193,182,174,1) 0%,rgba(186,172,163,1) 100%);background: -o-linear-gradient(top, rgba(193,182,174,1) 0%,rgba(186,172,163,1) 100%);background: -ms-linear-gradient(top, rgba(193,182,174,1) 0%,rgba(186,172,163,1) 100%);background: linear-gradient(to bottom, rgba(193,182,174,1) 0%,rgba(186,172,163,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1b6ae', endColorstr='#baaca3',GradientType=0 );-webkit-box-shadow:0 0 2px rgba(0,0,0,0.2);-moz-box-shadow:0 0 2px rgba(0,0,0,0.2);box-shadow:0 0 2px rgba(0,0,0,0.2);}
 .main-nav ul    		{position:relative;z-index:20;top:5px;}
 .main-nav li 			{white-space:nowrap;float:left;font:normal 12px 'OpenSansBold';text-transform:uppercase;padding:7px 20px 11px 0;letter-spacing:-1px;-webkit-text-shadow:0 0 1px rgba(0,0,0,0.3);-moz-text-shadow:0 0 1px rgba(0,0,0,0.3);text-shadow:0 0 1px rgba(0,0,0,0.3);}
@@ -1328,4 +1310,9 @@ opacity: .3;  /*Opera9.0+ã€Firefox1.5+ã€Safariã€Chrome*/backgroun
 .rate a{float: left;margin-right: 20px;font-size: 13px;text-decoration: none;font-weight: bold;margin-top: 5px;}
 .fr{float:right;}
 .mr10{margin-right:10px;}
-
+ul.yiiPager li{background: none repeat scroll 0 0 #fff;border-radius: 15px; box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);float: left;font: 1.1em/30px "OpenSansBold";height: 30px;margin: 0 4px 0 0;text-align: center;text-transform: uppercase;transition: all 0.1s ease-in 0.1s;width: 30px;}
+ul.yiiPager li a{border-radius: 15px;box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);color: #999; float: left;height: 100%;text-decoration: none;transition: all 0.1s ease-in 0.1s;width: 100%;}
+ul.yiiPager li.selected{background: #EFBA01;color:#FFF;}
+ul.yiiPager li.selected a{color:#FFF;}
+ul.yiiPager li.last,ul.yiiPager li.first{display:none;}
+.pager{clear:both}

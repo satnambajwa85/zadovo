@@ -24,12 +24,9 @@
 					<section class="three-fourth">
 						<div class="sort-by">
 							<h3>Search Result</h3>
-							
-							
 							<ul class="view-type">
 								<li class="grid-view"><a href="#" title="grid view">grid view</a></li>
 								<li class="list-view"><a href="#" title="list view">list view</a></li>
-								
 							</ul>
 						</div>
 						
@@ -44,10 +41,10 @@
 									'pager' => array(
 										'header' => '',
 										'cssFile' =>'',
-										'firstPageLabel'=>'First',
-										'lastPageLabel'=>'Last',
-										'prevPageLabel'=>'« Prev',
-										'nextPageLabel'=>'Next »',
+										'firstPageLabel'=>'',
+										'lastPageLabel'=>'',
+										'prevPageLabel'=>'«',
+										'nextPageLabel'=>'»',
 										),
 								)); ?>
 						</div>

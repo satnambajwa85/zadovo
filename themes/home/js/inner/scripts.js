@@ -97,8 +97,7 @@ $(document).ready(function () {
 	});	
 	
 	// LIST AND GRID VIEW TOGGLE
-	$('.view-type li:first-child').addClass('active');
-		
+	$('.view-type li.list-view').addClass('active');
 	$('.grid-view').click(function() {
 		$('.three-fourth article').attr("class", "one-fourth");
 		$('.three-fourth article:nth-child(3n)').addClass("last");
