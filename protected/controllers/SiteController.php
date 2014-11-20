@@ -263,35 +263,14 @@ class SiteController extends Controller
 	}
 	public function actionCourses()
 	{	
-		$cities			=	Cities::model()->findAllByAttributes(array('published'=>1,'status'=>1));
-		foreach($cities as $citiesId){
-				$cId[]	=	$citiesId->id;
-		}
-		
 		$add			=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
 		$criteria1 		= new CDbCriteria;
 		$qterm			=	'';
-		$baseCondidtion = 't.status = 1 ';
-		if(!empty($_REQUEST['term'])){ 
-			
-			$qterm	=(isset($_REQUEST['term']))?'%'.$_REQUEST['term'].'%':'%%';
-			$criteria1->condition = '(name  Like :qterm OR address1   Like :qterm)';
-			$criteria1->params = array(':qterm'=>$qterm);
-			$models	=	 SchoolsProfile::model()->findAll($criteria1);
-			$count	=	count($models);
-			$dataProvider=new CActiveDataProvider('SchoolsProfile', array(
-								'criteria'=>$criteria1,
-								'pagination'=>array(
-									'pageSize'=>10,
-								),
-							));
 		
-			}
-		elseif(!empty($_GET['cities_id'])){ 
+		$baseCondidtion = 't.status = 1 ';
+		if(!empty($_GET['Categories'])){ 
 			
-			$baseCondidtion .= ' AND career.career_id='.$_GET['cities_id'];
-			$city	=	Career::model()->findByPk($_GET['cities_id']);
-			Yii::app()->session['cities_id']	=	$city->name;
+			$baseCondidtion .= ' AND t.career_id='.$_GET['Categories'];
 			$dataProvider=new CActiveDataProvider('CareerOptions', array(
 										'criteria'=>array(
 										'join'=>'join career on career.id = t.career_id',
@@ -304,15 +283,21 @@ class SiteController extends Controller
 		
 		}
 		else{
-			$qterm	='%%';
-			$criteria1->condition	=	'(title  Like :qterm) ';
-			$criteria1->params 		= array(':qterm'=>$qterm);
+			$criteria1->limit		=	100;
 			$models					=	CareerOptions::model()->findAll($criteria1);
 			$count					=	count($models);
 			$dataProvider			=	new CActiveDataProvider('CareerOptions',array('criteria'=>$criteria1,'pagination'=>array('pageSize'=>12,),));
 		}
-		$this->render('courses',array('fech_result'=>$dataProvider,'add'=>$add,'count'=>$count,'cities'=>$cities,));
+		$this->render('courses',array('fech_result'=>$dataProvider,'add'=>$add,'count'=>$count));
 	}
+	
+	public function actionCourse($id)
+	{	
+		$add			=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
+		$data			=	CareerOptions::model()->findByPk($id);
+		$this->render('course',array('info'=>$data,'add'=>$add));
+	}
+	
 	public function actionProfile($id)
 	{	
 		$info		=  	UserProfiles::model()->findByPk($id);

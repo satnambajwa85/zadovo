@@ -6,13 +6,10 @@
 					<article class="refine-search-results">
 						<h2>Refine search results</h2>
                         
-                        <?php $form=$this->beginWidget('CActiveForm', array('id'=>'search-form','action'=>Yii::app()->createUrl('/site/search'),'method'=>'get',));?>
+                        <?php $form=$this->beginWidget('CActiveForm', array('id'=>'search-form','action'=>Yii::app()->createUrl('/site/courses'),'method'=>'get',));?>
                 	<dl>
 							<dd>
-                         <?php echo CHtml::dropDownlist('cities_id',(isset($_REQUEST['cities_id']))?$_REQUEST['cities_id']:'',CHtml::listData(Cities::model()->findAll(),'id','name'),array('empty' => '--Select a city--','class'=>'subscribe'));?>
-							</dd>
-							<dd>
-                         	<?php echo CHtml::textField('term',(isset($_REQUEST['term']))?$_REQUEST['term']:'',array('class'=>'subscribe','placeholder'=>'Search by..'));?>
+                         <?php echo CHtml::dropDownlist('Categories',(isset($_REQUEST['Categories']))?$_REQUEST['Categories']:'',CHtml::listData(Career::model()->findAll(),'id','name'),array('empty' => '--Select a Categories--','class'=>'subscribe'));?>
 							</dd>
 							<dd>
 								<?php echo CHtml::submitButton('Search',array('class'=>'searchbtn')); ?>

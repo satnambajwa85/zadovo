@@ -301,6 +301,8 @@ Enter the keywords that describe your dream career and we'll help you find the r
 <div class="blockheading">
 Browse careers by sector
 </div>
+
+<?php $form=$this->beginWidget('CActiveForm', array('id'=>'search-form','action'=>Yii::app()->createUrl('/site/courses'),'method'=>'get',));?>
 <div style="margin: 0 17px; height: 105px">
 <p class="blocktopfont">
 Find your career from just below.
@@ -311,8 +313,11 @@ Find your career from just below.
 </div>
 <div style="clear:both;"></div>
 <div style="text-align:center; margin-top:36px;">
-<a id="aa" class="btn btn-md btn-danger"  style="text-shadow:none !important;" ><i class="fa fa-folder-open"></i>&nbsp;Browse</a>
+<?php echo CHtml::submitButton('Browse',array('class'=>'btn btn-md btn-danger','style'=>"text-shadow:none !important;")); ?>
 </div>
+
+<?php $this->endWidget(); ?>
+
 </div>
 </td>
 <td style="width: 20px">&nbsp;</td>
