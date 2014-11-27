@@ -66,16 +66,16 @@ if($coun > 0){
 				
 				<?php } else { ?>
                 <li>
-				<a href="#nothing" title="Please Login" class="message"><p class="like"> 21 Like</p></a>
+				<a href="#nothing" title="Please Login" class="message"><p class="like"> <?php echo $likes;?>  Like</p></a>
 				</li>
 				<li>
-				<a href="#nothing" title="Please Login" class="message"><p class="join">120 Join</p></a>
+				<a href="#nothing" title="Please Login" class="message"><p class="join"><?php echo $join;?>  Join</p></a>
                 </li>
 				<li>
-				<a href="#nothing" title="Please Login" class="message"><p class="like1"> 50 Want to join</p></a>
+				<a href="#nothing" title="Please Login" class="message"><p class="like1"> <?php echo $want_to_join;?>  Want to join</p></a>
 				</li>
 				<li>
-				<a href="#nothing" title="Please Login" class="message"><p class="comments_1">29 Write review</p> </a>
+				<a href="#nothing" title="Please Login" class="message"><p class="comments_1"> Write review</p> </a>
 
                 </li>
 				<?php } ?>

@@ -9,7 +9,7 @@
                         <?php $form=$this->beginWidget('CActiveForm', array('id'=>'search-form','action'=>Yii::app()->createUrl('/site/courses'),'method'=>'get',));?>
                 	<dl>
 							<dd>
-                         <?php echo CHtml::dropDownlist('Categories',(isset($_REQUEST['Categories']))?$_REQUEST['Categories']:'',CHtml::listData(Career::model()->findAll(),'id','name'),array('empty' => '--Select a Categories--','class'=>'subscribe'));?>
+                         <?php echo CHtml::dropDownlist('Categories',(isset($_REQUEST['Categories']))?$_REQUEST['Categories']:'',CHtml::listData(Career::model()->findAll(),'id','title'),array('empty' => '--Select a Categories--','class'=>'subscribe'));?>
 							</dd>
 							<dd>
 								<?php echo CHtml::submitButton('Search',array('class'=>'searchbtn')); ?>

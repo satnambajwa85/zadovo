@@ -268,7 +268,7 @@ header .ribbon 		{float:right;position:absolute;top:-1px;right:-2px;z-index:2;ba
 
 /*HOTEL CONTENT*/
 .tab-content 						{float:right;width:76.4%;overflow:hidden;}
-.tab-content article					{float:left;width:94%;padding:12px 3% 20px;overflow:hidden;margin:0 0 20px;background:#fff;webkit-box-shadow:0 0 2px rgba(0,0,0,0.1);-moz-box-shadow:0 0 2px rgba(0,0,0,0.1);box-shadow:0 0 2px rgba(0,0,0,0.1);}
+.tab-content article					{float:left;width:94%;padding:12px 3% 20px;overflow:hidden;margin:0 0 20px;background:#fff;webkit-box-shadow:0 0 2px rgba(0,0,0,0.1);-moz-box-shadow:0 0 2px rgba(0,0,0,0.1);box-shadow:0 0 2px rgba(0,0,0,0.1);min-height:350px;}
 .tab-content h1 						{display:inline-block;font-size:1.7em;color:#B9ACA4;padding:0 0 10px;margin:0 0 15px;text-indent:10px;border-bottom:1px solid #ccc;width:100%;-webkit-text-shadow:none;-moz-text-shadow:none;text-shadow:none;}
 .text-wrap							{padding:0 2% 10px;display:inline-block;width:96%;}
 .tab-content .text-wrap				{width:96% !important;}

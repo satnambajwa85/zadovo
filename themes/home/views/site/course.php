@@ -8,7 +8,7 @@
 				<section class="three-fourth">
 					<!--gallery-->
 					<section class="gallery" id="crossfade">
-						<?php echo CHtml::link('<img width="850" height="531" src="'.Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/large/'.$info->image.'" alt="'.$info->title.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
+						<?php echo CHtml::link('<img width="850" height="531" src="'.Yii::app()->request->baseUrl.'/uploads/career_options/large/'.$info->image.'" alt="'.$info->title.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
                         
                         <!--<div class="black_strip">
                         	<div class="b_left_s"><p>8/12</p><span>Average Rating by users</span></div>
