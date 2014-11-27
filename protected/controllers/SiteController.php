@@ -268,9 +268,11 @@ class SiteController extends Controller
 		$qterm			=	'';
 		
 		$baseCondidtion = 't.status = 1 ';
-		if(!empty($_GET['Categories'])){ 
-			
+		if(!empty($_GET['Categories'])){
 			$baseCondidtion .= ' AND t.career_id='.$_GET['Categories'];
+		if(!empty($_GET['text']))
+			$baseCondidtion .= ' AND t.title like "%'.$_GET['text'].'%"';
+
 			$dataProvider=new CActiveDataProvider('CareerOptions', array(
 										'criteria'=>array(
 										'join'=>'join career on career.id = t.career_id',
@@ -280,7 +282,18 @@ class SiteController extends Controller
 										),
 									));
 			$count	=	count($dataProvider);
-		
+		}
+		elseif(!empty($_GET['text'])){
+			$baseCondidtion .= ' AND t.title like "%'.$_GET['text'].'%"';
+			$dataProvider=new CActiveDataProvider('CareerOptions', array(
+										'criteria'=>array(
+										'join'=>'join career on career.id = t.career_id',
+										'condition'=>$baseCondidtion,),
+										'pagination'=>array(
+											'pageSize'=>12,
+										),
+									));
+			$count	=	count($dataProvider);
 		}
 		else{
 			$criteria1->limit		=	100;

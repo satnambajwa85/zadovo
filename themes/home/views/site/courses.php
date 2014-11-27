@@ -8,8 +8,11 @@
                         
                         <?php $form=$this->beginWidget('CActiveForm', array('id'=>'search-form','action'=>Yii::app()->createUrl('/site/courses'),'method'=>'get',));?>
                 	<dl>
-							<dd>
-                         <?php echo CHtml::dropDownlist('Categories',(isset($_REQUEST['Categories']))?$_REQUEST['Categories']:'',CHtml::listData(Career::model()->findAll(),'id','name'),array('empty' => '--Select a Categories--','class'=>'subscribe'));?>
+                            <dd>
+                       <?php echo CHtml::textField('text',(isset($_REQUEST['text']))?$_REQUEST['text']:'',array('title' => 'search','class'=>'serach-input mt20','id'=>"aa",'style'=>""));?>
+							</dd>
+                            <dd>
+                         <?php echo CHtml::dropDownlist('Categories',(isset($_REQUEST['Categories']))?$_REQUEST['Categories']:'',CHtml::listData(Career::model()->findAll(),'id','title'),array('empty' => '--Select a Categories--','class'=>''));?>
 							</dd>
 							<dd>
 								<?php echo CHtml::submitButton('Search',array('class'=>'searchbtn')); ?>

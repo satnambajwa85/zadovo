@@ -1326,4 +1326,4 @@ a.openpanel:active{
 .homethreecontainers .blockcontainer{background-image:url("../images-mcg/dark-transparent.png");min-height:300px}
 .homethreecontainers .blocktopfont{font-size:14px;color:#fff}.homethreecontainers .blockbottomfont{font-size:12px;color:#fff}.homethreecontainers .headingbottomdots{position:relative;overflow:hidden;width:10px;height:40px;margin:0 auto 15px}.homethreecontainers .headingbottomimage{position:absolute;overflow:hidden;left:125px;bottom:0;width:34px;height:34px}.homethreecontainers .blockheading{position:relative;overflow:hidden;width:200px;height:60px;margin:15px auto;text-align:center;font-size:26px}
 .homethreecontainers .blocktopfont{font-size:14px;color:#fff}.homethreecontainers .blockbottomfont{font-size:12px;color:#fff}
-select option {background:#666 !important;}
+select option {background:#666 !important;color: #fff;}
