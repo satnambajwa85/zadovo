@@ -8,32 +8,9 @@
 				<section class="three-fourth">
 					<!--gallery-->
 					<section class="gallery" id="crossfade">
-						<?php echo CHtml::link('<img width="850" height="531" src="'.Yii::app()->request->baseUrl.'/uploads/career_options/large/'.$info->image.'" alt="'.$info->title.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
-                        
-                        <!--<div class="black_strip">
-                        	<div class="b_left_s"><p>8/12</p><span>Average Rating by users</span></div>
-            <ul class="fl review-icon " style="float:right; margin-top:16px;">
-				
-                <li>
-				<a href="#nothing" title="Please Login" class="message"><p class="like"> 21 Like</p></a>
-				</li>
-				<li>
-				<a href="#nothing" title="Please Login" class="message"><p class="join">120 Join</p></a>
-                </li>
-				<li>
-				<a href="#nothing" title="Please Login" class="message"><p class="like1"> 50 Want to join</p></a>
-				</li>
-				<li>
-				<a href="#nothing" title="Please Login" class="message"><p class="comments_1">29 Write review</p> </a>
-
-                </li>
-				
-				
-			</ul>
-                        </div>-->
+						<?php echo CHtml::link('<img width="850" height="350" src="'.Yii::app()->request->baseUrl.'/uploads/career_options/large/no-image.jpg" alt="'.$info->title.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
                     </section>
 					<!--//gallery-->
-				
 					<!--inner navigation-->
 					<nav class="inner-nav">
 						<ul>

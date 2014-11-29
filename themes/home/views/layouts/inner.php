@@ -236,6 +236,7 @@ Also for the students studying in standard XII, a myriad of options is available
 			<h3 class="heading text-center">Where do you want to see yourself in the future?</h3>
 			<div class="list_carousel responsive"  style="height:450px;">
             	<div class="homethreecontainers">
+<?php $form=$this->beginWidget('CActiveForm', array('id'=>'search-form','action'=>Yii::app()->createUrl('/site/courses'),'method'=>'get',));?>
 <table cellspacing="0" cellpadding="0" border="0" align="center">
 <tbody>
 <tr>
@@ -281,12 +282,19 @@ Search careers with key words
 <p class="blocktopfont">
 Enter the keywords that describe your dream career and we'll help you find the right path.:
 </p>
-<div class="separator"><input type="text" lang="en" autocomplete="off" size="10" class="gsc-input" name="search" title="search" style="width: 100%; padding: 5px; border: medium none; margin: 0px; height: auto; outline: medium none; color:#666;" ></div>
+<div class="separator">
+<?php echo CHtml::textField('text','',array('title' => 'search','class'=>'gsc-input','id'=>"aa",'style'=>"width: 100%; padding: 5px; border: medium none; margin: 0px; height: auto; outline: medium none; color:#666;"));?>
+
+
+
+
+</div>
 
 </div>
 <div style="clear:both;"></div>
 <div style="text-align:center;">
-<a class="btn btn-md btn-danger"  style="text-shadow:none !important; margin-top:34px;"><i class="fa fa-search"></i>&nbsp;Search</a>
+<!--<i class="fa fa-search"></i>-->
+<?php echo CHtml::submitButton('Search',array('class'=>'btn btn-md btn-danger','style'=>"text-shadow:none !important; margin-top:34px;"));?>
 </div>
 </div>
 </td>
@@ -302,7 +310,7 @@ Enter the keywords that describe your dream career and we'll help you find the r
 Browse careers by sector
 </div>
 
-<?php $form=$this->beginWidget('CActiveForm', array('id'=>'search-form','action'=>Yii::app()->createUrl('/site/courses'),'method'=>'get',));?>
+
 <div style="margin: 0 17px; height: 105px">
 <p class="blocktopfont">
 Find your career from just below.
@@ -316,7 +324,7 @@ Find your career from just below.
 <?php echo CHtml::submitButton('Browse',array('class'=>'btn btn-md btn-danger','style'=>"text-shadow:none !important;")); ?>
 </div>
 
-<?php $this->endWidget(); ?>
+
 
 </div>
 </td>
@@ -345,6 +353,8 @@ Fret not. Our experts will clear the air and forklift you on the correct track.
 </tr>
 </tbody>
 </table>
+<?php $this->endWidget(); ?>
+
 </div>
 				
 				<div class="clearfix"></div>
