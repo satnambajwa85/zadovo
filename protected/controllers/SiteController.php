@@ -311,6 +311,100 @@ class SiteController extends Controller
 		$this->render('course',array('info'=>$data,'add'=>$add));
 	}
 	
+	public function actionCollages()
+	{
+		$model1	=	new Collage;
+		$value	=	(isset($_REQUEST['search']))?$_REQUEST['search']:'';
+		if(!empty($value)){
+			if(!empty($_REQUEST['Collage']['city_id'])){
+				$City3	=	$_REQUEST['Collage']['city_id'];
+				$baseCondidtion = 't.activation = 1 and t.status=1 AND city_id ='.$City3.' AND name LIKE "%'.$value.'%"';
+			}elseif(!empty($_REQUEST['Collage']['state'])){
+				$Citylist	=	Cities::model()->findAllByAttributes(array('states_id'=>$_REQUEST['Collage']['state']));
+				$City3		=	'0';
+				foreach($Citylist as $reCity)
+					$City3	.=	','.$reCity->id;
+				
+				$baseCondidtion = 't.activation = 1 and t.status=1 AND city_id IN ('.$City3.') AND name LIKE "%'.$value.'%"';
+			}else{
+				$baseCondidtion = 't.activation = 1 and t.status=1 AND name LIKE "%'.$value.'%"';
+			}
+			$model				=	new Collage;
+			$Institutes=new CActiveDataProvider('Collage', array(
+										'criteria'=>array(
+										'condition'=>$baseCondidtion,),
+										'pagination'=>array(
+											'pageSize'=>12,
+										),
+									));
+			
+			//$shortListed = UserProfilesHasInstitutes::model()->findAll('user_profiles_id=:id', array(':id'=>Yii::app()->user->profileId));
+			$shortList	=	array();
+			//foreach($shortListed as $col)
+				//$shortList[]	=	$col->institutes_id;
+		}
+		elseif(!empty($_REQUEST['Collage']['city_id'])){
+			$model				=	new Collage;
+			$baseCondidtion = 't.activation = 1 and t.status=1 AND city_id ='.$_REQUEST['Collage']['city_id'];
+			$Institutes=new CActiveDataProvider('Collage', array(
+										'criteria'=>array(
+										'condition'=>$baseCondidtion,),
+										'pagination'=>array(
+											'pageSize'=>12,
+										),
+									));
+			//$shortListed		=	UserProfilesHasInstitutes::model()->findAll('user_profiles_id=:id', array(':id'=>Yii::app()->user->profileId));
+			$shortList			=	array();
+			//foreach($shortListed as $col)
+				//$shortList[]	=	$col->institutes_id;
+		}
+		elseif(!empty($_REQUEST['Collage']['state'])){
+			$Citylist	=	Cities::model()->findAllByAttributes(array('states_id'=>$_REQUEST['Collage']['state']));
+			$City3		=	'0';
+			foreach($Citylist as $reCity)
+				$City3	.=	','.$reCity->id;
+			$col1	=	Collage::model()->findAllByAttributes(array('city_id'=>$City3));
+			$model				=	new Collage;
+			$baseCondidtion = 't.activation = 1 and t.status=1 AND city_id IN ('.$City3.')';
+			$Institutes=new CActiveDataProvider('Collage', array(
+										'criteria'=>array(
+										'condition'=>$baseCondidtion,),
+										'pagination'=>array(
+											'pageSize'=>12,
+										),
+									));
+			//$shortListed = UserProfilesHasInstitutes::model()->findAll('user_profiles_id=:id', array(':id'=>Yii::app()->user->profileId));
+			$shortList	=	array();
+			//foreach($shortListed as $col)
+				//$shortList[]	=	$col->institutes_id;
+		}
+		else{
+			$model				=	new Collage;
+			$baseCondidtion = 't.activation = 1 and t.status=1 ';
+			$Institutes=new CActiveDataProvider('Collage', array(
+										'criteria'=>array(
+										'condition'=>$baseCondidtion,),
+										'pagination'=>array(
+											'pageSize'=>12,
+										),
+									));
+			//$shortListed = UserProfilesHasInstitutes::model()->findAll('user_profiles_id=:id', array(':id'=>Yii::app()->user->profileId));
+			$shortList	=	array();
+			//foreach($shortListed as $col)
+				//$shortList[]	=	$col->institutes_id;
+		}
+		
+		
+		$this->render('collages',array('model'=>$model1,'Institutes'=>$Institutes,'shortList'=>$shortList));
+	}
+	public function actionCollage($id)
+	{	
+		$add			=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
+		$data			=	Collage::model()->findByPk($id);
+		$this->render('collage',array('info'=>$data,'add'=>$add));
+	}
+	
+	
 	public function actionProfile($id)
 	{	
 		$info		=  	UserProfiles::model()->findByPk($id);
@@ -363,7 +457,21 @@ class SiteController extends Controller
 		}
 		 		die; 
 	
-	}
+	}	
+	public function actionDynamicCollageCity()
+	{	 
+		$getId = '';
+		if(!empty($_POST['Collage']['state'])) 
+			$getId	 = $_POST['Collage']['state'];
+			$data	=	Cities::model()->findAll('states_id =:parent_id',array(':parent_id'=>(int) $getId));
+			$data	=	CHtml::listData($data,'id','name');
+				echo CHtml::tag('option', array('value'=>''),CHtml::encode('Select City'),true);
+			foreach($data as $value=>$name){
+				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+				
+			}
+		die;
+	}	
 	public function actionPage($id)
 	{
 		$data 	=	Cms::model()->findByPk($id);

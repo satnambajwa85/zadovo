@@ -264,3 +264,703 @@ in C:\wamp\www\zadovo\index.php (13)
 2014/11/16 10:09:56 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
 in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (228)
 in C:\wamp\www\zadovo\index.php (13)
+2014/12/01 16:43:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "collages".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('collages')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collages
+---
+2014/12/01 16:44:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "collages".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('collages')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collages
+---
+2014/12/01 16:54:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "collages".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('collages')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collages
+---
+2014/12/01 16:56:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "collages".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('collages')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collages
+---
+2014/12/01 16:58:17 [error] [php] include(Collage.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\zadovo\protected\controllers\SiteController.php(316): spl_autoload_call()
+#1 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#2 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#4 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#6 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site/collages
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (316)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/01 17:00:39 [error] [php] include(Collage.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\zadovo\protected\controllers\SiteController.php(316): spl_autoload_call()
+#1 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#2 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#4 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#6 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site/collages
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (316)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/01 17:04:01 [error] [php] include(UserProfilesHasInstitutes.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\zadovo\protected\controllers\SiteController.php(461): spl_autoload_call()
+#1 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#2 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#4 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#6 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site/collages
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (461)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/01 17:04:37 [error] [php] include(State.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\zadovo\themes\home\views\site\collage.php(13): spl_autoload_call()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): SiteController->renderFile()
+#4 C:\wamp\www\framework\web\CController.php(783): SiteController->renderPartial()
+#5 C:\wamp\www\zadovo\protected\controllers\SiteController.php(468): SiteController->render()
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#9 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site/collages
+in C:\wamp\www\zadovo\themes\home\views\site\collage.php (13)
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (468)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/01 17:05:32 [error] [php] include(State.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\zadovo\themes\home\views\site\collage.php(13): spl_autoload_call()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): SiteController->renderFile()
+#4 C:\wamp\www\framework\web\CController.php(783): SiteController->renderPartial()
+#5 C:\wamp\www\zadovo\protected\controllers\SiteController.php(468): SiteController->render()
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#9 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site/collages
+in C:\wamp\www\zadovo\themes\home\views\site\collage.php (13)
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (468)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/01 17:06:00 [error] [exception.CException] exception 'CException' with message 'Property "States.title" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('title')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(1696): CActiveRecord->__get('title')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1660): CHtml::value(Object(States), 'title')
+#3 C:\wamp\www\zadovo\themes\home\views\site\collage.php(13): CHtml::listData(Array, 'id', 'title')
+#4 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#5 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#6 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#7 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#8 C:\wamp\www\zadovo\protected\controllers\SiteController.php(468): CController->render('collage', Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collages
+---
+2014/12/01 17:06:27 [error] [exception.CException] exception 'CException' with message 'Property "Collage.states_id" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('states_id')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('states_id')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1402): CHtml::resolveValue(Object(Collage), 'states_id')
+#3 C:\wamp\www\framework\web\widgets\CActiveForm.php(674): CHtml::activeDropDownList(Object(Collage), 'states_id', Array, Array)
+#4 C:\wamp\www\zadovo\themes\home\views\site\collage.php(13): CActiveForm->dropDownList(Object(Collage), 'states_id', Array, Array)
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#6 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#7 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#8 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#9 C:\wamp\www\zadovo\protected\controllers\SiteController.php(468): CController->render('collage', Array)
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#11 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#13 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#15 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#16 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collages
+---
+2014/12/01 17:07:20 [error] [php] include(City.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\zadovo\themes\home\views\site\collage.php(18): spl_autoload_call()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): SiteController->renderFile()
+#4 C:\wamp\www\framework\web\CController.php(783): SiteController->renderPartial()
+#5 C:\wamp\www\zadovo\protected\controllers\SiteController.php(468): SiteController->render()
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#9 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site/collages
+in C:\wamp\www\zadovo\themes\home\views\site\collage.php (18)
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (468)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/01 17:07:41 [error] [exception.CException] exception 'CException' with message 'Property "Cities.title" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('title')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(1696): CActiveRecord->__get('title')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1660): CHtml::value(Object(Cities), 'title')
+#3 C:\wamp\www\zadovo\themes\home\views\site\collage.php(18): CHtml::listData(Array, 'id', 'title')
+#4 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#5 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#6 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#7 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#8 C:\wamp\www\zadovo\protected\controllers\SiteController.php(468): CController->render('collage', Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collages
+---
+2014/12/01 17:29:34 [error] [php] Undefined variable: pages (C:\wamp\www\zadovo\protected\controllers\SiteController.php:470)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#1 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#3 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site/collages
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (470)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/01 17:29:49 [error] [exception.CException] exception 'CException' with message 'Property "Collage.title" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('title')
+#1 C:\wamp\www\zadovo\themes\home\views\site\_collage.php(5): CActiveRecord->__get('title')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#5 C:\wamp\www\framework\zii\widgets\CListView.php(242): CController->renderPartial('_collage', Array)
+#6 C:\wamp\www\framework\zii\widgets\CBaseListView.php(158): CListView->renderItems()
+#7 [internal function]: CBaseListView->renderSection(Array)
+#8 C:\wamp\www\framework\zii\widgets\CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{sort...')
+#9 C:\wamp\www\framework\zii\widgets\CBaseListView.php(126): CBaseListView->renderContent()
+#10 C:\wamp\www\framework\web\CBaseController.php(174): CBaseListView->run()
+#11 C:\wamp\www\zadovo\themes\home\views\site\collage.php(53): CBaseController->widget('zii.widgets.CLi...', Array)
+#12 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#13 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#14 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#15 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#16 C:\wamp\www\zadovo\protected\controllers\SiteController.php(470): CController->render('collage', Array)
+#17 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#18 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#19 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#20 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#22 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#23 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#24 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collages
+---
+2014/12/01 17:30:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "dynamicCollageCity".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('dynamicCollageC...')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('dynamicCollageC...')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dynamicCol...')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=site/dynamicCollageCity
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/collages&Collage_page=2
+---
+2014/12/01 17:30:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "dynamicCollageCity".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('dynamicCollageC...')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('dynamicCollageC...')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dynamicCol...')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=site/dynamicCollageCity
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/collages&Collage_page=2
+---
+2014/12/01 17:32:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'state_id' in 'where clause'. The SQL statement executed was: SELECT * FROM `cities` `t` WHERE state_id =:parent_id.
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (531)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/01 17:32:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'state_id' in 'where clause'. The SQL statement executed was: SELECT * FROM `cities` `t` WHERE state_id =:parent_id' in C:\wamp\www\framework\db\CDbCommand.php:528
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(390): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\framework\db\ar\CActiveRecord.php(1287): CDbCommand->queryAll()
+#2 C:\wamp\www\framework\db\ar\CActiveRecord.php(1406): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\wamp\www\zadovo\protected\controllers\SiteController.php(531): CActiveRecord->findAll('state_id =:pare...', Array)
+#4 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionDynamicCollageCity()
+#5 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('dynamicCollageC...')
+#9 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dynamicCol...')
+#10 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/zadovo/index.php?r=site/dynamicCollageCity
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/collages&Collage_page=2
+---
+2014/12/01 17:32:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'state' in 'where clause'. The SQL statement executed was: SELECT * FROM `cities` `t` WHERE state =:parent_id.
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (531)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/01 17:32:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'state' in 'where clause'. The SQL statement executed was: SELECT * FROM `cities` `t` WHERE state =:parent_id' in C:\wamp\www\framework\db\CDbCommand.php:528
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(390): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\framework\db\ar\CActiveRecord.php(1287): CDbCommand->queryAll()
+#2 C:\wamp\www\framework\db\ar\CActiveRecord.php(1406): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\wamp\www\zadovo\protected\controllers\SiteController.php(531): CActiveRecord->findAll('state =:parent_...', Array)
+#4 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionDynamicCollageCity()
+#5 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('dynamicCollageC...')
+#9 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/dynamicCol...')
+#10 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/zadovo/index.php?r=site/dynamicCollageCity
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/collages&Collage_page=2
+---
+2014/12/01 17:34:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "colleges".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('colleges')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('colleges')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/colleges')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=user%2Fcolleges&search=&Collage%5Bstate%5D=6&Collage%5Bcity_id%5D=173&yt0=Search
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/collages&Collage_page=2
+---
+2014/12/01 17:34:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "colleges".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('colleges')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('colleges')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/colleges')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=user%2Fcolleges&search=&Collage%5Bstate%5D=6&Collage%5Bcities_id%5D=173&yt0=Search
+---
+2014/12/01 17:35:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "colleges".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('colleges')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('colleges')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/colleges')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=user%2Fcolleges
+---
+2014/12/01 17:35:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "colleges".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('colleges')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('colleges')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/colleges')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=site%2Fcolleges&search=&Collage%5Bstate%5D=2&Collage%5Bcity_id%5D=26&yt0=Search
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/collages
+---
+2014/12/01 17:36:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "colleges".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('colleges')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('colleges')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/colleges')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=site%2Fcolleges
+---
+2014/12/01 17:36:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "colleges".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('colleges')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('colleges')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/colleges')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=site/colleges
+---
+2014/12/01 17:36:48 [error] [php] include(UserProfilesHasInstitutes.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\zadovo\protected\controllers\SiteController.php(406): spl_autoload_call()
+#1 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#2 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#4 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#6 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=2&Collage%5Bcity_id%5D=160&yt0=Search
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (406)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 12:59:56 [error] [php] include(UserProfilesHasInstitutes.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\zadovo\protected\controllers\SiteController.php(406): spl_autoload_call()
+#1 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#2 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#4 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#6 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=194&yt0=Search
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (406)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 13:05:12 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'zadovo.courses' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `courses`.
+in C:\wamp\www\zadovo\protected\models\Courses.php (28)
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (335)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 13:05:12 [error] [exception.CDbException] exception 'CDbException' with message 'The table "courses" for active record class "Courses" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Courses))
+#1 C:\wamp\www\zadovo\protected\models\Courses.php(28): CActiveRecord::model('Courses')
+#2 C:\wamp\www\zadovo\protected\controllers\SiteController.php(335): Courses::model()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=anima&Collage%5Bstate%5D=16&Collage%5Bcity_id%5D=31&yt0=Search
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/collages
+---
+2014/12/02 16:06:13 [error] [exception.CException] exception 'CException' with message 'Property "Collage.states_id" is not defined.' in C:\wamp\www\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(160): CComponent->__set('states_id', '1')
+#1 C:\wamp\www\zadovo\protected\controllers\SiteController.php(401): CActiveRecord->__set('states_id', '1')
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#3 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=&yt0=Search
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=3&Collage%5Bcity_id%5D=238&yt0=Search
+---
+2014/12/02 16:07:05 [error] [php] include(City.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\zadovo\protected\controllers\SiteController.php(402): spl_autoload_call()
+#1 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#2 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#4 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#6 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=&yt0=Search
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (402)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 16:07:19 [error] [php] Undefined index: states_id (C:\wamp\www\zadovo\protected\controllers\SiteController.php:402)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#1 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#3 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=&yt0=Search
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (402)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 16:07:46 [error] [php] Undefined index: states_id (C:\wamp\www\zadovo\protected\controllers\SiteController.php:402)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#1 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#3 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=&yt0=Search
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (402)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 16:08:03 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `collage` `t` WHERE t.activation = 1 and t.status=1 AND city_id =Array.
+in C:\wamp\www\zadovo\themes\home\views\site\collage.php (53)
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (441)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 16:08:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `collage` `t` WHERE t.activation = 1 and t.status=1 AND city_id =Array' in C:\wamp\www\framework\db\CDbCommand.php:528
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\framework\db\ar\CActiveRecord.php(1536): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\web\CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\wamp\www\framework\web\CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\wamp\www\framework\web\CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 C:\wamp\www\framework\web\CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 C:\wamp\www\framework\zii\widgets\CBaseListView.php(105): CDataProvider->getData()
+#7 C:\wamp\www\framework\zii\widgets\CListView.php(173): CBaseListView->init()
+#8 C:\wamp\www\framework\web\CBaseController.php(148): CListView->init()
+#9 C:\wamp\www\framework\web\CBaseController.php(173): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#10 C:\wamp\www\zadovo\themes\home\views\site\collage.php(53): CBaseController->widget('zii.widgets.CLi...', Array)
+#11 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#12 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#13 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#14 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#15 C:\wamp\www\zadovo\protected\controllers\SiteController.php(441): CController->render('collage', Array)
+#16 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#17 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#18 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#19 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#21 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#22 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=&yt0=Search
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=3&Collage%5Bcity_id%5D=238&yt0=Search
+---
+2014/12/02 16:08:24 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Array' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `collage` `t` WHERE t.activation = 1 and t.status=1 AND city_id in Array.
+in C:\wamp\www\zadovo\themes\home\views\site\collage.php (53)
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (441)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 16:08:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Array' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `collage` `t` WHERE t.activation = 1 and t.status=1 AND city_id in Array' in C:\wamp\www\framework\db\CDbCommand.php:528
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\framework\db\ar\CActiveRecord.php(1536): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\web\CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\wamp\www\framework\web\CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\wamp\www\framework\web\CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 C:\wamp\www\framework\web\CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 C:\wamp\www\framework\zii\widgets\CBaseListView.php(105): CDataProvider->getData()
+#7 C:\wamp\www\framework\zii\widgets\CListView.php(173): CBaseListView->init()
+#8 C:\wamp\www\framework\web\CBaseController.php(148): CListView->init()
+#9 C:\wamp\www\framework\web\CBaseController.php(173): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#10 C:\wamp\www\zadovo\themes\home\views\site\collage.php(53): CBaseController->widget('zii.widgets.CLi...', Array)
+#11 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#12 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#13 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#14 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#15 C:\wamp\www\zadovo\protected\controllers\SiteController.php(441): CController->render('collage', Array)
+#16 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#17 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#18 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#19 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#21 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#22 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=&yt0=Search
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=3&Collage%5Bcity_id%5D=238&yt0=Search
+---
+2014/12/02 16:44:04 [error] [php] Undefined index: Collage (C:\wamp\www\zadovo\protected\controllers\SiteController.php:319)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#1 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#3 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=IIBM
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (319)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 16:48:56 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `collage` `t` WHERE t.activation = 1 and t.status=1 AND city_id =.
+in C:\wamp\www\zadovo\themes\home\views\site\collage.php (63)
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (398)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 16:48:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `collage` `t` WHERE t.activation = 1 and t.status=1 AND city_id =' in C:\wamp\www\framework\db\CDbCommand.php:528
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\framework\db\ar\CActiveRecord.php(1536): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\web\CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\wamp\www\framework\web\CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\wamp\www\framework\web\CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 C:\wamp\www\framework\web\CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 C:\wamp\www\framework\zii\widgets\CBaseListView.php(105): CDataProvider->getData()
+#7 C:\wamp\www\framework\zii\widgets\CListView.php(173): CBaseListView->init()
+#8 C:\wamp\www\framework\web\CBaseController.php(148): CListView->init()
+#9 C:\wamp\www\framework\web\CBaseController.php(173): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#10 C:\wamp\www\zadovo\themes\home\views\site\collage.php(63): CBaseController->widget('zii.widgets.CLi...', Array)
+#11 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#12 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#13 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#14 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#15 C:\wamp\www\zadovo\protected\controllers\SiteController.php(398): CController->render('collage', Array)
+#16 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#17 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#18 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#19 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#21 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#22 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=IIBM&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=&yt0=Search
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site%2Fcollages&search=IIBM
+---
+2014/12/02 16:49:38 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `collage` `t` WHERE t.activation = 1 and t.status=1 AND city_id =.
+in C:\wamp\www\zadovo\themes\home\views\site\collage.php (63)
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (398)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 16:49:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `collage` `t` WHERE t.activation = 1 and t.status=1 AND city_id =' in C:\wamp\www\framework\db\CDbCommand.php:528
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\framework\db\ar\CActiveRecord.php(1536): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\web\CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\wamp\www\framework\web\CDataProvider.php(193): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\wamp\www\framework\web\CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 C:\wamp\www\framework\web\CDataProvider.php(137): CActiveDataProvider->fetchData()
+#6 C:\wamp\www\framework\zii\widgets\CBaseListView.php(105): CDataProvider->getData()
+#7 C:\wamp\www\framework\zii\widgets\CListView.php(173): CBaseListView->init()
+#8 C:\wamp\www\framework\web\CBaseController.php(148): CListView->init()
+#9 C:\wamp\www\framework\web\CBaseController.php(173): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#10 C:\wamp\www\zadovo\themes\home\views\site\collage.php(63): CBaseController->widget('zii.widgets.CLi...', Array)
+#11 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#12 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#13 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#14 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#15 C:\wamp\www\zadovo\protected\controllers\SiteController.php(398): CController->render('collage', Array)
+#16 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionCollages()
+#17 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#18 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#19 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collages')
+#21 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collages')
+#22 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=IIBM&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=&yt0=Search
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site%2Fcollages&search=IIBM
+---
+2014/12/02 16:53:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "collage".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('collage')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collage')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collage')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collage&id=1
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site%2Fcollages&search=&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=1&yt0=Search
+---
+2014/12/02 17:13:13 [error] [exception.CException] exception 'CException' with message 'Property "Collage.title" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('title')
+#1 C:\wamp\www\zadovo\themes\home\views\site\collage.php(11): CActiveRecord->__get('title')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#6 C:\wamp\www\zadovo\protected\controllers\SiteController.php(403): CController->render('collage', Array)
+#7 [internal function]: SiteController->actionCollage('1')
+#8 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collage')
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collage')
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collage&id=1
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/collages
+---
+2014/12/02 17:15:43 [error] [php] Undefined variable: Institutes (C:\wamp\www\zadovo\themes\home\views\site\collage.php:31)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): SiteController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): SiteController->renderPartial()
+#2 C:\wamp\www\zadovo\protected\controllers\SiteController.php(404): SiteController->render()
+#3 unknown(0): SiteController->actionCollage()
+#4 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#5 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#8 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=site/collage&id=1
+in C:\wamp\www\zadovo\themes\home\views\site\collage.php (31)
+in C:\wamp\www\zadovo\protected\controllers\SiteController.php (404)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/02 17:27:18 [error] [exception.CException] exception 'CException' with message 'Property "Collage.collagesCoursesSpecialization" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('collagesCourses...')
+#1 C:\wamp\www\zadovo\themes\home\views\site\collage.php(60): CActiveRecord->__get('collagesCourses...')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\zad...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\zad...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\zad...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#6 C:\wamp\www\zadovo\protected\controllers\SiteController.php(404): CController->render('collage', Array)
+#7 [internal function]: SiteController->actionCollage('1')
+#8 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collage')
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/collage')
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collage&id=1
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/collages
+---
