@@ -18,7 +18,7 @@
                             
                             <dd>
                          <?php 
-						if(isset($_REQUEST['Collage']['state']))
+						if(!empty($_REQUEST['Collage']['state']))
 							$listC			=	CHtml::listData(Cities::model()->findAll(array('condition'=>'status = 1 and published=1 and states_id='.$_REQUEST['Collage']['state'])),'id', 'name');
 						else
 							$listC			=	CHtml::listData(Cities::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'name');

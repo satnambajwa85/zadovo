@@ -1,7 +1,4 @@
 /*yellow THEME*/
-body,
-.main {background-image:url(../images/bgr/body.jpg);}
-
 ::-moz-selection {background:#EFBA01;color:#fff;}
 ::selection 	 	{background:#EFBA01;color:#fff;}
 

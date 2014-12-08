@@ -90,10 +90,12 @@
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
 							<li><a id="GoToHome" href="#home" class="selected">Home</a></li>
-							<li><a id="GoToAbout" href="#about">Features</a></li>
-							<li><a id="GoToItWork" href="#how-it-work">How</a></li>
+							<li><a id="GoToAbout" href="#about">Features</a></li>							
 							<li><a id="GoToGallery" href="#gallery">Career</a></li>
-							<li><a id="GoToTestimoni" href="#testimoni">Testimonials</a></li>
+							<!--<li><a id="GoToTestimoni" href="#testimoni">Testimonials</a></li>-->
+                            <li>
+                            <?php echo CHtml::link('Collages',array('/site/collages'));?>
+                            <!--<a id="GoToItWork" href="#how-it-work">How</a>--></li>
 							<li><a id="GoToContact" href="#contact">Contact us</a></li>		
 						</ul>
 						<div class="navbar-right">
@@ -364,7 +366,7 @@ Fret not. Our experts will clear the air and forklift you on the correct track.
 		<!-- Start gallery -->
 
 		<!-- Start testimoni -->
-		<section id="testimoni">
+		<!--<section id="testimoni">
 			<div class="container">
 				<div class="row wow fadeInUp" data-wow-delay="0.4s">
 					<div class="col-md-10 col-md-offset-1">
@@ -401,11 +403,11 @@ Fret not. Our experts will clear the air and forklift you on the correct track.
 					</div>
 				</div>
 			</div>
-		</section>
+		</section>-->
 		<!-- Start testimoni -->
 
 		<!-- Start download -->
-		<section id="download">
+		<!--<section id="download">
 			<div class="container">
 				<div class="row wow fadeInDown" data-wow-delay="0.4s">
 					<div class="col-md-12 text-center">
@@ -417,7 +419,7 @@ Fret not. Our experts will clear the air and forklift you on the correct track.
 					</div>
 				</div>
 			</div>
-		</section>
+		</section>-->
 		<!-- Start download -->
 
 		<!-- Start contact -->
@@ -460,7 +462,7 @@ Fret not. Our experts will clear the air and forklift you on the correct track.
 					</div>
 					<div class="col-md-5 contact-form-widget">
 						<h4>Quick contact</h4>
-						<form id="contactform" action="http://99webpage.com/theme-review/landingpage/chilok/contact/contact.php" method="post" class="validateform" name="leaveContact">
+						<form id="contactform" action="<?php echo Yii::app()->createAbsoluteUrl('/site/contact');?>" method="post" class="validateform" name="leaveContact">
 							<div class="clearfix"></div>
 							<div id="sendmessage">
 								<div class="alert alert-info marginbot35">

@@ -78,10 +78,9 @@ jQuery(document).ready(function($) {
 		});
 		if( ferror ) return false; 
 			else var str = $(this).serialize();
-		
 			   $.ajax({
 			   type: "POST",
-			   url: "contact/contact.php",
+			   url: ""+$(this).attr('action')+"",
 			   data: str,
 			   success: function(msg){
 			$("#sendmessage").addClass("show");
