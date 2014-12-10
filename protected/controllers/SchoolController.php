@@ -89,7 +89,7 @@ class SchoolController extends Controller
 			$model->status		=	1;
 			$model->published	=	1;
 			$model->schools_profile_id	=	$id;
-			$model->user_profiles_id	=	29;
+			$model->user_profiles_id	=	1;
 			$model->login_id	=	Yii::app()->user->userId;
 			$targetFolder = Yii::app()->request->baseUrl.'/uploads/blog/';
 			if (!empty($_FILES['Blog']['name']['image'])) {

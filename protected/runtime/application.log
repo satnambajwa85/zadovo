@@ -1041,3 +1041,57 @@ Stack trace:
 REQUEST_URI=/zadovo/index.php?r=site%2Fcollages&search=insti&Collage%5Bstate%5D=&Collage%5Bcity_id%5D=&yt0=Search
 HTTP_REFERER=http://localhost/zadovo/index.php?r=site%2Fcollages&search=insti&Collage%5Bstate%5D=1&Collage%5Bcity_id%5D=194&yt0=Search
 ---
+2014/12/10 16:14:46 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`zadovo/blog`, CONSTRAINT `fk_blog_user_profiles1` FOREIGN KEY (`user_profiles_id`) REFERENCES `user_profiles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `blog` (`status`, `published`, `title`, `description`, `image`, `add_date`, `schools_profile_id`, `user_profiles_id`, `login_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (131)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/10 16:14:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`zadovo/blog`, CONSTRAINT `fk_blog_user_profiles1` FOREIGN KEY (`user_profiles_id`) REFERENCES `user_profiles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `blog` (`status`, `published`, `title`, `description`, `image`, `add_date`, `schools_profile_id`, `user_profiles_id`, `login_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\wamp\www\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(1014): CDbCommand->execute()
+#1 C:\wamp\www\framework\db\ar\CActiveRecord.php(787): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\zadovo\protected\controllers\SchoolController.php(131): CActiveRecord->save()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SchoolController->actionIndex()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('school')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/zadovo/index.php?r=school
+HTTP_REFERER=http://localhost/zadovo/index.php?r=school
+---
+2014/12/10 17:23:29 [error] [php] Undefined variable: data (C:\wamp\www\zadovo\themes\home\views\school\index.php:312)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): SchoolController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): SchoolController->renderPartial()
+#2 C:\wamp\www\zadovo\protected\controllers\SchoolController.php(136): SchoolController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SchoolController->actionIndex()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\CController.php(287): SchoolController->runAction()
+#6 C:\wamp\www\framework\web\CController.php(266): SchoolController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): SchoolController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=school
+in C:\wamp\www\zadovo\themes\home\views\school\index.php (312)
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (136)
+in C:\wamp\www\zadovo\index.php (13)
+2014/12/10 17:23:46 [error] [php] Undefined variable: data (C:\wamp\www\zadovo\themes\home\views\school\index.php:312)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): SchoolController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): SchoolController->renderPartial()
+#2 C:\wamp\www\zadovo\protected\controllers\SchoolController.php(136): SchoolController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SchoolController->actionIndex()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\CController.php(287): SchoolController->runAction()
+#6 C:\wamp\www\framework\web\CController.php(266): SchoolController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): SchoolController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=school
+in C:\wamp\www\zadovo\themes\home\views\school\index.php (312)
+in C:\wamp\www\zadovo\protected\controllers\SchoolController.php (136)
+in C:\wamp\www\zadovo\index.php (13)

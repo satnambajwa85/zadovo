@@ -308,9 +308,9 @@ if($coun > 0){
 							<?php if(!empty($bData)){
 							foreach($bData as $blog){?>
                             <!--<h1><?php echo $blog->title;?></h1>-->
-							<figure class="left_pic"> <img src="uploads\blog\sthumb\<?php echo $blog->image;?>" alt=""  /> </figure>
-							<p class="teaser"><?php echo $blog->title;?></p>
-							<p><?php echo $blog->description;?></p>
+							<figure class="left_pic"><?php echo CHtml::link('<img src="uploads/blog/sthumb/'.$blog->image.'" alt="'.$blog->title.'" />',array('/site/blog','id'=>$blog->id));?></figure>
+							<p class="teaser"><?php echo CHtml::link($blog->title,array('/site/blog','id'=>$blog->id));?></p>
+							<p><?php echo substr($blog->description,0,250);?>...</p>
 							<hr />
                             <?php }
 							}else{
