@@ -397,13 +397,7 @@
                 <div class="dropdown_container dropdown_7columns"><!-- Begin Item Container -->
 
 
-                    <div class="col_12">
-
-                        <h4>List Elements</h4>
-                        <p>Fusce rutrum purus erat, vel imperdiet arcu gravida ac. In ac mi massa. Suspendisse vitae turpis augue. Mauris at nibh fringilla, placerat erat quis, consectetur tellus. Ut ligula nibh, tincidunt et dolor vitae, bibendum consectetur neque.</p>
-
-                    </div>
-
+                
                     <div class="col_3">
 
                         <ul>
@@ -431,18 +425,7 @@
                         </ul>
 
                     </div>
-
-                    <div class="col_6">
-
-                        <p class="text_box">Praesent sed lectus vel tortor aliquet bibendum at non orci. Aliquam nunc sapien, pretium eu dapibus vel, adipiscing sed nisl. Nulla facilisi.</p>
-
-                    </div>
-
-                    <div class="col_12">
-
-                        <hr>
-
-                    </div>
+                                     
 
                     <div class="col_3">
 
@@ -472,19 +455,7 @@
 
                     </div>
 
-                    <div class="col_6">
-
-                        <ol>
-                        
-                            <li><a href="#">This is a longer list element</a></li>
-                            <li><a href="#">You can add more descriptions here</a></li>
-                            <li><a href="#">Vestibulum ac tellus a nisl posuere</a></li>
-                            <li><a href="#">Praesent at consectetur libero</a></li>
-                            <li><a href="#">Cras nec convallis diam</a></li>
-                            
-                        </ol>
-
-                    </div>
+                    
 
 
                 </div><!-- End Item Container -->
