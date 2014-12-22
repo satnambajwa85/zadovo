@@ -325,12 +325,15 @@ class SiteController extends Controller
 			if(!empty($_REQUEST['Collage']['city_id'])){
 				$City3	=	$_REQUEST['Collage']['city_id'];
 				$baseCondidtion = 't.activation = 1 and t.status=1 AND city_id ='.$City3.' AND name LIKE "%'.$value.'%"';
+			}
+			elseif(!empty($_REQUEST['city_id'])){
+				$City3	=	$_REQUEST['city_id'];
+				$baseCondidtion = 't.activation = 1 and t.status=1 AND city_id ='.$City3.' AND name LIKE "%'.$value.'%"';
 			}elseif(!empty($_REQUEST['Collage']['state'])){
 				$Citylist	=	Cities::model()->findAllByAttributes(array('states_id'=>$_REQUEST['Collage']['state']));
 				$City3		=	'0';
 				foreach($Citylist as $reCity)
 					$City3	.=	','.$reCity->id;
-				
 				$baseCondidtion = 't.activation = 1 and t.status=1 AND city_id IN ('.$City3.') AND name LIKE "%'.$value.'%"';
 			}else{
 				$baseCondidtion = 't.activation = 1 and t.status=1 AND name LIKE "%'.$value.'%"';
@@ -363,6 +366,19 @@ class SiteController extends Controller
 			$shortList			=	array();
 			//foreach($shortListed as $col)
 				//$shortList[]	=	$col->institutes_id;
+		}
+		elseif(!empty($_REQUEST['city_id'])){
+			$City3				=	$_REQUEST['city_id'];
+			$model				=	new Collage;
+			$baseCondidtion		=	't.activation = 1 and t.status=1 AND city_id ='.$City3;
+			$Institutes			=	new CActiveDataProvider('Collage', array(
+										'criteria'=>array(
+										'condition'=>$baseCondidtion,),
+										'pagination'=>array(
+											'pageSize'=>12,
+										),
+									));
+			$shortList			=	array();
 		}
 		elseif(!empty($_REQUEST['Collage']['state'])){
 			$Citylist	=	Cities::model()->findAllByAttributes(array('states_id'=>$_REQUEST['Collage']['state']));

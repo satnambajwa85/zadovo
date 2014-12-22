@@ -24,7 +24,7 @@
 							$listC			=	CHtml::listData(Cities::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'name');
 						
 						
-						$model->city_id	=	(isset($_REQUEST['Collage']['state']))?$_REQUEST['Collage']['city_id']:'';
+						$model->city_id	=	(isset($_REQUEST['Collage']['city_id']))?$_REQUEST['Collage']['city_id']:((isset($_REQUEST['city_id']))?$_REQUEST['city_id']:'');
 						echo $form->dropDownList($model,'city_id',$listC,array('placeholder'=>'City Name','value'=>$model->city_id,'empty'=>'Select City'));?>
 							</dd>
 							<dd>

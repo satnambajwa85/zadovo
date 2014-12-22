@@ -62,7 +62,7 @@
                     	<h5><?php echo $item->title;?></h5>
                         <ul>
                         	<?php foreach($item->careers as $career){?> 
-                            <li><?php echo CHtml::link($career->title,array('/site/courses',array('Categories'=>$career->id)));?></li>
+                            <li><?php echo CHtml::link($career->title,array('/site/courses','Categories'=>$career->id));?></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -93,7 +93,7 @@
                         	<h6><?php echo $item->name;?></h6>
                         	<ul>
                             	<?php foreach($item->cities as $city){?> 
-                                <li><?php echo CHtml::link($city->name,array('/site/carrers',array('id'=>$city->id)));?></li>
+                                <li><?php echo CHtml::link($city->name,array('/site/collages','city_id'=>$city->id));?></li>
                                 <?php }?>
                             
                         	</ul>
