@@ -92,9 +92,12 @@
                         <div class="col_3">
                         	<h6><?php echo $item->name;?></h6>
                         	<ul>
-                            	<?php foreach($item->cities as $city){?> 
+                            	<?php foreach($item->cities as $city){
+									//if(count($city->collages)>0){
+									?> 
                                 <li><?php echo CHtml::link($city->name,array('/site/collages','city_id'=>$city->id));?></li>
-                                <?php }?>
+                                <?php //}
+								}?>
                             
                         	</ul>
                         </div>
@@ -110,6 +113,10 @@
 
 
             </li>
+			<li><span><?php echo CHtml::link('Blog',array('/site/blogList'));?></span></li>
+			<li><span><?php echo CHtml::link('Business',array('/site/addbusiness'));?></span></li>
+			<li><span><?php echo CHtml::link('Sign In',array('/site/login'));?></span></li>
+            
         </ul><!-- End Mega Menu -->
 
 

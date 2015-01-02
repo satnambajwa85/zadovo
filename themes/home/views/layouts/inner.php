@@ -285,7 +285,7 @@ Search careers with key words
 Enter the keywords that describe your dream career and we'll help you find the right path.:
 </p>
 <div class="separator">
-<?php echo CHtml::textField('text','',array('title' => 'search','class'=>'gsc-input','id'=>"aa",'style'=>"width: 100%; padding: 5px; border: medium none; margin: 0px; height: auto; outline: medium none; color:#666;"));?>
+<?php echo CHtml::textField('text','',array('placeholder' => 'Search with keyword','class'=>'gsc-input','id'=>"aa",'style'=>"width: 100%; padding: 5px; border: medium none; margin: 0px; height: auto; outline: medium none; color:#666;"));?>
 
 
 
@@ -364,63 +364,6 @@ Fret not. Our experts will clear the air and forklift you on the correct track.
 			</div>
 		</section>
 		<!-- Start gallery -->
-
-		<!-- Start testimoni -->
-		<!--<section id="testimoni">
-			<div class="container">
-				<div class="row wow fadeInUp" data-wow-delay="0.4s">
-					<div class="col-md-10 col-md-offset-1">
-						<h3 class="heading text-center">Testimoni</h3>
-						<ul class="ticker">
-							<li>
-								<div class="testimoni">
-									<a href="#" class="testimoni-avatar"><img src="<?php echo Yii::app()->theme->baseUrl;?>/img/testimoni/avatar1.png" alt="" /></a>
-									<blockquote>
-										Clita perpetua pri et, in vis suas invenire definitionem, te eam erant soleat. Eu vis assum movet, duo quis eirmod periculis ut, et has nominavi tincidunt ullamcorper. No erat dicat vis.
-									</blockquote>
-									
-								</div>
-							</li>
-							<li>
-								<div class="testimoni">
-									<a href="#" class="testimoni-avatar"><img src="<?php echo Yii::app()->theme->baseUrl;?>/img/testimoni/avatar2.png" alt="" /></a>
-									<blockquote>
-										Argumentum in nec errem imperdiet abhorreant ei. Id lorem quando legere eos, ea nam diam disputando, ea est hinc salutatus similique. Vix posse ipsum munere ne, est mazim accusata scribentur.
-									</blockquote>
-									
-								</div>
-							</li>
-							<li>
-								<div class="testimoni">
-									<a href="#" class="testimoni-avatar"><img src="<?php echo Yii::app()->theme->baseUrl;?>/img/testimoni/avatar3.png" alt="" /></a>
-									<blockquote>
-										Nec ad homero maluisset delicatissimi, error possit impetus vix id. Porro facilis id vis, omnis reque corpora at ius. Veri ubique oportere duo ea, vix sale ferri percipitur te vix ut..
-									</blockquote>
-									
-								</div>
-							</li>						
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>-->
-		<!-- Start testimoni -->
-
-		<!-- Start download -->
-		<!--<section id="download">
-			<div class="container">
-				<div class="row wow fadeInDown" data-wow-delay="0.4s">
-					<div class="col-md-12 text-center">
-						<h3><span>What are you</span> waiting for !</h3>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-						<span class="divider"></span>
-						<div class="clearfix"></div>
-						
-					</div>
-				</div>
-			</div>
-		</section>-->
-		<!-- Start download -->
 
 		<!-- Start contact -->
 		<section id="contact">

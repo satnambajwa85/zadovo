@@ -65,6 +65,7 @@ class Cities extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'states' => array(self::BELONGS_TO, 'States', 'states_id'),
+			//'collages' => array(self::HAS_MANY, 'Collage', 'city_id'),
 		);
 	}
 

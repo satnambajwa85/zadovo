@@ -304,12 +304,29 @@ class SiteController extends Controller
 		$this->render('courses',array('fech_result'=>$dataProvider,'add'=>$add,'count'=>$count));
 	}
 	
+	public function actionBlogList()
+	{	
+		$add	=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
+		
+		$baseCondidtion = '';
+		$data	=	new CActiveDataProvider('Blog', array(
+							'criteria'=>array(
+								'condition'=>$baseCondidtion,),
+								'pagination'=>array(
+								'pageSize'=>12,
+							),
+						));
+		
+		$this->render('blogs',array('data'=>$data,'add'=>$add));
+	}
 	public function actionBlog($id)
 	{	
 		$add	=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
 		$data	=	Blog::model()->findByPk($id);
 		$this->render('blog',array('data'=>$data,'add'=>$add));
 	}
+	
+	
 	public function actionCourse($id)
 	{	
 		$add			=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
