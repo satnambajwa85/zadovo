@@ -114,7 +114,7 @@
 
             </li>
 			<li><span><?php echo CHtml::link('Blog',array('/site/blogList'));?></span></li>
-			<li><span><?php echo CHtml::link('Business',array('/site/addbusiness'));?></span></li>
+			<li><span><?php echo CHtml::link('Business',array('/site/businessList'));?></span></li>
 			<li><span><?php echo CHtml::link('Sign In',array('/site/login'));?></span></li>
             
         </ul><!-- End Mega Menu -->
