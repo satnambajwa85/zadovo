@@ -20,7 +20,12 @@ class UserIdentity extends CUserIdentity
 				$this->setState('userName',$userInfo->name);
 				$this->setState('userImg',$userInfo->logo);
 			}
-			else{
+			else if($record->roles_id==4){
+				$lik		=	CollageHasLogin::model()->findByAttributes(array('login_id'=>$record->id));
+				$userInfo	=	SchoolsProfile::model()->findByAttributes(array('id'=>$lik->collage_id));
+				$this->setState('userName',$userInfo->name);
+				$this->setState('userImg',$userInfo->logo);
+			}else{
 				$userInfo	=	UserProfiles::model()->findByAttributes(array('login_id'=>$record->id));
 				$this->setState('userName',$userInfo->first_name.' '.$userInfo->last_name);
 				$this->setState('gender',$userInfo->gender);

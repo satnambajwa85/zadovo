@@ -1,5 +1,5 @@
 <?php
-class SchoolController extends Controller
+class CollageController extends Controller
 {
 	public function actions()
 	{
@@ -34,7 +34,7 @@ class SchoolController extends Controller
 	public function actionIndex()
 	{	
 		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
-		$info				=	SchoolsProfile::model()->findByAttributes(array('login_id'=>Yii::app()->user->userId));
+		$info				=	Collage::model()->findByAttributes(array('id'=>Yii::app()->user->profileId));
 		$id					=	$info->id;
 		$blog				=	Blog::model()->findAllbyAttributes(array('status'=>1,'published'=>1,'login_id'=>Yii::app()->user->userId));
 		$cat				=	0;
@@ -76,8 +76,12 @@ class SchoolController extends Controller
 		$qterm	='%%';
 		$criteria1->condition = 'login_id IN ('.$loginIds.')  AND (first_name  Like :qterm OR last_name  Like :qterm) ';
 		$criteria1->params = array(':qterm'=>$qterm);
+		
+		
 		$models	=	 UserProfiles::model()->findAll($criteria1);
 		$count	=	count($models);
+		
+		
 		$dataProvider=new CActiveDataProvider('UserProfiles', array('criteria'=>$criteria1,'pagination'=>array('pageSize'=>10,),));
 		
 		
@@ -88,6 +92,8 @@ class SchoolController extends Controller
 			$model->add_date	=	date('Y-m-d H:i:s');
 			$model->status		=	1;
 			$model->published	=	1;
+			$model->schools_profile_id	=	$id;
+			$model->user_profiles_id	=	1;
 			$model->login_id	=	Yii::app()->user->userId;
 			$targetFolder = Yii::app()->request->baseUrl.'/uploads/blog/';
 			if (!empty($_FILES['Blog']['name']['image'])) {
@@ -127,11 +133,11 @@ class SchoolController extends Controller
 				$model->image	=	$fileName;
 			}
 			if($model->save())
-				$this->redirect(array('/school'));
+				$this->redirect(array('/collage'));
 		}
 		
 		
-		$this->render('index',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages,'likes'=>$likes,'join'=>$join,'want_to_join'=>$is_want_to_join,'model'=>$model));
+		$this->render('index',array('info'=>$info,'bData'=>$blog,'add'=>$add,'likes'=>$likes,'join'=>$join,'want_to_join'=>$is_want_to_join,'model'=>$model));
 	 }
 	
 	public function actionSchoolRegister()

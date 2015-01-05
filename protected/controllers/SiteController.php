@@ -331,7 +331,7 @@ class SiteController extends Controller
 		$add	=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
 		
 		$baseCondidtion = '';
-		$data	=	new CActiveDataProvider('Advertisements', array(
+		$data	=	new CActiveDataProvider('Business', array(
 							'criteria'=>array(
 								'condition'=>$baseCondidtion,),
 								'pagination'=>array(
@@ -882,10 +882,14 @@ class SiteController extends Controller
 					$this->redirect(Yii::app()->createUrl('/admin/schoolsProfile/admin'));
 					
 				}
-				if(Yii::app()->user->userType=='school/college'){
+				elseif(Yii::app()->user->userType=='school'){
 					$this->redirect(Yii::app()->createUrl('/school'));
 					
-				}	
+				}
+				elseif(Yii::app()->user->userType=='collage'){
+					$this->redirect(Yii::app()->createUrl('/collage'));
+					
+				}
 				else{
 					if(Yii::app()->user->userType=='user'){
 					$this->redirect(Yii::app()->createUrl('/user/userProfile'));

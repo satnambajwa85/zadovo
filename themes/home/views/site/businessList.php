@@ -44,7 +44,8 @@
 						<div class="deal-of-the-day">
 							<a href="<?php echo $list->link; ?>" target="_blank">
 								<figure><img src="<?php echo Yii::app()->baseUrl;?>/uploads/addvertise/large/<?php echo $list->image ?>" alt="<?php echo $list->description;?>" width="230" height="130" /></figure>
-								<h3><?php echo $list->advertiseCategories->name;?></h3>
+								<h3><?php echo $list->title;?></h3>
+                                <h4><?php echo $list->advertiseCategories->name;?></h4>
 								<p><span class="price"> <small><?php echo $list->description;?></small></span></p>
 							</a>
 						</div>

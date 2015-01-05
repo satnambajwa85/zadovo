@@ -41,7 +41,7 @@
                         	<div class="basic" data-average="5" data-id="1"></div>
 							</div>
                             <h1>Why</h1>
-							<div class="text-wrap">	
+							<div class="text-wrap ml25">	
 								<p><?php echo $info->why;?></p>
 							</div>
 						</article>
@@ -74,7 +74,7 @@ foreach($info->collagesCoursesSpecialization as $cou){
 				<div class="panel panel-default">
 					
                         <a data-toggle="collapse"  data-parent="#accordion" href="#collapseOne<?php echo $cou['id'];?>">
-                    <div class="panel-heading" style="background-color:#f5f5f5;">
+                    <div class="panel-heading" style="margin-left:10px;">
                         <h5 class="panel-title">    
 						<?php echo $cou['title'];?>
                          </h5>
@@ -85,7 +85,7 @@ foreach($info->collagesCoursesSpecialization as $cou){
       <div class="panel-body">
       
 		<?php foreach($cou['course'] as  $sat){?>
-				<div class="col-md-12 bb mb10 mt5">
+				<div class="col-md-10 bb mb10 mt5 fr ml25">
                     <div class="row">
                         <div class="col-md-12" style="font-size:14px;color:#42C6C1;border-bottom: 1px solid #21C4C1;margin-bottom:10px;"><?php echo $sat['title'];?></div>
                     </div>

@@ -1,27 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "advertise_categories".
+ * This is the model class for table "collage_has_login".
  *
- * The followings are the available columns in table 'advertise_categories':
+ * The followings are the available columns in table 'collage_has_login':
  * @property integer $id
- * @property string $name
- * @property string $alias
- * @property string $description
- * @property integer $parent_id
+ * @property integer $collage_id
+ * @property integer $login_id
  * @property string $add_date
- * @property integer $published
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property Advertisements[] $advertisements
+ * @property Collage $collage
+ * @property Login $login
  */
-class AdvertiseCategories extends CActiveRecord
+class CollageHasLogin extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return AdvertiseCategories the static model class
+	 * @return CollageHasLogin the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -33,7 +31,7 @@ class AdvertiseCategories extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'advertise_categories';
+		return 'collage_has_login';
 	}
 
 	/**
@@ -44,12 +42,12 @@ class AdvertiseCategories extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('parent_id, published, status', 'numerical', 'integerOnly'=>true),
-			array('name, alias', 'length', 'max'=>100),
-			array('description, add_date', 'safe'),
+			array('collage_id, login_id', 'required'),
+			array('collage_id, login_id, status', 'numerical', 'integerOnly'=>true),
+			array('add_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, alias, description, parent_id, add_date, published, status', 'safe', 'on'=>'search'),
+			array('id, collage_id, login_id, add_date, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,7 +59,8 @@ class AdvertiseCategories extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'advertisements' => array(self::HAS_MANY, 'Advertisements', 'advertise_categories_id'),
+			'collage' => array(self::BELONGS_TO, 'Collage', 'collage_id'),
+			'login' => array(self::BELONGS_TO, 'Login', 'login_id'),
 		);
 	}
 
@@ -72,12 +71,9 @@ class AdvertiseCategories extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'alias' => 'Alias',
-			'description' => 'Description',
-			'parent_id' => 'Parent',
+			'collage_id' => 'Collage',
+			'login_id' => 'Login',
 			'add_date' => 'Add Date',
-			'published' => 'Published',
 			'status' => 'Status',
 		);
 	}
@@ -94,12 +90,9 @@ class AdvertiseCategories extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('alias',$this->alias,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('parent_id',$this->parent_id);
+		$criteria->compare('collage_id',$this->collage_id);
+		$criteria->compare('login_id',$this->login_id);
 		$criteria->compare('add_date',$this->add_date,true);
-		$criteria->compare('published',$this->published);
 		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(

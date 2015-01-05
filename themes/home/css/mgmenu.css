@@ -1,56 +1,8 @@
-/*
-Item Name : Universal Mega Menu
-Item URI : http://codecanyon.net/item/universal-responsive-mega-menu/4984236
-Author URI : http://codecanyon.net/user/Pixelworkshop/
-Version : 1.06
-*/
-
-/*
-
-TABLE OF CONTENTS
-
-00 PAGE STYLING (REMOVABLE)
-01 MENU BAR
-   1. Mega Menu Bar
-   2. Mega Menu Trigger Button
-02 DROP DOWNS
-  1. Common Styling
-  2. Footer
-  3. Drop Down Containers
-03 COLUMNS GRID
-04 MULTILEVEL DROP DOWN
-05 CONTENT & TYPOGRAPHY
-   1. Basic Typography 
-   2. Lists
-   3. Other Styling
-   4. Inline Images
-   5. Icons
-   6. Form Elements
-06 DROP DOWN TABS
-07 MOBILE DEVICES
-08 RETINA DISPLAYS
-
-*/
-
-
-
-/*  _______________________________________
-
-  00 PAGE STYLING (REMOVABLE)
-    _______________________________________  */
-
-
-
-/* 
-The following markup is used only for demonstration purposes,
-this whole section can be removed.
-*/
-
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   body {background:url(../img/page_bg%402x.png) repeat}
 }
 .page_wrapper {width: 80%;margin: 0 auto;max-width: 960px;}
-p{font-size:12px; line-height:21px; margin-bottom:18px}
+p{font-size:12px; line-height:21px;}
 .dummy_content{width:100%;margin:32px auto;}
 .dummy_content_margin {width:100%; margin:75px auto;*padding-top:60px;}
 .dummy_content p,.dummy_content_margin p,.dummy_content li,.dummy_content_margin li{color:#666;font-size:12px;line-height:21px;text-shadow:1px 1px 1px #ffffff;}
@@ -65,22 +17,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 @media only screen and (max-width: 767px) {
   .dummy_content_margin {margin:32px auto;}
 }
-
-
-/*  _______________________________________
-
-    01 MENU BAR
-    _______________________________________  */
-
-
-
-
-/* 
-  If you have several menus on the same page, you can here 
-  define some properties separately for each of them
-  by using their respective ID.
-*/
-
 #mgmenu1 {
   z-index: 12;
 }
@@ -88,10 +24,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
   margin-top: 12px;
   z-index: 11;
 }
-
-
-/* 1. Mega Menu Bar */
-
 .mgmenu_container,
 .mgmenu_footer {
   width:100%;
@@ -231,20 +163,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
   background-image:url("../img/button_up.png");
 }
 
-
-
-
-/*  _______________________________________
-
-    02 DROP DOWNS
-    _______________________________________  */
-
-
-
-
-/* 1. Common Styling */
-
-
 .mgmenu li .dropdown_container,
 .mgmenu li .dropdown_fullwidth,
 .mgmenu li .mgmenu_multilevel {
@@ -278,11 +196,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
   left:auto;
   right:-1px;
 }
-
-
-/* 2. Footer */
-
-
 .mgmenu_footer .mgmenu > li .dropdown_container,
 .mgmenu_footer .mgmenu > li .dropdown_fullwidth,
 .mgmenu_footer .mgmenu > li .mgmenu_multilevel {
@@ -299,18 +212,11 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
   border:1px solid #CCCCCC;
   border-bottom:none;
 }
-
-
 .mgmenu > li:hover .dropdown_container,
 .mgmenu > li:hover .dropdown_fullwidth,
 .mgmenu > li.right_item:hover .dropdown_container {
   display: block;
 }
-
-
-/* 3. Drop Down Containers */
-
-
 .mgmenu li .dropdown_1column {
   width: 8.3334%;
   padding-left: 2%;
@@ -369,18 +275,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 .mgmenu li .dropdown_fullwidth {
   width: 100%;
 }
-
-
-
-
-/*  _______________________________________
-
-    03 COLUMNS GRID
-    _______________________________________  */
-
-
-
-
 .mgmenu .col_1,
 .mgmenu .col_2,
 .mgmenu .col_3,
@@ -398,10 +292,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
   position: relative;
   padding-left: 2%;
   padding-right: 2%;
-  /* 
-  Rounding error with IE7.
-  Lower margin values will absorb the difference.
-  */
   *padding-left: 1.9%;
   *padding-right: 1.9%;
 }
@@ -417,7 +307,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 .mgmenu .col_10 {width:79.33%;}
 .mgmenu .col_11 {width:87.66%;}
 .mgmenu .col_12 {width:96%;}
-
 .mgmenu .clear {
   clear: both;
   display: block;
@@ -432,17 +321,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
   -o-box-shadow: -1px 0 0 rgba(0,0,0,0.15);
   box-shadow: -1px 0 0 rgba(0,0,0,0.15);
 }
-
-
-
-/*  _______________________________________________
-
-    04 MULTILEVEL DROP DOWN
-    _______________________________________________  */
-
-
-
-
 .mgmenu .dropdown_flyout, 
 .mgmenu .dropdown_flyout .dropdown_flyout_level {
   padding: 0;
@@ -515,21 +393,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
   -o-box-shadow:0 1px 1px #f4f4f4;
   box-shadow:0 1px 1px #f4f4f4;
 }
-
-
-
-
-/*  _______________________________________
-
-    05 CONTENT & TYPOGRAPHY
-    _______________________________________  */
-
-
-
-
-/* 1. Basic Typography */
-
-
 .mgmenu p, 
 .mgmenu h1, 
 .mgmenu h2, 
@@ -589,11 +452,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 .mgmenu a:focus {
   background: none;
 }
-
-
-/* 2. Lists */
-
-
 .mgmenu > li ul,
 .mgmenu > li ol {
   padding:0 0 0 18px;
@@ -618,13 +476,7 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
   line-height:22px;
   position:relative;
   color:#fff;
-  /*text-shadow:1px 1px 1px #ffffff;*/
 }
-
-
-/* 3. Other Styling */
-
-
 .mgmenu blockquote {
   color:#aaaaaa;
   border-left: 5px solid #cccccc;
@@ -959,18 +811,6 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
     }
 
   }
-
-
-
-
-/*  _______________________________________
-
-    06 DROP DOWN TABS
-    _______________________________________  */
-
-
-
-
 .mgmenu li > .mgmenu_tabs {
   padding: 0 !important;
 }
@@ -1087,21 +927,7 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
   -o-box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
   box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
 }
-
-
-
-
-/*  _______________________________________
-
-    07 MOBILE DEVICES
-    _______________________________________  */
-
-
-
-
 @media only screen and (min-width: 768px) and (max-width: 984px) {
-
-
   .mgmenu > li {
       padding-right: 10px;
   }
@@ -1112,14 +938,8 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
   .mgmenu .mini_icon {
     padding-left: 3px;
   }
-
-
 }
-
-
 @media only screen and (min-width: 768px) {
-
-
   .mgmenu_container .mgmenu > li,
   .mgmenu_footer .mgmenu > li {
     display: block !important;
@@ -1293,20 +1113,7 @@ p{font-size:12px; line-height:21px; margin-bottom:18px}
 
 
 }
-
-
-
-/*  _______________________________________
-
-    08 RETINA DISPLAYS
-    _______________________________________  */
-
-
-
-
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-
-
   .mgmenu > li .mgmenu_drop {
     background-size: 9px 5px;
     background-image:url("../img/downArrow%402x.png");

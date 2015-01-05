@@ -581,8 +581,6 @@ class UserController extends Controller
 		{	
 			$blog->attributes			=	$_POST['Blog'];
 			$blog->add_date				=	date('Y-m-d H:i:s');
-			$blog->schools_profile_id	=	$_POST['Blog']['sid'];
-			$blog->user_profiles_id		=	Yii::app()->user->profileId;
 			$blog->login_id				=	Yii::app()->user->userId;
 			$targetFolder = Yii::app()->request->baseUrl.'/uploads/blog/';
 			if (!empty($_FILES['Blog']['name']['image'])) {

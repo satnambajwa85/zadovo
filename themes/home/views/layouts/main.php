@@ -115,7 +115,7 @@
             </li>
 			<li><span><?php echo CHtml::link('Blog',array('/site/blogList'));?></span></li>
 			<li><span><?php echo CHtml::link('Business',array('/site/businessList'));?></span></li>
-			<li><span><?php echo CHtml::link('Sign In',array('/site/login'));?></span></li>
+			<li><span><?php echo (Yii::app()->user->isGuest)?CHtml::link('Log In',array('/site/login')):CHtml::link('Log Out',array('/site/logout'));?></span></li>
             
         </ul><!-- End Mega Menu -->
 
