@@ -576,6 +576,18 @@ class SiteController extends Controller
 			$fetchReview		=	UserReviews::model()->findAll($criteria);
 		
 		}
+		
+		
+		$ciut		=	0;
+		$sun		=	0;
+		$avg		=	0;
+		foreach($info->ratings as $rat){
+			$ciut	=	$ciut+1;
+			$sun	=	$rat->title;
+		}
+		$avg		=	round(($sun/$ciut),1);
+		
+		
 		$criteria = new CDbCriteria;
 		$criteria->condition = 'is_joined = :frnd and schools_profile_id = :pid';
 		$criteria->params = array(':pid'=>$id,':frnd'=>'1');
@@ -626,8 +638,8 @@ class SiteController extends Controller
 								),
 							));
 			}
-		//$profile	=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
-		$this->render('schoolProfile',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'likes'=>$likes,'join'=>$join,'want_to_join'=>$is_want_to_join,'pages'=>$pages));
+			
+		$this->render('schoolProfile',array('info'=>$info,'avgrating'=>$avg,'userscount'=>$ciut,'reviewsCount'=>$count,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'likes'=>$likes,'join'=>$join,'want_to_join'=>$is_want_to_join,'pages'=>$pages));
 	}
 	public function actionSchoolDataResponce($id)
 	{

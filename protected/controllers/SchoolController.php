@@ -17,20 +17,6 @@ class SchoolController extends Controller
 		 
 		);
 	}
-
-	/*public function beforeAction($action)
-	{
-		$data		=	Setting::model()->findByAttributes(array('status'=>1,'published'=>1));
-		Yii::app()->session['setting']	=	array('name'=>$data->name,
-													'logo'=>$data->logo,
-													'twitter'=>$data->twitter,
-													'fb'=>$data->fb,
-													'email'=>$data->email,
-													'linkedin'=>$data->linkedin,
-												);
-		return true;
-	}*/
-
 	public function actionIndex()
 	{	
 		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
@@ -38,6 +24,19 @@ class SchoolController extends Controller
 		$id					=	$info->id;
 		$blog				=	Blog::model()->findAllbyAttributes(array('status'=>1,'published'=>1,'login_id'=>Yii::app()->user->userId));
 		$cat				=	0;
+		
+		$ciut		=	0;
+		$sun		=	0;
+		$avg		=	0;
+		foreach($info->ratings as $rat){
+			$ciut	=	$ciut+1;
+			$sun	=	$rat->title;
+		}
+		$avg		=	round(($sun/$ciut),2);
+		
+		
+		
+		
 		$criteria			=	new CDbCriteria();
 		$criteria->condition=	'schools_profile_id='.$id;
 		$count				=	UserReviews::model()->count($criteria);
@@ -46,17 +45,15 @@ class SchoolController extends Controller
 		$pages->pageSize	=	10;
 		$pages->applyLimit($criteria);
 		$fetchReview		=	UserReviews::model()->findAll($criteria);
-		
 		$criteria				=	new CDbCriteria;
 		$criteria->condition	=	'schools_profile_id = :pid';
 		$criteria->params		=	array(':pid'=>$id);
-		$friendList				=	SchoolsProfileHasLogin::model()->findAll($criteria);
-		$count					=	count($friendList);
-		$loginIds				=	'0,';
+		$friendList		=	SchoolsProfileHasLogin::model()->findAll($criteria);
+		$countF			=	count($friendList);
+		$loginIds		=	'0,';
 		$likes			=	0;	
 		$join			=	0;	
 		$is_want_to_join=	0;	
-		
 		foreach($friendList as $friends){
 			if($friends->is_want_to_join)
 				$is_want_to_join=$is_want_to_join+1;
@@ -71,16 +68,12 @@ class SchoolController extends Controller
 		$criteria1		=	new CDbCriteria;
 		$qterm			=	'';
 		$baseCondidtion =	't.status = 1 ';
-		
-		//$dataProvider	=	array();
 		$qterm	='%%';
 		$criteria1->condition = 'login_id IN ('.$loginIds.')  AND (first_name  Like :qterm OR last_name  Like :qterm) ';
 		$criteria1->params = array(':qterm'=>$qterm);
 		$models	=	 UserProfiles::model()->findAll($criteria1);
 		$count	=	count($models);
 		$dataProvider=new CActiveDataProvider('UserProfiles', array('criteria'=>$criteria1,'pagination'=>array('pageSize'=>10,),));
-		
-		
 		$model				=	new Blog;
 		if(isset($_POST['Blog']))
 		{
@@ -131,7 +124,7 @@ class SchoolController extends Controller
 		}
 		
 		
-		$this->render('index',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages,'likes'=>$likes,'join'=>$join,'want_to_join'=>$is_want_to_join,'model'=>$model));
+		$this->render('index',array('info'=>$info,'avgrating'=>$avg,'userscount'=>$ciut,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages,'likes'=>$likes,'join'=>$join,'want_to_join'=>$is_want_to_join,'model'=>$model,'reviewsCount'=>$count,'likeCount'=>$countF));
 	 }
 	
 	public function actionSchoolRegister()
@@ -413,9 +406,8 @@ class SchoolController extends Controller
 		
 		$this->render('schoolProfile',array('info'=>$info,'bData'=>$blog,'add'=>$add,'fech_result'=>$dataProvider,'fetchReview'=>$fetchReview,'cat'=>$cat,'pages'=>$pages));
 	 }
-	 
-	 public function actionSchoolDataResponce($id)
-	 {
+	public function actionSchoolDataResponce($id)
+	{
 		$info				=	SchoolsProfile::model()->findByPk($id);
 		
 		$data	=	array('follower'=>$info->follower,'likes'=>$info->likes ,'want_to_join'=>$info->want_to_join);
@@ -632,117 +624,5 @@ class SchoolController extends Controller
 	    }
 		$this->render('error',array('add'=>$add));
 	}
-	public function actionContact()
-	{
-		$model=new ContactForm;
-		if(isset($_POST['ContactForm']))
-		{
-			$model->attributes=$_POST['ContactForm'];
-			if($model->validate())
-			{
-				$headers="From: {$model->email}\r\nReply-To: {$model->email}";
-				mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
-				$this->refresh();
-			}
-		}
-		$this->render('contact',array('model'=>$model));
-	}
-
-
-				/**
-				 * Displays the login page
-				 */
-	public function actionLogin()
-	{	
 	
-		$model=new LoginForm;
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-		
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			  
-			if($model->login()){
-				   
-				Yii::app()->user->setFlash('success','You are sucessfully logged in.');
-				if(Yii::app()->user->userType=='Administrator'){
-					$this->redirect(Yii::app()->createUrl('/admin/admin'));
-					
-				}
-				if(Yii::app()->user->userType=='school/college'){
-					$this->redirect(Yii::app()->createUrl('/user/schoolProfile'));
-					
-				}	
-				else{
-					if(Yii::app()->user->userType=='user'){
-					$this->redirect(Yii::app()->createUrl('/user/userProfile'));
-		 
-					}
-			 
-				}
-			
-			}
-			else{
-				Yii::app()->user->setFlash('login','Username or password not valid.');
-			}
-		}
-		$this->render('login',array('model'=>$model));
-	}
-		
-	//Forgot password
-	public function actionForgetPassword()
-	{	
-	
-		$model=new ForgotpasswordForm;
-		if(isset($_POST['ForgotpasswordForm'])){
-			$model->attributes=$_POST['ForgotpasswordForm'];
-			if($model->validate())
-			{
-				//Searches for the record in the database for the posted email 
-				$record_exists = UserProfile::model()->exists('email = :email', array(':email'=>$_POST['ForgotpasswordForm']['email']));   				
-				if($record_exists==1){
-					$record = UserProfile::model()->findByAttributes(array('email'=>$_POST['ForgotpasswordForm']['email'])); 
-					//Generates a random number  
-					$random_number = rand(99999,9999999);
-					/*  Actual Code to be used  */
-					$body = $this->renderPartial('/mailtemplates/forgotpassword_mail_tpl',array('userfullname'=>$record->display_name,'email' => $record->email,'password'=>$random_number), true);
-					
-					$headers  = 'MIME-Version: 1.0' . "\r\n";
-					$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-					$headers .= "From: ".Yii::app()->params['adminEmail']."\r\nReply-To: ".Yii::app()->params['adminEmail'];                 	$subject = "Account Details";
-					if(mail($record->email,$subject,$body,$headers)){
-						$id = $record->id;
-						//Can be encodeed id used md5
-						$new_password = $random_number;
-						//Updates the password with the same random nunber which has been e-mailed to the account holder
-						UserProfile::model()->updateAll(array('password'=>$new_password),'id="'.$record->id.'"');
-						Yii::app()->user->setFlash('new_password_message','Your new password has been sent to the email you provided.');
-						$this->refresh();
-					} 
-					else
-						Yii::app()->user->setFlash('error',"Sorry mail could not be sent this time!Please try again.");					
-					}
-				else{
-						Yii::app()->user->setFlash('error',"The details provided by you does not match our records!");
-				}
-			} //validate ends
-		}
-		$this->render('forgetPassword',array('model'=>$model));
-	}
-	public function actionLogout()
-	{
-		$userLogin	=	Login::model()->findByPk(Yii::app()->user->userId);
-			$userLogin->login_status	=	0;
-			$userLogin->save();
-			Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
-	}
 }

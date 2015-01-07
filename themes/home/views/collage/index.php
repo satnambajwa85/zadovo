@@ -7,11 +7,11 @@
 				<section class="three-fourth">
 					<!--gallery-->
 					<section class="gallery" id="crossfade">
-						<?php echo CHtml::link('<img width="850" height="531" src="'.Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/large/'.$info->image.'" alt="'.$info->name.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
+						<?php echo CHtml::link('<img width="850" height="531" src="'.Yii::app()->request->baseUrl.'/uploads/collage/large/'.$info->image.'" alt="'.$info->name.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
                                 <div class="black_strip">
                         
                        <div class="image_position">
-                       	 <?php echo CHtml::link('<img width="150" height="115" src="'.Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/logo/'.$info->logo.'" alt="'.$info->name.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
+                       	 <?php echo CHtml::link('<img width="150" height="115" src="'.Yii::app()->request->baseUrl.'/uploads/collage/logo/'.$info->logo.'" alt="'.$info->name.'"/>',array('/site/schoolProfile','id'=>$info->id));?>
                        </div>
                         
                         	<div class="b_left_s"><p>8/12</p><span>Average Rating by users</span></div>
@@ -29,29 +29,7 @@
                 </li>
 				<li>
 				<a href="#modal_text" title="Write your review" class="modal"><p class="comments_1">Write review</p></a>
-                <div id="modal_text">
-
-<h1 class="comment">write your review</h1>
-<?php $review =	new UserReviews; $form=$this->beginWidget('CActiveForm', array(	
-                    'id'=>'user-search-form',
-                    'action'=>Yii::app()->createUrl('/user/reviews'),
-                    'method'=>'POST',));?>
-    <?php echo $form->hiddenField($info,'id'); ?>	
-    <?php echo $form->hiddenField($review,'sName',array('value'=>''.$info->name.'')); ?>
-    <?php echo $form->hiddenField($review,'sAddress',array('value'=>''.$info->address1.'')); ?>
-    <?php echo $form->hiddenField($review,'simg',array('value'=>''.$info->logo.'')); ?>
-<div class="col-md-12 clear">
-    
-    <?php echo $form->textArea($review,'reviews',array('class'=>'form-control')); ?>
-    
-    <?php echo $form->error($review,'reviews'); ?>
-    <div>&nbsp;</div>
-    <?php echo CHtml::submitButton('SUBMIT',array('class'=>'btn btn-danger fr mr15')); ?>
-
-</div>
-<?php $this->endWidget();?>
-
-</div>
+                
                 </li>
 				
 				<?php } else { ?>
@@ -194,6 +172,30 @@
 					<!--reviews-->
 					<section id="reviews" class="tab-content">
 						<article>
+                        	<div id="modal_text">
+
+<h1 class="comment">write your review</h1>
+<?php $review =	new UserReviews; $form=$this->beginWidget('CActiveForm', array(	
+                    'id'=>'user-search-form',
+                    'action'=>Yii::app()->createUrl('/user/reviews'),
+                    'method'=>'POST',));?>
+    <?php echo $form->hiddenField($info,'id'); ?>	
+    <?php echo $form->hiddenField($review,'sName',array('value'=>''.$info->name.'')); ?>
+    <?php echo $form->hiddenField($review,'sAddress',array('value'=>''.$info->address1.'')); ?>
+    <?php echo $form->hiddenField($review,'simg',array('value'=>''.$info->logo.'')); ?>
+<div class="col-md-12 clear">
+    
+    <?php echo $form->textArea($review,'reviews',array('class'=>'form-control')); ?>
+    
+    <?php echo $form->error($review,'reviews'); ?>
+    <div>&nbsp;</div>
+    <?php echo CHtml::submitButton('SUBMIT',array('class'=>'btn btn-danger fr mr15')); ?>
+
+</div>
+<?php $this->endWidget();?>
+
+</div>
+                        
 							<h1>Students reviews</h1>                            
                     		<ul class="reviews">
                      <?php if(!empty($fetchReview)){?>
