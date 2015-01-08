@@ -99,7 +99,18 @@
 							<li><a id="GoToContact" href="#contact">Contact us</a></li>		
 						</ul>
 						<div class="navbar-right">
-                        	<?php echo CHtml::link('Sign In',array('/site/login'),array('class'=>'btn btn-primary','id'=>'GoToDownload'));?>
+                        	<?php if(Yii::app()->user->id){
+									if(Yii::app()->user->userType=='user')
+										echo CHtml::link('My Account',array('/user/userProfile'),array('class'=>'btn btn-primary'));
+									elseif(Yii::app()->user->userType=='school')
+										echo CHtml::link('My Account',array('/school'),array('class'=>'btn btn-primary'));
+									else
+										echo CHtml::link('My Account',array('/collage'),array('class'=>'btn btn-primary'));
+									
+									echo CHtml::link('Logout',array('/site/logout'),array('class'=>'btn btn-primary','id'=>'GoToDownload'));
+							}else
+									echo CHtml::link('Sign In',array('/site/login'),array('class'=>'btn btn-primary','id'=>'GoToDownload'));
+							?>
 						</div>	
 					</div><!--/.nav-collapse -->
 				</div>

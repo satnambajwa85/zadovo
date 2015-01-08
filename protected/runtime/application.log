@@ -1843,3 +1843,47 @@ Stack trace:
 REQUEST_URI=/zadovo/index.php?r=user/reviews
 in C:\wamp\www\zadovo\protected\controllers\UserController.php (444)
 in C:\wamp\www\zadovo\index.php (13)
+2015/01/08 08:47:39 [error] [php] Trying to get property of non-object (D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\SchoolController.php:24)
+Stack trace:
+#0 D:\xamp\htdocs\extentions\test\framework\web\CController.php(286): SchoolController->runAction()
+#1 D:\xamp\htdocs\extentions\test\framework\web\CController.php(265): SchoolController->runActionWithFilters()
+#2 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(282): SchoolController->run()
+#3 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xamp\htdocs\extentions\test\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\xamp\htdocs\extentions\test\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/extentions/test/zadovo/index.php?r=school
+in D:\xamp\htdocs\extentions\test\zadovo\protected\controllers\SchoolController.php (24)
+in D:\xamp\htdocs\extentions\test\zadovo\index.php (13)
+2015/01/08 08:51:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in D:\xamp\htdocs\extentions\test\framework\web\CController.php:483
+Stack trace:
+#0 D:\xamp\htdocs\extentions\test\framework\web\CController.php(270): CController->missingAction('')
+#1 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(282): CController->run('')
+#2 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(141): CWebApplication->runController('user')
+#3 D:\xamp\htdocs\extentions\test\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\xamp\htdocs\extentions\test\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/extentions/test/zadovo/index.php?r=user
+HTTP_REFERER=http://localhost/extentions/test/zadovo/index.php?r=user/userProfile
+---
+2015/01/08 08:51:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in D:\xamp\htdocs\extentions\test\framework\web\CController.php:483
+Stack trace:
+#0 D:\xamp\htdocs\extentions\test\framework\web\CController.php(270): CController->missingAction('')
+#1 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(282): CController->run('')
+#2 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(141): CWebApplication->runController('user')
+#3 D:\xamp\htdocs\extentions\test\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\xamp\htdocs\extentions\test\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/extentions/test/zadovo/index.php?r=user
+HTTP_REFERER=http://localhost/extentions/test/zadovo/index.php?r=user
+---
+2015/01/08 08:52:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "userProfile".' in D:\xamp\htdocs\extentions\test\framework\web\CController.php:483
+Stack trace:
+#0 D:\xamp\htdocs\extentions\test\framework\web\CController.php(270): CController->missingAction('userProfile')
+#1 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(282): CController->run('userProfile')
+#2 D:\xamp\htdocs\extentions\test\framework\web\CWebApplication.php(141): CWebApplication->runController('user/userProfil...')
+#3 D:\xamp\htdocs\extentions\test\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\xamp\htdocs\extentions\test\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/extentions/test/zadovo/index.php?r=user/userProfile
+HTTP_REFERER=http://localhost/extentions/test/zadovo/index.php?r=site/login
+---
