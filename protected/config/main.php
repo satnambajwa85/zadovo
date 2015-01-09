@@ -8,30 +8,21 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'ZADOVO',
-
-	// preloading 'log' component
 	'preload'=>array('log'),
-
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
 		'application.ext.extensions.EAjaxUpload.*',
-		
 	),
-
 	'modules'=>array(
-		// uncomment the following to enable the Gii tool
-		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'satnam',
-		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
 		'admin',
 		'jagraj',
-	 
 	),
 
 	// application components
@@ -57,14 +48,14 @@ return array(
 			),
 		),
 		*/
-		'clientScript'=>array(
+		/*'clientScript'=>array(
 			'packages'=>array(
 				'jquery'=>array(
 					'baseUrl'=>'http://ajax.googleapis.com/ajax/libs/jquery/',
 					'js'=>array('1.9.1/jquery.min.js'),
 				)
 			)
-		),
+		),*/
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
@@ -95,13 +86,12 @@ return array(
 			),
 		),
 	),
-
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'jagraj2007@hotmail.com',
+		
+		'adminEmail'=>'info@gudaak.com',
 	),
 	'theme'=>'home'
-	//'theme'=>'webapp'
 );
