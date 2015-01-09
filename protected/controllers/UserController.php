@@ -40,7 +40,7 @@ class UserController extends Controller
 		die;
 	}
 	
-	public function actionUserProfile()
+	public function actionIndex()
 	{	
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site/'));
@@ -326,7 +326,7 @@ class UserController extends Controller
 			$list	=	UserLog::model()->findAllByAttributes(array('login_id'=>Yii::app()->user->userId));
 			  $html	=	'';
 			foreach($list as $list){
-			 $html	.='<li>'.CHtml::link($list->description,array('/user/userProfile')).'
+			 $html	.='<li>'.CHtml::link($list->description,array('/user')).'
 						<div class="notificatio-delete del-noti'.$list->id.'" id="'.Yii::app()->createUrl('/user/delete',array('id'=>$list->id,'action'=>'log')).'">X</div>
 						</li>
 						<script src="'.Yii::app()->theme->baseUrl.'/js/delete.js"></script>
@@ -387,8 +387,7 @@ class UserController extends Controller
 	}	
 	
 	public function actionAddFriend($id,$action)
-	{ 	 
-			 
+	{
 		if($action=='friends'){
 				$user						=	UserProfiles::model()->findByPk($id);
 				$friend						=	new	UserProfilesHasLogin;
@@ -397,10 +396,9 @@ class UserController extends Controller
 				$friend->is_friends			=	1;
 		 		 
 			if($friend->save()){
-
 				$response	=	'ok';
-				echo CJSON::encode($response);die;
-				 
+				echo CJSON::encode($response);
+				die;
 			}
 		}	 
 		if($action=='render'){
@@ -484,17 +482,12 @@ class UserController extends Controller
 						$userLog->add_date		=	date('Y:m:d H:i:s');
 						$userLog->published		=	1;
 						$userLog->description =	'<div class="fl"><span class="glyphicon glyphicon-pencil"><strong> Reviewed</strong></span> '.CHtml::link($findId->name,array('/site/schoolProfile','id'=>$model->schools_profile_id)).' and it </div><div class="small-rating level-9">Reviewed</div>';
-						if($userLog->save()){	
-								$this->redirect(Yii::app()->createUrl('/site/schoolProfile&id='.$model->schools_profile_id));
-								echo 'Hello';die;
-							}
-						
+						if($userLog->save()){
+							$this->redirect(Yii::app()->createUrl('/site/schoolProfile&id='.$model->schools_profile_id));
+							echo 'Hello';die;
+						}
 					}
 					
-					
-				}
-				else{
-					CVarDumper::dump($findId,10,1);die;
 				}
 			}
 				 
@@ -563,14 +556,14 @@ class UserController extends Controller
 				$userLog->login_id 		=	Yii::app()->user->userId;
 				$userLog->description	=	'<span class="glyphicon glyphicon-comment"></span><div class="rss-bot"><strong>Commented</strong> on '.CHtml::link($reviewUser,array('/site/profile','id'=>$reviewUserId)).' s review for '.CHtml::link($schoolName,array('/site/review','id'=>$reviewId)).'</div>';
 				if($userLog->save()){	
-					$this->redirect(Yii::app()->createUrl('/user/userProfile#reviews'));
+					$this->redirect(Yii::app()->createUrl('/user'));
 		
 				}
 				
 			}
 		
 		}
-			$this->redirect(Yii::app()->createUrl('/user/userProfile'));
+			$this->redirect(Yii::app()->createUrl('/user'));
 		
 	}	
 	

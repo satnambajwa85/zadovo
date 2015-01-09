@@ -135,19 +135,13 @@
 					}?>
 				</div>
 		    </li>
-			<li><span></span></li>
+			<?php if(!Yii::app()->user->isGuest){?>
+            <li><span><?php echo CHtml::link('My Account',array('/'.Yii::app()->user->userType));?></span></li>
+            <?php }?>
 			<li><span><?php echo (Yii::app()->user->isGuest)?CHtml::link('Log In',array('/site/login')):CHtml::link('Log Out',array('/site/logout'));?></span></li>
-            
         </ul>
-
-
-
     </div>
-    
-    
-    
 					</div>
-		
 	</header>
 	<!--//header-->
 	
