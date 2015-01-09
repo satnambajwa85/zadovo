@@ -13,7 +13,7 @@
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property Advertisements[] $advertisements
+ * @property BusinessHasCategory[] $businessHasCategories
  */
 class Category extends CActiveRecord
 {
@@ -60,7 +60,7 @@ class Category extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'advertisements' => array(self::MANY_MANY, 'Advertisements', 'advertisements_has_category(category_id, advertisements_id)'),
+			'businessHasCategories' => array(self::HAS_MANY, 'BusinessHasCategory', 'category_id'),
 		);
 	}
 

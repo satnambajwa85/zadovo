@@ -8,7 +8,7 @@
 				<section class="three-fourth">
 					<!--gallery-->
 					<section class="gallery" id="crossfade">
-						<?php echo CHtml::link('<img width="850" height="350" src="'.Yii::app()->request->baseUrl.'/uploads/addvertise/large/'.$data->image.'" alt="'.$data->title.'"/>',array('/site/business','id'=>$data->id));?>
+						<?php echo CHtml::link('<img width="850" height="350" src="'.Yii::app()->request->baseUrl.'/uploads/business/large/'.$data->image.'" alt="'.$data->title.'"/>',array('/site/business','id'=>$data->id));?>
                     </section>
 					<!--//gallery-->
 					
@@ -27,7 +27,7 @@
 					</nav>
 					<!--//inner navigation-->
 					<!--description-->
-                   	 <section id="location" class="tab-content">
+                   	 <section id="overview" class="tab-content">
                     	<article id="message" class="hide sucess_message"></article>
 						<article style="position:relative;" >
                         	<div style="position:absolute;right:20px;">
@@ -40,7 +40,7 @@
 						</article>
 					</section>
                     
-                    <section id="overview" class="tab-content">
+                    <section id="location" class="tab-content">
                     	<article id="message" class="hide sucess_message"></article>
 						<article style="position:relative;" >
                         	<div style="position:absolute;right:20px;">

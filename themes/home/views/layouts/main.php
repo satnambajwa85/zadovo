@@ -114,10 +114,31 @@
 
             </li>
 			<li><span><?php echo CHtml::link('Blog',array('/site/blogList'));?></span></li>
-			<li><span><?php echo CHtml::link('Business',array('/site/businessList'));?></span></li>
+            <li><span>Business</span>
+                <div class="dropdown_container dropdown_7columns">
+					<?php $listState	=	Category::model()->findAllByAttributes(array('status'=>1,'published'=>1));
+					$counter	=	0;
+					foreach($listState as $item){
+						if(count($item->businessHasCategories)>0){
+							$counter=$counter+1;?>
+                        <div class="col_3">
+                        	<h6><?php echo CHtml::link($item->name,array('/site/businessList','id'=>$item->id));?></h6>
+                        	<ul>
+                            	<?php foreach($item->businessHasCategories as $buss){?> 
+                                <li><?php echo CHtml::link($buss->business->title,array('/site/business','id'=>$buss->business_id));?></li>
+                                <?php }?>
+                        	</ul>
+                        </div>
+                        <?php if($counter==4)
+								echo '<div class="clear"></div>';
+						}
+					}?>
+				</div>
+		    </li>
+			<li><span></span></li>
 			<li><span><?php echo (Yii::app()->user->isGuest)?CHtml::link('Log In',array('/site/login')):CHtml::link('Log Out',array('/site/logout'));?></span></li>
             
-        </ul><!-- End Mega Menu -->
+        </ul>
 
 
 

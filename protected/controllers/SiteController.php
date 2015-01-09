@@ -199,7 +199,7 @@ class SiteController extends Controller
 		
 	}
 	public function actionSearch()
-	{	
+	{
 		$cities			=	Cities::model()->findAllByAttributes(array('published'=>1,'status'=>1));
 		foreach($cities as $citiesId){
 				$cId[]	=	$citiesId->id;
@@ -329,22 +329,31 @@ class SiteController extends Controller
 	public function actionBusinessList()
 	{	
 		$add	=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
-		
-		$baseCondidtion = '';
+		$listCat = '';
+		if(isset($_REQUEST['id'])){
+			$list			=	BusinessHasCategory::model()->findAllByAttributes(array('category_id' =>$_REQUEST['id']));
+			$baseCondidtion	=	array();
+			foreach($list as $itm){
+				$baseCondidtion[]	=	$itm->business_id;
+			}
+			$listCat	=	' id IN('.implode(',',$baseCondidtion).')';
+			
+		}
 		$data	=	new CActiveDataProvider('Business', array(
-							'criteria'=>array(
-								'condition'=>$baseCondidtion,),
+								'criteria'=>array(
+									'condition'=>$listCat,
+								),
 								'pagination'=>array(
-								'pageSize'=>12,
-							),
-						));
+									'pageSize'=>12,
+								),
+							));
 		
 		$this->render('businessList',array('data'=>$data,'add'=>$add));
 	}
 	public function actionBusiness($id)
 	{	
 		$add	=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
-		$data	=	Advertisements::model()->findByPk($id);
+		$data	=	Business::model()->findByPk($id);
 		$this->render('business',array('data'=>$data,'add'=>$add));
 	}
 	public function actionAddBusiness()
