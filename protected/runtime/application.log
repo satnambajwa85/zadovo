@@ -1843,3 +1843,14 @@ Stack trace:
 REQUEST_URI=/zadovo/index.php?r=user/reviews
 in C:\wamp\www\zadovo\protected\controllers\UserController.php (444)
 in C:\wamp\www\zadovo\index.php (13)
+2015/01/20 15:08:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "userProfile".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('userProfile')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('userProfile')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/userProfil...')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=user/userProfile
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/login
+---

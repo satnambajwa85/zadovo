@@ -91,23 +91,42 @@
 									
 									
 									),)); ?>
-						<div class="col-md-4 fl">
+                                    <div class="col-md-12">
+						<div class="col-md-6 fl">
+                        	<div class="col-md-3">
 							<?php echo $form->labelEx($info,'first_name'); ?>
+                            </div>
+                            <div class="col-md-9">
 							<?php echo $form->textField($info,'first_name',array('class'=>'form-control')); ?>
 							<?php echo $form->error($info,'first_name'); ?>
+                            </div>
 						</div>
-						<div class="col-md-4 fl">
+						<div class="col-md-6 fl">
+                        	<div class="col-md-3">
 							<?php echo $form->labelEx($info,'last_name'); ?>
+                            </div>
+                            <div class="col-md-9">
 							<?php echo $form->textField($info,'last_name',array('class'=>'form-control')); ?>
 							<?php echo $form->error($info,'last_name'); ?>
-						</div>	
-						<div class="col-md-4 fl">
+						</div>
+                        </div>	
+                        </div>
+                        <div class="col-md-12">
+						<div class="col-md-6 fl">
+                        	<div class="col-md-3">
 							<?php echo $form->labelEx($info,'email'); ?>
+                            </div>
+                            <div class="col-md-9">
 							<?php echo $form->textField($info,'email',array('class'=>'form-control')); ?>
 							<?php echo $form->error($info,'email'); ?>
+                            </div>
 						</div>	
-						<div class="col-md-4 fl form-mt">
+						 <div class="col-md-12">
+						<div class="col-md-6 fl">
+                        	<div class="col-md-3">
 							<?php echo $form->labelEx($info,'date_of_birth'); ?>
+                            </div>
+                             <div class="col-md-9">
 							<?php	$this->widget('zii.widgets.jui.CJuiDatePicker',array(
 									'model'=>$info,
 									'attribute'=>'date_of_birth',
@@ -116,75 +135,142 @@
 									'value'=>date('Y-m-d', strtotime('+2 day', strtotime(date('Y-m-d')))),
 									));?>
 							<?php echo $form->error($info,'date_of_birth'); ?>
+                            </div>
 						</div>
-				
-						<div class="col-md-4 fl form-mt">
+                        </div>
+						<div class="col-md-12">
+						<div class="col-md-6 fl form-mt">
+                        	 <div class="col-md-3">
 							<?php echo $form->labelEx($info,'postcode'); ?>
+                            </div>
+                            <div class="col-md-9">
 							<?php echo $form->textField($info,'postcode',array('maxlength'=>6,'class'=>'form-control')); ?>
 							<?php echo $form->error($info,'postcode'); ?>
+                            </div>
 						</div>	
 						
-						<div class="col-md-4 fl form-mt">
+						<div class="col-md-6 fl form-mt">
+                        	<div class="col-md-3">
 							<?php echo $form->labelEx($info,'telephone'); ?>
+                            </div>
+                            <div class="col-md-9">
 							<?php echo $form->textField($info,'telephone',array('class'=>'form-control')); ?>
 							<?php echo $form->error($info,'telephone'); ?>
-						</div>		
-						<div class="col-md-4 fl form-mt">
+                            </div>
+						</div>	
+                        </div>	
+                        <div class="col-md-12">
+						<div class="col-md-6 fl form-mt">
+                        	<div class="col-md-3">
 							<?php echo $form->labelEx($info,'mobile'); ?>
+                            </div>
+                            <div class="col-md-9">
 							<?php echo $form->textField($info,'mobile',array('class'=>'form-control')); ?>
 							<?php echo $form->error($info,'mobile'); ?>
+                            </div>
 						</div>			
-						<div class="col-md-4 fl form-mt">
+						<div class="col-md-6 fl form-mt">
+                        	<div class="col-md-3">
 							<?php echo $form->labelEx($info,'fax'); ?>
+							</div>
+                            <div class="col-md-9">
 							<?php echo $form->textField($info,'fax',array('class'=>'form-control')); ?>
 							<?php echo $form->error($info,'fax'); ?>
-						</div>				
-						<div class="col-md-4 fl form-mt">
+                            </div>
+						</div>
+                        </div>	
+                        <div class="col-md-12">			
+						<div class="col-md-6 fl form-mt">
+							<div class="col-md-3">
 							<?php echo $form->labelEx($info,'favourites'); ?>
+                            </div>
+                            <div class="col-md-9">
 							<?php echo $form->textField($info,'favourites',array('class'=>'form-control')); ?>
 							<?php echo $form->error($info,'favourites'); ?>
+                            </div>
 						</div>					
-						<div class="col-md-4 fl form-mt">
+						<div class="col-md-6 fl form-mt">
+                        	<div class="col-md-3">
 							<?php echo $form->labelEx($info,'website'); ?>
+                            </div>
+                            <div class="col-md-9">
 							<?php echo $form->textField($info,'website',array('class'=>'form-control')); ?>
 							<?php echo $form->error($info,'website'); ?>
+                            </div>
 						</div>				
-						<div class="col-md-4 fl form-mt">
+                        </div>
+                        <div class="col-md-12">
+						<div class="col-md-6 fl form-mt">
+                        	<div class="col-md-3">
 							<?php echo $form->labelEx($info,'work'); ?>
+                            </div>
+                            <div class="col-md-7">
 							<?php echo $form->dropDownlist($info,'work',array('1'=>'Yes','0'=>'No'),array('class'=>'form-control')); ?>
 		
 							<?php echo $form->error($info,'work'); ?>
-						</div>					
-						<div class="col-md-4 fl form-mt">
+                            </div>
+						</div>	
+                        
+                        <div class="col-md-6 fl form-mt">
+                        	<div class="col-md-3">
 							<?php echo $form->labelEx($info,'dislike'); ?>
+                            </div>
+                            <div class="col-md-9">
 							<?php echo $form->textField($info,'dislike',array('class'=>'form-control')); ?>
 							<?php echo $form->error($info,'dislike'); ?>
-						</div>				
-						<div class="col-md-4 fl form-mt">
-							<?php echo $form->labelEx($info,'aboutMe'); ?>
-							<?php echo $form->textArea($info,'profile_info',array('class'=>'form-control')); ?>
-							<?php echo $form->error($info,'profile_info'); ?>
+                            </div>
 						</div>	
-						<div class="col-md-4 fl form-mt">
+                        </div>	
+                        <div class="col-md-12 mt10 f_left">
+                        	
+						<div class="col-md-2 fl form-mt">
+							<?php echo $form->labelEx($info,'aboutMe'); ?>
+                            </div>
+                            <div class="col-md-9 ">
+							<?php echo $form->textArea($info,'profile_info',array('class'=>'form-control m_left-26')); ?>
+							<?php echo $form->error($info,'profile_info'); ?>
+                            </div>
+                            
+						</div>	
+                        </div>
+                         <div class="col-md-12 mt10 f_left">
+						<div class="col-md-2 fl form-mt">
 							<?php echo $form->labelEx($info,'address'); ?>
-							<?php echo $form->textArea($info,'address',array('class'=>'form-control')); ?>
+                            </div>
+                             <div class="col-md-9">
+							<?php echo $form->textArea($info,'address',array('class'=>'form-control m_left-26')); ?>
 							<?php echo $form->error($info,'address'); ?>
 						</div>	
-						<div class="col-md-4 fl form-mt">
+                        </div>
+                         <div class="col-md-12 mt10 f_left">
+						
+						<div class="col-md-2 fl form-mt">
 							<?php echo $form->labelEx($info,'recent_activity'); ?>
-							<?php echo $form->textArea($info,'recent_activity',array('class'=>'form-control')); ?>
+                            </div>
+                             <div class="col-md-9">
+					
+							<?php echo $form->textArea($info,'recent_activity',array('class'=>'form-control m_left-26')); ?>
 							<?php echo $form->error($info,'recent_activity'); ?>
+                            </div>
 						</div>	
-				 
-						<div class="col-md-4 form-mt">
+				 		 <div class="col-md-12 mt10 f_left">
+					
+						<div class="col-md-2 form-mt">
 							<?php echo $form->labelEx($info,'gender'); ?>
+                            </div>
+                             <div class="col-md-10">
+					
 							<?php echo $form->radioButtonlist($info,'gender',array('Male'=>'Male','Female'=>'Female'),array('separator'=>'')); ?>
 							<?php echo $form->error($info,'gender'); ?>
+                            </div>
 						</div>	
 					
 						<div class="clear"> </div>
-						<div class="col-md-4">
-							<?php echo CHtml::submitButton('UPDATE',array('class'=>'btn btn-danger')); ?>	
+						<div class="col-md-12">
+                        	<div class="col-md-8 "></div>
+                            <div class="col-md-4 ">
+							<?php echo CHtml::submitButton('UPDATE',array('class'=>'btn gradient-button')); ?>	
+                            </div>
 						</div>
 					<?php $this->endWidget(); ?>
 		 				</article>
@@ -201,21 +287,36 @@
 						'action'=>Yii::app()->createUrl('/user/ChangePassword'),
 						'clientOptions'=>array('validateOnSubmit'=>true), 
 					)); ?>
+                    <div class="col-md-12 ">
 					<div class="col-md-4 fl form-mt">
 							<?php echo $form->labelEx($model,'old_password'); ?>
+                            </div>
+                            <div class="col-md-8 ">
 							<?php echo $form->passwordField($model,'oldpassword',array('class'=>'form-control')); ?>
 							<?php echo $form->error($model,'oldpassword'); ?>
+                            </div>
+                            
 					</div>	
+					<div class="col-md-12 ">
 					<div class="col-md-4 fl form-mt">
 						<?php echo $form->labelEx($model,'new_password'); ?>
+                        </div>
+                        <div class="col-md-8">
+				
 						<?php echo $form->passwordField($model,'newpassword',array('class'=>'form-control')); ?>
 						<?php echo $form->error($model,'newpassword'); ?>
+                        </div>
 					
 					</div>	
+					<div class="col-md-12 ">
 					<div class="col-md-4 fl form-mt">
 						<?php echo $form->labelEx($model,'confirm_password'); ?>
+                        </div>
+                        <div class="col-md-8 ">
+					
 						<?php echo $form->passwordField($model,'confirmpassword',array('class'=>'form-control')); ?>
 						<?php echo $form->error($model,'confirmpassword'); ?>
+                        </div>
 					
 					</div>	
 				<div class="inner_gray_back">
@@ -223,8 +324,11 @@
 			
 				
 					<div class="fl"></div>
-					<div class="col-md-4 form-mt">
-						<?php echo CHtml::submitButton('SUBMIT', array('name'=>'Submit','class'=>'btn btn-danger'));?>
+					<div class="col-md-12 form-mt">
+                    	<div class="col-md-4"></div>
+                        <div class="col-md-8">
+						<?php echo CHtml::submitButton('SUBMIT', array('name'=>'Submit','class'=>'btn gradient-button'));?>
+                        </div>
 					</div>
 					<div class="clr"></div>
 				
