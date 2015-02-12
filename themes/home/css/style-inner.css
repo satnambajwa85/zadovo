@@ -2030,9 +2030,54 @@ h1 a{ text-decoration:none; color:#00acdd; }
 .pl0 { padding-left: 0px !important;}
 .pa{padding:0px !important;}
 .f_left{ float:left;}
-.btn {
-   
-    font-size: 11px !important;
-	
-    
+.btn {font-size: 11px !important;}
+
+#form_slide{ width:752px; overflow:hidden; }
+#steps{overflow:hidden;}	
+.step{float:left; width:752px; position:relative;}
+#navigation{float: right; width: 85%; margin-bottom:20px;}
+#navigation ul{ list-style:none;float:left;	border-bottom:2px solid #bbb;padding-bottom:2px;}
+#navigation ul li{float:left; position:relative;margin:4px 0px;}
+#navigation ul li a{display:block; height:39px; outline:none;}
+fieldset{ border:none; }
+/*form_slider start {SAhil}*/
+.contact_icon{background:url(../images/form_sprites.png) no-repeat 0 -10px ; width:76px;}
+.contact_icon:hover{background:url(../images/form_sprites.png) no-repeat 0 -59px ; width:76px;}
+#navigation ul li.selected a.contact_icon{background:url(../images/form_sprites.png) no-repeat 0 -59px;}
+.edu_icon{background:url(../images/form_sprites.png) no-repeat -73px -10px; width:104px;}
+.edu_icon:hover{background:url(../images/form_sprites.png) no-repeat -73px -59px; }
+#navigation ul li.selected a.edu_icon{background:url(../images/form_sprites.png) no-repeat -73px -59px; }
+.portfolio_icon{background:url(../images/form_sprites.png) no-repeat -176px -10px; width:95px;}
+.portfolio_icon:hover{background:url(../images/form_sprites.png) no-repeat -176px -59px; width:95px;}
+#navigation ul li.selected a.portfolio_icon{background:url(../images/form_sprites.png) no-repeat -176px -59px;}
+.skills_icon{background:url(../images/form_sprites.png) no-repeat -270px -10px; width:98px;}
+.skills_icon:hover{background:url(../images/form_sprites.png) no-repeat -270px -59px;}
+#navigation ul li.selected a.skills_icon{background:url(../images/form_sprites.png) no-repeat -270px -59px;}
+.qa_icon{background:url(../images/form_sprites.png) no-repeat -370px -10px; width:92px;}
+.qa_icon:hover{background:url(../images/form_sprites.png) no-repeat -370px -59px; width:92px;}
+#navigation ul li.selected a.qa_icon{background:url(../images/form_sprites.png) no-repeat -370px -59px; }
+.add_outer_neww{color: #F74747; float: right; font-size: 12px; padding: 3px 5px; position: relative; text-decoration: none}
+.portfolio_social_buttons_outr{float:right; width:69%;}
+.portfolio_social_buttons {
+    float: left;
+	background: none repeat scroll 0 0 #2CCAFD;
+    padding: 10px 35px;
+    transition: all 600ms ease-in-out 0s;
+    width:auto;
+	margin:18px;
 }
+.portfolio_social_buttons:hover{
+	background: #8d8d8d;
+}
+.portfolio_social_buttons img{
+	float: left;
+}
+.social_text {
+  color: #FFFFFF;
+    float: left;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+.video_code{float:left; width:50%;}
+.video_right{float:left; width:50%; text-align:center;}

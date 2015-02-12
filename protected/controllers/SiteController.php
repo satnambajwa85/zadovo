@@ -359,8 +359,15 @@ class SiteController extends Controller
 	public function actionAddBusiness()
 	{	
 		$add	=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
-		$data	=	Blog::model()->findByPk($id);
-		$this->render('blog',array('data'=>$data,'add'=>$add));
+		$model	=	new Business;
+		if(isset($_POST['Business']))
+		{
+			$model->attributes=$_POST['Business'];
+			if($model->save())
+				$this->redirect(array('/site/business','id'=>$model->id));
+		}
+
+		$this->render('addBusiness',array('model'=>$model,'add'=>$add));
 	}
 	
 	

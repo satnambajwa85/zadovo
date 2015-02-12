@@ -92,16 +92,13 @@
 							<li><a id="GoToHome" href="#home" class="selected">Home</a></li>
 							<li><a id="GoToAbout" href="#about">Features</a></li>							
 							<li><a id="GoToGallery" href="#gallery">Career</a></li>
-							<!--<li><a id="GoToTestimoni" href="#testimoni">Testimonials</a></li>-->
-                            <li>
-                            <?php echo CHtml::link('Collages',array('/site/collages'));?>
-                            <!--<a id="GoToItWork" href="#how-it-work">How</a>--></li>
-							<li><a id="GoToContact" href="#contact">Contact us</a></li>		
+							<li><?php echo CHtml::link('Collages',array('/site/collages'));?>
+                            <li><a id="GoToContact" href="#contact">Contact us</a></li>		
 						</ul>
 						<div class="navbar-right">
                         	<?php if(Yii::app()->user->id){
 									if(Yii::app()->user->userType=='user')
-										echo CHtml::link('My Account',array('/user/userProfile'),array('class'=>'btn btn-primary'));
+										echo CHtml::link('My Account',array('/user'),array('class'=>'btn btn-primary'));
 									elseif(Yii::app()->user->userType=='school')
 										echo CHtml::link('My Account',array('/school'),array('class'=>'btn btn-primary'));
 									else

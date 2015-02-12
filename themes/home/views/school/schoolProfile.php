@@ -175,10 +175,10 @@ if($coun > 0){
 					<section id="location" class="tab-content">
 						<article>
 							<!--map-->
-<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv2OOJAC5AxVNXGBIMH5njntbvrZnGxLQ">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv2OOJAC5AxVNXGBIMH5njntbvrZnGxLQ">
     </script>
     <script type="text/javascript">
-     /* function initialize() {
+      function initialize() {
         var mapOptions = {
           center: { lat: -34.397, lng: 150.644},
           zoom: 8
@@ -186,8 +186,8 @@ if($coun > 0){
         var map = new google.maps.Map(document.getElementById('map_canvas'),
             mapOptions);
       }
-      google.maps.event.addDomListener(window, 'load', initialize);*/
-</script>-->
+      google.maps.event.addDomListener(window, 'load', initialize);
+</script>
                                 
                                 
                                 <div class="gmap" id="map_canvas"></div>

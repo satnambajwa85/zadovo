@@ -35,7 +35,7 @@
 						<!--<div class="navbar-right">
                         	<?php if(Yii::app()->user->id){
 									if(Yii::app()->user->userType=='user')
-										echo CHtml::link('My Account',array('/user/userProfile'),array('class'=>'btn btn-primary'));
+										echo CHtml::link('My Account',array('/user'),array('class'=>'btn btn-primary'));
 									else
 										echo CHtml::link('My Account',array('/school'),array('class'=>'btn btn-primary'));
 									
