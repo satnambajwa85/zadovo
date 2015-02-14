@@ -918,6 +918,10 @@ class SiteController extends Controller
 					$this->redirect(Yii::app()->createUrl('/collage'));
 					
 				}
+				elseif(Yii::app()->user->userType=='business'){
+					$this->redirect(Yii::app()->createUrl('/business'));
+					
+				}
 				else{
 					if(Yii::app()->user->userType=='user'){
 					$this->redirect(Yii::app()->createUrl('/user'));
