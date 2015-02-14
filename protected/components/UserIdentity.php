@@ -25,6 +25,11 @@ class UserIdentity extends CUserIdentity
 				$userInfo	=	SchoolsProfile::model()->findByAttributes(array('id'=>$lik->collage_id));
 				$this->setState('userName',$userInfo->name);
 				$this->setState('userImg',$userInfo->logo);
+			}else if($record->roles_id==5){
+				$lik		=	BusinessHasLogin::model()->findByAttributes(array('login_id'=>$record->id));
+				$userInfo	=	Business::model()->findByAttributes(array('id'=>$lik->business_id));
+				$this->setState('userName',$userInfo->title);
+				$this->setState('userImg',$userInfo->image);
 			}else{
 				$userInfo	=	UserProfiles::model()->findByAttributes(array('login_id'=>$record->id));
 				$this->setState('userName',$userInfo->first_name.' '.$userInfo->last_name);
@@ -36,11 +41,10 @@ class UserIdentity extends CUserIdentity
 			$this->setState('userType',$record->roles->name);
 			$this->setState('lastLogin',$record->last_login);
 			$this->setState('activation',$record->activation);
-			$userLogin	=	Login::model()->findByPk($record->id);
+			$userLogin					=	Login::model()->findByPk($record->id);
 			$userLogin->login_status	=	1;
-			$userLogin->last_login	=	date('Y-m-d H:i:s');
+			$userLogin->last_login		=	date('Y-m-d H:i:s');
 			$userLogin->save();
-			
 			$this->errorCode = self::ERROR_NONE;
 		} 
 		return !$this->errorCode;
