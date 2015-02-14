@@ -40,19 +40,10 @@
  *
  * The followings are the available model relations:
  * @property BusinessHasCategory[] $businessHasCategories
+ * @property BusinessHasLogin[] $businessHasLogins
  */
 class Business extends CActiveRecord
 {
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return Business the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
-
 	/**
 	 * @return string the associated database table name
 	 */
@@ -80,7 +71,7 @@ class Business extends CActiveRecord
 			array('image, link', 'length', 'max'=>45),
 			array('description, add_date', 'safe'),
 			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
+			// @todo Please remove those attributes that should not be searched.
 			array('id, start_age_group, end_age_group, email, website, phone_number, mobile_number, about_the_business, additional_info, address_line_1, address_line_2, land_mark, pin_code, prefix, first_name, last_name, designation, email1, mobile_no, prefix2, first_name2, last_name2, designation2, email2, mobile_no2, title, image, description, link, add_date, published, status, advertise_categories_id', 'safe', 'on'=>'search'),
 		);
 	}
@@ -94,6 +85,7 @@ class Business extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'businessHasCategories' => array(self::HAS_MANY, 'BusinessHasCategory', 'business_id'),
+			'businessHasLogins' => array(self::HAS_MANY, 'BusinessHasLogin', 'business_id'),
 		);
 	}
 
@@ -141,12 +133,19 @@ class Business extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 *
+	 * Typical usecase:
+	 * - Initialize the model fields with values from filter form.
+	 * - Execute this method to get CActiveDataProvider instance which will filter
+	 * models according to data in model fields.
+	 * - Pass data provider to CGridView, CListView or any similar widget.
+	 *
+	 * @return CActiveDataProvider the data provider that can return the models
+	 * based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -187,5 +186,16 @@ class Business extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	/**
+	 * Returns the static model of the specified AR class.
+	 * Please note that you should have this exact method in all your CActiveRecord descendants!
+	 * @param string $className active record class name.
+	 * @return Business the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
 	}
 }
