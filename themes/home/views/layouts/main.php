@@ -217,7 +217,7 @@
 		});
 		
 		
-		
+		/*
 		$('#mgmenu1').universalMegaMenu({
     	    menu_effect: 'hover_fade',
     	    menu_speed_show: 300,
@@ -227,8 +227,8 @@
    	    	menubar_trigger : false,
    	    	menubar_hide : false,
    	    	menu_responsive: true
-    	});
-    	megaMenuContactForm(); 
+    	});		megaMenuContactForm(); */
+    	
 	});
 	$(window).load(function () {
 		var maxHeight = 0;

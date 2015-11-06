@@ -80,22 +80,21 @@ class BusinessController extends Controller
 	 }
 	public function actionEdit()
 	{
-		$model				=	SchoolsProfile::model()->findByAttributes(array('login_id'=>Yii::app()->user->userId));
+		$model				=	Business::model()->findByAttributes(array('id'=>Yii::app()->user->profileId));
 		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
 		
-		if(isset($_POST['SchoolsProfile']))
+		if(isset($_POST['Business']))
 		{
-			$model->attributes	=	$_POST['SchoolsProfile'];
-			$model->user_name	=	$model->login->user_name;
-			$model->password	=	$model->login->password;
+			$model->attributes	=	$_POST['Business'];
+			//$model->user_name	=	$model->login->user_name;
+			//$model->password	=	$model->login->password;
 		
-			$targetFolder = Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
-			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/SchoolsProfile/';
-			
-			if (!empty($_FILES['SchoolsProfile']['name']['logo'])) {
-				$tempFile		=	$_FILES['SchoolsProfile']['tmp_name']['logo'];
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/Business/';
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/Business/';
+			if (!empty($_FILES['Business']['name']['image'])) {
+				$tempFile		=	$_FILES['Business']['tmp_name']['image'];
 				$targetPath		=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-				$targetFile		=	$targetPath.'/'.$_FILES['SchoolsProfile']['name']['logo'];
+				$targetFile		=	$targetPath.'/'.$_FILES['Business']['name']['image'];
 				$pat			=	$targetFile;
 				move_uploaded_file($tempFile,$targetFile);
 				$absoPath		=	$pat;
@@ -104,42 +103,7 @@ class BusinessController extends Controller
 				# ORIGINAL
 				$img->file_max_size = 5000000; // 5 MB
 				$img->file_new_name_body = $newName;
-				$img->process('uploads/SchoolsProfile/original/');
-				$img->processed;
-				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
-				if ($img->processed) {
-					#logo Image
-					$img->image_resize      = true;
-					$img->image_y         	= 115;
-					$img->image_x           = 150;
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/SchoolsProfile/logo/');
-					$fileName	=	$img->file_dst_name;
-					$img->clean();
-				}
-				$model->logo	=	$fileName;
-				if($_POST['SchoolsProfile']['oldImage']!=''){
-					@unlink($targetFolder1.'logo/'.$_POST['SchoolsProfile']['oldImage']);
-				}
-			}
-			else{
-				$oldImage	=	$_POST['SchoolsProfile']['oldImage'];
-				$model->logo	=	$oldImage;
-			}
-			
-			if (!empty($_FILES['SchoolsProfile']['name']['image'])) {
-				$tempFile		=	$_FILES['SchoolsProfile']['tmp_name']['image'];
-				$targetPath		=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-				$targetFile		=	$targetPath.'/'.$_FILES['SchoolsProfile']['name']['image'];
-				$pat			=	$targetFile;
-				move_uploaded_file($tempFile,$targetFile);
-				$absoPath		=	$pat;
-				$newName		=	time();
-				$img			=	Yii::app()->imagemod->load($pat);
-				# ORIGINAL
-				$img->file_max_size = 5000000; // 5 MB
-				$img->file_new_name_body = $newName;
-				$img->process('uploads/SchoolsProfile/original/');
+				$img->process('uploads/Business/original/');
 				$img->processed;
 				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
@@ -148,29 +112,29 @@ class BusinessController extends Controller
 					$img->image_x         	=	850;
 					$img->image_y           =	530;
 					$img->file_new_name_body=	$newName;
-					$img->process('uploads/SchoolsProfile/large/');
+					$img->process('uploads/Business/large/');
 					#STHUMB Image
 					$img->image_resize      = true;
 					$img->image_y         	= 155;
 					$img->image_x           = 270;
 					$img->file_new_name_body = $newName;
-					$img->process('uploads/SchoolsProfile/sthumb/');
+					$img->process('uploads/Business/sthumb/');
 					$fileName	=	$img->file_dst_name;
 					$img->clean();
 				}
 				$model->image	=	$fileName;
-				if($_POST['SchoolsProfile']['oldImage1']!=''){
-					@unlink($targetFolder1.'original/'.$_POST['SchoolsProfile']['oldImage1']);
-					@unlink($targetFolder1.'large/'.$_POST['SchoolsProfile']['oldImage1']);
-					@unlink($targetFolder1.'sthumb/'.$_POST['SchoolsProfile']['oldImage1']);
+				if($_POST['Business']['oldImage1']!=''){
+					@unlink($targetFolder1.'original/'.$_POST['Business']['oldImage1']);
+					@unlink($targetFolder1.'large/'.$_POST['Business']['oldImage1']);
+					@unlink($targetFolder1.'sthumb/'.$_POST['Business']['oldImage1']);
 				}
 			}
 			else{
-				$oldImage1		=	$_POST['SchoolsProfile']['oldImage1'];
+				$oldImage1		=	$_POST['Business']['oldImage1'];
 				$model->image	=	$oldImage1;
 			}
 			if($model->save())
-				$this->redirect(array('/school'));
+				$this->redirect(array('/business'));
 		}
 		$this->render('update',array('model'=>$model,'add'=>$add));
 	}

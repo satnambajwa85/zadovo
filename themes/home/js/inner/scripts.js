@@ -1,4 +1,14 @@
 $(document).ready(function () {
+	
+	$('.preStep').click(function(){
+		$(this).parent().parent().hide();
+		$(this).parent().parent().prev().show();
+	});
+	$('.nextStep').click(function(){
+		$(this).parent().parent().hide();
+		$(this).parent().parent().next().show();
+	});
+	
 	//UI FORM ELEMENTS
 	var spinner = $('.spinner input').spinner({ min: 0 });
 	

@@ -1,4 +1,4 @@
-body {font:62.5%/1.42 'OpenSansRegular',Arial,Helvetica,sans-serif;text-align:center;color:#666;overflow-x:hidden;-webkit-text-size-adjust: none;}
+body {font:72.5%/1.22 'OpenSansRegular',Arial,Helvetica,sans-serif;text-align:center;color:#666;overflow-x:hidden;-webkit-text-size-adjust: none; }
 html,body {height:100%;width:100%;}
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,q,small,strong,sub,sup,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,input,table,caption,tbody,tfoot,thead,tr,th,td,figure{border:0;margin:0;padding:0}
 img,fieldset,abbr,acronym{border:0;}
@@ -132,7 +132,7 @@ header .ribbon 		{float:right;position:absolute;top:-1px;right:-2px;z-index:2;ba
 .inner-nav .things-to-do a 	{background:url(../images/ico/icons.png) 4px -815px no-repeat;padding:0 0 0 24%;width:76%;}
 .inner-nav li:hover			{background: rgb(95,200,194);background: -moz-linear-gradient(top, rgba(95,200,194,1) 0%, rgba(64,191,184,1) 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(95,200,194,1)), color-stop(100%,rgba(64,191,184,1)));background: -webkit-linear-gradient(top, rgba(95,200,194,1) 0%,rgba(64,191,184,1) 100%);background: -o-linear-gradient(top, rgba(95,200,194,1) 0%,rgba(64,191,184,1) 100%);background: -ms-linear-gradient(top, rgba(95,200,194,1) 0%,rgba(64,191,184,1) 100%);background: linear-gradient(to bottom, rgba(95,200,194,1) 0%,rgba(64,191,184,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5fc8c2', endColorstr='#40bfb8',GradientType=0 );}
 .inner-nav li.active,
-.inner-nav li.active:hover	{width:122%;background:url(../images/bgr/inner-nav-active.png) 0 0 no-repeat;filter:none;background-size:100% 100%;}
+.inner-nav li.active:hover	{width:110%;background:url(../images/bgr/inner-nav-active.png) 0 0 no-repeat;filter:none;background-size:100% 100%;}
 .inner-nav li.active a 		{width:80%;padding:0 0 0 20%;}
 
 .sort-by 		{float:left;width:100%;margin:0 0 20px;height:48px;background:#fff;webkit-box-shadow:0 0 2px rgba(0,0,0,0.1);-moz-box-shadow:0 0 2px rgba(0,0,0,0.1);box-shadow:0 0 2px rgba(0,0,0,0.1);}
@@ -1325,8 +1325,7 @@ opacity: .3;  /*Opera9.0+ã€Firefox1.5+ã€Safariã€Chrome*/backgroun
 #Register_gender > label{width: 20% !important;margin-left: 15px;float: left;}
 .image_position{position:absolute; top:-34%; left:1%; width:150px; height:115px; z-index:1;}
 .row {margin-top:10px;}
-.row label{width:30% !important; float:left;}
-
+.row label{width:30% !important; float:left;font-size: 12px;font-weight: bold;}
 .row img{width:30% !important; float:right;}
 .row .selector{width:68% !important; float:left;}
 .row textarea{width:60% !important; float:right;}

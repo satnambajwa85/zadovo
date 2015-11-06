@@ -856,6 +856,7 @@ class SiteController extends Controller
 
 		
 	}
+	
 	public function actionError()
 	{
 		$add				=	Advertisements::model()->findAllByAttributes(array('advertise_categories_id'=>1,'status'=>1,'published'=>1));
@@ -868,6 +869,7 @@ class SiteController extends Controller
 	    }
 		$this->render('error',array('add'=>$add));
 	}
+	
 	public function actionContact()
 	{
 		$model=new ContactForm;
@@ -886,6 +888,7 @@ class SiteController extends Controller
 		}
 		$this->render('contact',array('model'=>$model));
 	}
+	
 	public function actionLogin()
 	{	
 	

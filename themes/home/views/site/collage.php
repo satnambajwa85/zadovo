@@ -71,10 +71,10 @@ foreach($info->collagesCoursesSpecialization as $cou){
 }
 			$count	=	0;
 			foreach($list as $cou){?>
-				<div class="panel panel-default">
+				<div class="panel panel-default col-md-12">
 					
                         <a data-toggle="collapse"  data-parent="#accordion" href="#collapseOne<?php echo $cou['id'];?>">
-                    <div class="panel-heading" style="margin-left:10px;">
+                    <div class="panel-heading col-md-12" style="margin-left:10px; float:left; ">
                         <h5 class="panel-title">    
 						<?php echo $cou['title'];?>
                          </h5>

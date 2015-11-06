@@ -2048,3 +2048,266 @@ Stack trace:
 REQUEST_URI=/zadovo/index.php?r=business
 HTTP_REFERER=http://localhost/zadovo/index.php?r=site/login
 ---
+2015/11/06 05:54:45 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "E:\wamp\www\zadovo\assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in E:\wamp\www\framework\web\CAssetManager.php:138
+Stack trace:
+#0 E:\wamp\www\framework\web\CAssetManager.php(123): CAssetManager->setBasePath('E:\\wamp\\www\\zad...')
+#1 E:\wamp\www\framework\web\CAssetManager.php(217): CAssetManager->getBasePath()
+#2 E:\wamp\www\framework\zii\widgets\CListView.php(217): CAssetManager->publish('E:\\wamp\\www\\fra...')
+#3 E:\wamp\www\framework\web\CBaseController.php(147): CListView->init()
+#4 E:\wamp\www\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#5 E:\wamp\www\zadovo\themes\home\views\site\collages.php(63): CBaseController->widget('zii.widgets.CLi...', Array)
+#6 E:\wamp\www\framework\web\CBaseController.php(126): require('E:\\wamp\\www\\zad...')
+#7 E:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\wamp\\www\\zad...', Array, true)
+#8 E:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('E:\\wamp\\www\\zad...', Array, true)
+#9 E:\wamp\www\framework\web\CController.php(782): CController->renderPartial('collages', Array, true)
+#10 E:\wamp\www\zadovo\protected\controllers\SiteController.php(483): CController->render('collages', Array)
+#11 E:\wamp\www\framework\web\actions\CInlineAction.php(49): SiteController->actionCollages()
+#12 E:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 E:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 E:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 E:\wamp\www\framework\web\CWebApplication.php(282): CController->run('collages')
+#16 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/collages')
+#17 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 E:\wamp\www\zadovo\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/zadovo/index.php?r=site/collages
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site
+---
+2015/11/06 05:57:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "reviews".' in E:\wamp\www\framework\web\CController.php:483
+Stack trace:
+#0 E:\wamp\www\framework\web\CController.php(270): CController->missingAction('reviews')
+#1 E:\wamp\www\framework\web\CWebApplication.php(282): CController->run('reviews')
+#2 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('school/reviews')
+#3 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=school/reviews
+HTTP_REFERER=http://localhost/zadovo/index.php?r=school
+---
+2015/11/06 05:58:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "reviews".' in E:\wamp\www\framework\web\CController.php:483
+Stack trace:
+#0 E:\wamp\www\framework\web\CController.php(270): CController->missingAction('reviews')
+#1 E:\wamp\www\framework\web\CWebApplication.php(282): CController->run('reviews')
+#2 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('school/reviews')
+#3 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 E:\wamp\www\zadovo\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/zadovo/index.php?r=school/reviews
+---
+2015/11/06 05:59:20 [warning] [application] Failed to set unsafe attribute "oldImage" of "SchoolsProfile".
+in E:\wamp\www\zadovo\protected\controllers\SchoolController.php (219)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 05:59:20 [warning] [application] Failed to set unsafe attribute "oldImage1" of "SchoolsProfile".
+in E:\wamp\www\zadovo\protected\controllers\SchoolController.php (219)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 06:17:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'zadovo.business_has_login' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `business_has_login`.
+in E:\wamp\www\zadovo\protected\components\UserIdentity.php (29)
+in E:\wamp\www\zadovo\protected\models\LoginForm.php (64)
+in E:\wamp\www\zadovo\protected\controllers\SiteController.php (906)
+2015/11/06 06:17:46 [error] [exception.CDbException] exception 'CDbException' with message 'The table "business_has_login" for active record class "BusinessHasLogin" cannot be found in the database.' in E:\wamp\www\framework\db\ar\CActiveRecord.php:2362
+Stack trace:
+#0 E:\wamp\www\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(BusinessHasLogin))
+#1 E:\wamp\www\framework\db\ar\CActiveRecord.php(658): CActiveRecord->getMetaData()
+#2 E:\wamp\www\framework\db\ar\CActiveRecord.php(1518): CActiveRecord->getTableSchema()
+#3 E:\wamp\www\zadovo\protected\components\UserIdentity.php(29): CActiveRecord->findByAttributes(Array)
+#4 E:\wamp\www\zadovo\protected\models\LoginForm.php(64): UserIdentity->authenticate()
+#5 E:\wamp\www\zadovo\protected\controllers\SiteController.php(906): LoginForm->login()
+#6 E:\wamp\www\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#7 E:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 E:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 E:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\wamp\www\framework\web\CWebApplication.php(282): CController->run('login')
+#11 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#12 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 E:\wamp\www\zadovo\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/zadovo/index.php?r=site/login
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/login
+---
+2015/11/06 06:29:42 [error] [exception.CException] exception 'CException' with message 'Property "BusinessHasLogin.roles" is not defined.' in E:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\wamp\www\framework\db\ar\CActiveRecord.php(145): CComponent->__get('roles')
+#1 E:\wamp\www\zadovo\protected\components\UserIdentity.php(34): CActiveRecord->__get('roles')
+#2 E:\wamp\www\zadovo\protected\models\LoginForm.php(64): UserIdentity->authenticate()
+#3 E:\wamp\www\zadovo\protected\controllers\SiteController.php(906): LoginForm->login()
+#4 E:\wamp\www\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#5 E:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 E:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 E:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 E:\wamp\www\framework\web\CWebApplication.php(282): CController->run('login')
+#9 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#10 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 E:\wamp\www\zadovo\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/zadovo/index.php?r=site/login
+HTTP_REFERER=http://localhost/zadovo/index.php?r=site/login
+---
+2015/11/06 06:32:30 [error] [exception.CException] exception 'CException' with message 'Property "Business.name" is not defined.' in E:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\wamp\www\framework\db\ar\CActiveRecord.php(145): CComponent->__get('name')
+#1 E:\wamp\www\framework\web\helpers\CHtml.php(2529): CActiveRecord->__get('name')
+#2 E:\wamp\www\framework\web\helpers\CHtml.php(2252): CHtml::resolveValue(Object(Business), 'name')
+#3 E:\wamp\www\framework\web\helpers\CHtml.php(1434): CHtml::activeInputField('text', Object(Business), 'name', Array)
+#4 E:\wamp\www\framework\web\widgets\CActiveForm.php(725): CHtml::activeTextField(Object(Business), 'name', Array)
+#5 E:\wamp\www\zadovo\themes\home\views\business\_form.php(21): CActiveForm->textField(Object(Business), 'name', Array)
+#6 E:\wamp\www\framework\web\CBaseController.php(126): require('E:\\wamp\\www\\zad...')
+#7 E:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\wamp\\www\\zad...', Array, true)
+#8 E:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('E:\\wamp\\www\\zad...', Array, true)
+#9 E:\wamp\www\zadovo\themes\home\views\business\update.php(5): CController->renderPartial('_form', Array)
+#10 E:\wamp\www\framework\web\CBaseController.php(126): require('E:\\wamp\\www\\zad...')
+#11 E:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\wamp\\www\\zad...', Array, true)
+#12 E:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('E:\\wamp\\www\\zad...', Array, true)
+#13 E:\wamp\www\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#14 E:\wamp\www\zadovo\protected\controllers\BusinessController.php(175): CController->render('update', Array)
+#15 E:\wamp\www\framework\web\actions\CInlineAction.php(49): BusinessController->actionEdit()
+#16 E:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 E:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#18 E:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 E:\wamp\www\framework\web\CWebApplication.php(282): CController->run('edit')
+#20 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('business/edit')
+#21 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 E:\wamp\www\zadovo\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/zadovo/index.php?r=business/edit
+HTTP_REFERER=http://localhost/zadovo/index.php?r=business
+---
+2015/11/06 06:37:20 [error] [exception.CException] exception 'CException' with message 'Property "Business.login" is not defined.' in E:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\wamp\www\framework\db\ar\CActiveRecord.php(145): CComponent->__get('login')
+#1 E:\wamp\www\zadovo\protected\controllers\BusinessController.php(89): CActiveRecord->__get('login')
+#2 E:\wamp\www\framework\web\actions\CInlineAction.php(49): BusinessController->actionEdit()
+#3 E:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\wamp\www\framework\web\CWebApplication.php(282): CController->run('edit')
+#7 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('business/edit')
+#8 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\wamp\www\zadovo\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/zadovo/index.php?r=business/edit
+HTTP_REFERER=http://localhost/zadovo/index.php?r=business/edit
+---
+2015/11/06 06:38:18 [error] [php] Undefined index: oldImage1 (E:\wamp\www\zadovo\protected\controllers\BusinessController.php:133)
+Stack trace:
+#0 E:\wamp\www\framework\web\CController.php(286): BusinessController->runAction()
+#1 E:\wamp\www\framework\web\CController.php(265): BusinessController->runActionWithFilters()
+#2 E:\wamp\www\framework\web\CWebApplication.php(282): BusinessController->run()
+#3 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=business/edit
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (133)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 06:38:21 [error] [php] Undefined index: oldImage1 (E:\wamp\www\zadovo\protected\controllers\BusinessController.php:133)
+Stack trace:
+#0 E:\wamp\www\framework\web\CController.php(286): BusinessController->runAction()
+#1 E:\wamp\www\framework\web\CController.php(265): BusinessController->runActionWithFilters()
+#2 E:\wamp\www\framework\web\CWebApplication.php(282): BusinessController->run()
+#3 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=business/edit
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (133)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 06:38:59 [error] [php] Undefined index: oldImage1 (E:\wamp\www\zadovo\protected\controllers\BusinessController.php:133)
+Stack trace:
+#0 E:\wamp\www\framework\web\CController.php(286): BusinessController->runAction()
+#1 E:\wamp\www\framework\web\CController.php(265): BusinessController->runActionWithFilters()
+#2 E:\wamp\www\framework\web\CWebApplication.php(282): BusinessController->run()
+#3 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=business/edit
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (133)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 06:39:11 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 06:39:11 [error] [php] move_uploaded_file(E:/wamp/www//zadovo/uploads/Business//BeforeDueDateComplete.JPG): failed to open stream: No such file or directory (E:\wamp\www\zadovo\protected\controllers\BusinessController.php:99)
+Stack trace:
+#0 E:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 E:\wamp\www\framework\web\CController.php(286): BusinessController->runAction()
+#2 E:\wamp\www\framework\web\CController.php(265): BusinessController->runActionWithFilters()
+#3 E:\wamp\www\framework\web\CWebApplication.php(282): BusinessController->run()
+#4 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 E:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=business/edit
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (99)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 06:39:48 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 06:41:16 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 06:42:47 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 06:43:24 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 07:08:19 [error] [php] Undefined index: oldImage1 (E:\wamp\www\zadovo\protected\controllers\BusinessController.php:133)
+Stack trace:
+#0 E:\wamp\www\framework\web\CController.php(286): BusinessController->runAction()
+#1 E:\wamp\www\framework\web\CController.php(265): BusinessController->runActionWithFilters()
+#2 E:\wamp\www\framework\web\CWebApplication.php(282): BusinessController->run()
+#3 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 E:\wamp\www\zadovo\index.php(13): CWebApplication->run()
+REQUEST_URI=/zadovo/index.php?r=business/edit
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (133)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 07:46:06 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 07:46:26 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 07:46:46 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 07:46:56 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 07:49:11 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 08:07:54 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 08:08:17 [warning] [application] Failed to set unsafe attribute "oldImage1" of "Business".
+in E:\wamp\www\zadovo\protected\controllers\BusinessController.php (88)
+in E:\wamp\www\zadovo\index.php (13)
+2015/11/06 08:23:08 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.profileId" is not defined.' in E:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\wamp\www\framework\web\auth\CWebUser.php(146): CComponent->__get('profileId')
+#1 E:\wamp\www\zadovo\protected\controllers\BusinessController.php(83): CWebUser->__get('profileId')
+#2 E:\wamp\www\framework\web\actions\CInlineAction.php(49): BusinessController->actionEdit()
+#3 E:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\wamp\www\framework\web\CWebApplication.php(282): CController->run('edit')
+#7 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('business/edit')
+#8 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\wamp\www\zadovo\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/zadovo/index.php?r=business/edit
+HTTP_REFERER=http://localhost/zadovo/index.php?r=business
+---
+2015/11/06 08:23:11 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.profileId" is not defined.' in E:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\wamp\www\framework\web\auth\CWebUser.php(146): CComponent->__get('profileId')
+#1 E:\wamp\www\zadovo\protected\controllers\BusinessController.php(23): CWebUser->__get('profileId')
+#2 E:\wamp\www\framework\web\actions\CInlineAction.php(49): BusinessController->actionIndex()
+#3 E:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 E:\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 E:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\wamp\www\framework\web\CWebApplication.php(282): CController->run('')
+#7 E:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('business')
+#8 E:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 E:\wamp\www\zadovo\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/zadovo/index.php?r=business
+HTTP_REFERER=http://localhost/zadovo/index.php?r=business/edit
+---
